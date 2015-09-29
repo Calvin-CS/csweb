@@ -1,0 +1,168 @@
+Sample records retrieved from CIT's API
+
+--------------------------------------------------------
+Sample Program record from CIT:
+
+urlTitle	      "bachelor-of-computer-science"
+flavorTextForHeadline "Calvin&rsquo;s ABET-accredited BCS is designed for students who want a more rigorous course of study that provides significant breadth and depth in computer science."
+academicDepartment	"CPSC"
+academicProgramType	"1,"
+majorCourses		"<h1>Computer Science Major (BCS)<\/h1>\n<p>(39-43 semester hours)<\/p>\n<ul>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-108\">CS-108<\/a> Introduction to Computing<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-112\">CS-112<\/a> Introduction to Data Structures<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-212\">CS-212<\/a> Data Structures and Algorithms<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-214\">CS-214<\/a> Programming Language Concepts<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-232\">CS-232<\/a> Operating Systems and Networking<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-262\">CS-262<\/a> Software Engineering<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-195\">CS-195<\/a> Introductory Computing Seminar (3 semesters)<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-295\">CS-295<\/a> Computing Seminar (3 semesters)<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-384\">CS-384<\/a> Perspectives on Computing<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-396\">CS-396<\/a> Senior Project in Computing<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-398\">CS-398<\/a> Senior Project in Computing II<\/li>\n<li>Four from:\n<ul>\n<li><a href=\"\/academics\/majors-minors\/course-description.html?course=CS-300\">CS-300 <\/a>Special Topics in Computer Science: Compiler Design<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-312\">CS-312<\/a> Logic, Computability and Complexity<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-320\">CS-320<\/a> Advanced Computer Architecture<\/li>\n<li><a href=\"\/academics\/majors-minors\/course-description.html?course=CS-324\">CS-324<\/a> Cross Cultural Engagement across the Digital Divide<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-332\">CS-332<\/a> Advanced Computer Networks<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-342\">CS-342<\/a> Database Management Systems<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-344\">CS-344<\/a> Artificial Intelligence<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-352\">CS-352<\/a> Computer Graphics<\/li>\n<li><a href=\"\/academics\/majors-minors\/course-description.html?course=CS-364\">CS-364<\/a> Computer Security<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-372\">CS-372<\/a> Numerical Analysis<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CS-374\">CS-374<\/a> High Performance Computing<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=IS-333\">IS-333<\/a> Network Administration<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=IS-337\">IS-337<\/a> Introduction to Website Administration<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=IS-341\">IS-341<\/a> Database Administration<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=ENGR-304\">ENGR-304<\/a> Fundamentals of Digital Systems<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=ENGR-325\">ENGR-325<\/a> Computer Architecture and Digital Systems Design<\/li>\n<li>An approved interim.<\/li>\n<li>One elective can be taken from:\n<ul>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=IS-333\">IS-333<\/a> Network Administration<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=IS-337\">IS-337<\/a> Introduction to Website Administration<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=IS-341\">IS-341<\/a> Database Administration<\/li>\n<\/ul>\n<\/li>\n<\/ul>\n<\/li>\n<\/ul>\n<h3>Cognates (39 semester hours)<\/h3>\n<ul>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CAS-101\">CAS-101<\/a> Oral Rhetoric<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=ENGR-220\">ENGR-220<\/a> Intro to Computer Architecture<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=MATH-156\">MATH-156<\/a> Discrete Math for Computer Science<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=MATH-256\">MATH-256<\/a> Discrete Structures &amp; Linear Algebra<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=MATH-171\">MATH-171<\/a> Calculus I<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=MATH-172\">MATH-172<\/a> Calculus II<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=MATH-243\">MATH-243<\/a> Statistics<\/li>\n<li>Three college laboratory science electives, including two (but no more than two) courses from one department. These electives may be chosen from:\n<ul>\n<li>One from:\n<ul>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=ASTR-211\">ASTR-211<\/a> Planetary &amp; Stellar Astronomy<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=ASTR-212\">ASTR-212<\/a> Galactic Astronomy &amp; Cosmology<\/li>\n<\/ul>\n<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=BIOL-123\">BIOL-123<\/a> The Living World: Concepts &amp; Connections<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=BIOL-224\">BIOL-224<\/a> Cellular &amp; Genetic Systems<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=BIOL-225\">BIOL-225<\/a> Ecological &amp; Evolutionary Systems<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CHEM-103\">CHEM-103<\/a> General Chemistry I<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=CHEM-104\">CHEM-104<\/a> General Chemistry II<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=PHYS-133\">PHYS-133<\/a> Introductory Physics: Mechanics and Gravity<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=PHYS-134\">PHYS-134<\/a> Matter, Space, and Energy<\/li>\n<li><a rel=\"course\" class=\"fancybox\" href=\"\/academics\/majors-minors\/course-description.html?course=PHYS-235\">PHYS-235<\/a> Introductory Physics: Electricity and Magnetism<\/li>\n<\/ul>\n<\/li>\n<\/ul>"
+stInode			"b6dec329-8963-49fd-b9bf-06eed2c3063c"
+minorDescription	""
+headlineUnderBanner	""
+programContactPerson	""
+title			"Bachelor of Computer Science"
+careersLast		""
+profesionalDescription	""
+modUser			"dad32"
+majorDescription	"<p>Calvin&rsquo;s Bachelor of Computer Science degree (BCS) is the more rigorous of our two CS degrees. It is designed for the student who wants a course of study that provides significant breadth and depth in computer science.<\/p>\n<p>The BCS degree has been accredited by the Computing Accreditation Commission of the Accreditation Board for Engineering and Technology (ABET), a distinction we share with a small number of significant programs around the country (e.g., MIT and the University of Michigan).<\/p>\n<p>To achieve its goals, the BCS requires more courses than the BA in CS. See our FAQ entry for more information on the distinction between the BCS and BA in CS.<\/p>"
+professionalCourses	""
+preprofessionalDescription	""
+preprofessionalCourses	""
+tags			"Computer Science, CS, BCS"
+educationProgram	false,"academicProgramCode":"CPSC.BCS"
+URL_MAP_FOR_CONTENT	"\/academics\/majors-minors\/bachelor-of-computer-science"
+host			"cd97e902-9dba-4e51-87f9-1f712806b9c4"
+sortOrder		0,"lastReview":"2014-07-25 17:55:26.84"
+languageId		1,"careers":"Computer science research, Software developer\/engineer, Database administrator, Network\/system administrator, Information security, Web developer"
+folder			"SYSTEM_FOLDER"
+minorCourses		""
+keepExploring		"http:\/\/cs.calvin.edu\/"
+modDate			"2014-07-25 17:55:27.183"
+owner			"mjeltema"
+additionalcoursenotes	"<br\/>"
+inode			"23493d17-2330-41d3-8e72-a4ebb7606e62"
+identifier		"68829364-f345-4948-b043-05458ea2f93e"
+studentInvolvement	""
+
+--------------------------------------------------------
+Sample People record from CIT:
+
+urlTitle			"joel-adams"
+academicDepartment		"CPSC"
+displayInMultipleDepartments	""
+selectedPublication1		""
+selectedPublication2		""
+story				""
+subTitle			"department chair"
+scriptureQuote			""
+modUser				"dad32"
+educationalBackground		"<ul>\n<li>BS Psychology, <a href=\"http:\/\/www.geneva.edu\/\">Geneva College<\/a>, 1980<\/li>\n<li>BS Computer Science, <a href=\"http:\/\/www.geneva.edu\/\">Geneva College<\/a>, 1984<\/li>\n<li>MS Computer Science, <a href=\"http:\/\/www.pitt.edu\/\">University of Pittsburgh<\/a>, 1986<\/li>\n<li>PhD Computer Science, <a href=\"http:\/\/www.pitt.edu\/\">University of Pittsburgh<\/a>, 1988<\/li>\n<\/ul>"
+middleName			""
+fullProfile			"<p><a href=\"http:\/\/www.calvin.edu\/~adams\/\">home page<\/a><\/p>"
+lastName			"Adams"
+selectedPublicationUrl2		""
+host				"SYSTEM_HOST"
+campusAddress			"NH 299A"
+performancesAndExhibitions	""
+selectedPublicationUrl1		""
+sortOrder			0,"lastUpdated	"2012-08-08 00:00:00.0"
+mailAddress			"adams@calvin.edu"
+hobbies				""
+lastReview			"2014-07-25 18:24:41.577"
+territoriesCovered		""
+linkToSocialMedia3		""
+linkToSocialMedia2		""
+shortClip			""
+academicInterests		"<p>computer science education, parallel and distributed computing, high performance computing, object-oriented programming, networking<\/p>"
+awards				""
+linkToPersonalProfessionalWebpage	""
+prefix				"Dr."
+owner				"jlaughli"
+binaryimage			"\/contentAsset\/raw-data\/440e6d0f-dcf1-40ec-972d-c1cb7c5cb4e7\/binaryimage"
+facultyStatus			""
+identifier			"440e6d0f-dcf1-40ec-972d-c1cb7c5cb4e7"
+resumecv			""
+relatedLink			""
+stInode				"7ad13bad-bb47-4cc7-8eec-2b86804522f0"
+id				"adams"
+title				"Professor of Computer Science"
+division			""
+pullQuote			""
+firstName			"Joel"
+jobFunction			"Academic,"
+tags				""
+professionalAssociations	""
+degrees				"M.S., Ph.D. (Pittsburgh, 1986, 1988)"
+suffix				""
+languageId			1,"favoriteCalvinMemory	""
+older				"SYSTEM_FOLDER"
+selectedPublications		""
+modDate				"2014-07-25 18:24:41.803"
+professionalServices		""
+currentResearch			""
+telephone			"(616) 526-8666"
+inode				"119a2123-c23b-403d-b857-1d7b226b8017"
+binaryimageContentAsset		"440e6d0f-dcf1-40ec-972d-c1cb7c5cb4e7\/binaryimage"
+bannerImage			"\/contentAsset\/raw-data\/440e6d0f-dcf1-40ec-972d-c1cb7c5cb4e7\/bannerImage"
+bannerImageContentAsset		"440e6d0f-dcf1-40ec-972d-c1cb7c5cb4e7\/bannerImage"
+selectedPublicationImage1	"\/contentAsset\/raw-data\/440e6d0f-dcf1-40ec-972d-c1cb7c5cb4e7\/selectedPublicationImage1"
+selectedPublicationImage1ContentAsset	"440e6d0f-dcf1-40ec-972d-c1cb7c5cb4e7\/selectedPublicationImage1"
+selectedPublicationImage2	"\/contentAsset\/raw-data\/440e6d0f-dcf1-40ec-972d-c1cb7c5cb4e7\/selectedPublicationImage2"
+selectedPublicationImage2ContentAsset	"440e6d0f-dcf1-40ec-972d-c1cb7c5cb4e7\/selectedPublicationImage2"
+
+--------------------------------------------------------
+Sample Course record from CIT:
+
+Credit_Hours  "3"
+stInode	      "494"
+Class_Number  "100"
+departmentUrl ""
+id	      "CS-100
+prerequisites "
+dept	      "CPSC
+modUser	      "jlaughli
+Description   "F. An introduction to the creation of interactive media for the World Wide Web. Coverage includes markup language, stylesheets, page layout and design principles, scripting, animation, multimedia and their representations, World Wide Web history and structure, social and ethical issues. Laboratory. Meets the information technology core requirement.
+host	      "SYSTEM_HOST
+sortOrder     0
+Prefix	      "CS
+lastReview    "2014-05-07 13:48:13.98
+languageId    1
+Title	      "Creating Interactive Web Media
+corequisites  "
+Term	      "Fall
+folder	      "SYSTEM_FOLDER
+modDate	      "2014-07-16 09:28:54.813
+owner	      "jlaughli
+inode	      "480ebbd1-c3e9-4627-a751-702b8154c4e4
+identifier    "36df05ec-39b2-4139-b398-23d0ec29d33e
+catalogYear   201
+
+
+--------------------------------------------------------
+Sample Scholarship record from CIT:
+
+showinsearchresults	  true
+department		  "CPSC,ENGR,"
+stInode			  "af8e9727-204c-4ef0-8267-9a80e5bac97b"
+states			  ""
+highSchoolSelection	  "Any"
+scholarshipCode		  "200N"
+renewableConsiderations	  ""
+title			  "DornerWorks Computer\/Software Engineering Scholarship"
+applicationRequired	  true
+formalDescription	  "This scholarship was established by DornerWorks, Ltd.  DornerWorks (www.dornerworks.com) is an electronics engineering consulting firm, founded in 2000 by David Dorner, and based in Grand Rapids, MI. DornerWorks helps clients develop products faster, with high quality, and in safety-critical markets, using expertise in electronic hardware, embedded software, and custom logic design.  The four principals of the company (David Dorner, Jeffrey Dorner, Todd Burghgraef, and Steven VanderLeest) wish to use this scholarship to encourage students to pursue their calling using their technical gifts and talents.  Their goal is to encourage and support prospective and current students interested in pursuing a career in computer\/software engineering--especially embedded systems, which is the design of computer hardware and software \"behind the scenes\" because it is embedded within a larger machine or system.  These systems respond to events in real time (e.g., avionics systems in aircraft and electronics in medical devices).  "
+quantity		  "one"
+modUser			  "jlaughli"
+needpref		  false
+classAvailability	  "SO,JR,SR,"
+host			  "SYSTEM_HOST"
+sortOrder		  0
+acadprograms		  "CPSC, ENGR"
+maximumAmount		  "$2,100 "
+applicationprocess	  "apply through the <a href=\"http:\/\/www.calvin.edu\/finaid\/apply\/named-scholarships.html\">Calvin Portal<\/a>"
+renewable		  false
+listOfAcademicPrograms	  "CPSC,ENGR,"
+gpatext			  "3.3"
+languageId		  1
+folder			  "SYSTEM_FOLDER"
+shortDescriptionSearch	  "computer science major or be pursuing an electrical and computer engineering concentration|preference to those who have an internship with DornerWorks or to those expressing an interest in embedded systems"
+modDate			  "2014-08-18 12:27:11.79"
+shortDescription	  "award amount: $2,100|sophomore, junior or senior|GPA of 3.3+|financial need not required; preference to those who have an internship with DornerWorks or to those expressing an interest in embedded systems"
+titlealpha		  "DornerWorks Computer\/Software Engineering Scholarship"
+owner			  "kaw9"
+showinbulletresults	  true
+applicationprocesslink	  ""
+identifier		  "015612ff-f7d6-4942-b4e2-e5ea7121ed66"
+inode			  "8a8efefb-6a4b-462a-9cc3-02b3e0dee15e"

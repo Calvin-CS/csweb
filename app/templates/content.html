@@ -1,0 +1,33 @@
+{#
+This JinJa2 file handles the non-navigational content of csweb pages, 
+including headers and columns for primary and secondary content. The 
+format is as follows.
+
+|--------------------------------|
+| image                          |
+|--------------------------------|
+| title                          |
+|--------------------------------|
+| primaryContent |  sideContent  |
+| primaryList    |  sideList     |
+| tabList        |               |
+|--------------------------------|
+
+See base.html for a full description of the full page and 
+includes/content_list.html for a full description of lists.
+
+@author: kvlinden
+@author: dad32
+@version: Summer, 2014
+#}
+
+{% extends 'base.html' %} 
+
+{% block content %}
+{% include 'includes/content_heading.html' %}
+<div class="row">
+{% include 'includes/content_primary.html' %}
+{% include 'includes/content_side.html' %}
+</div>
+{% include 'includes/content_form.html' %}
+{% endblock %}

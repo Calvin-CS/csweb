@@ -1,0 +1,22 @@
+# This command file specifies while local files to copy and the production server 
+# where to copy them. See deploy_prod.py for details.
+
+option batch abort
+option confirm off
+open sftp://root@153.106.116.6
+
+# Copy the files over.
+put C:\projects\csweb\csweb\run_*.py /srv/www/calvin.edu/csweb/
+put C:\projects\csweb\csweb\app /srv/www/calvin.edu/csweb/
+put C:\projects\csweb\csweb\data /srv/www/calvin.edu/csweb/
+put C:\projects\csweb\csweb\test /srv/www/calvin.edu/csweb/
+put C:\projects\csweb\csweb\utils /srv/www/calvin.edu/csweb/
+
+# Run unit tests, redirecting stderr to stdout to keep WinSCP from crashing this script.
+cd /srv/www/calvin.edu/csweb/
+call /srv/www/calvin.edu/csweb/venv/bin/python -m unittest run_test 2>&1
+
+# Restart the Python gateway (Nginx and Mongo are assumed to be running already).
+call /etc/init.d/uwsgi restart
+
+exit

@@ -1,0 +1,23 @@
+@import url("course.css");
+
+body {
+	font: 36px Helvetica, Arial, sans-serif;
+	color: #000000;
+}
+
+.step {
+	width: 1200px;
+	height: 742px;
+	text-align: left;
+	cursor: pointer;
+}
+
+#overview {
+	cursor: auto;
+}
+
+.step h1 {
+	font-size: 1.2em;
+	font-weight: bold;
+	border: 0;
+}

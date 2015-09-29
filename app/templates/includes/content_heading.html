@@ -1,0 +1,40 @@
+{#
+This JinJa2 file handles the heading content of csweb forms pages, 
+including the page's banner image and main title/sub-title. 
+
+See ../base.html for a full description.
+
+@author: kvlinden
+@author: dad32
+@version: Summer, 2014
+#}
+
+{% if image or title %} 
+	{% if image %}
+	<div class="row">
+		<img src="/static/images/{{image.filename}}" alt="{{image.description}}" style="padding-top: 1px" />
+	</div>
+	{% else %}
+	<div class="row intro">
+		<section class="hide-for-small">
+			<div class="small-12 columns">
+				<div id="crumb">
+					<ul>
+						{% for page in breadcrumbs %}
+						<li>{% if page[1] != '#' %} <a href="{{page[1]}}">{{page[0]}}</a> {% else %} {{ page[0] }} {% endif %}
+						</li> {% endfor %}
+					</ul>
+				</div>
+			</div>
+		</section>
+	</div>
+	{% endif %}
+	
+{% if title %}
+<div class="row">
+	<div class="small-12 columns">
+		<h1>{{ title|safe }}</h1>
+		{% if subtitle %} <em>{{ subtitle|safe }}</em> {% endif %}
+	</div>
+</div>
+{% endif %} {% endif %}

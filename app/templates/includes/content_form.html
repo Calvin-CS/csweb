@@ -1,0 +1,93 @@
+{#
+This JinJa2 file handles the form added to some pages, e.g., login, 
+contact us, content editing. The form must be at the very bottom.
+
+The template is designed to render all TextAreaFields using a WYSISYG tool. 
+This required the use of a flag, which had to be hacked as described in the 
+comments here: 
+    http://stackoverflow.com/questions/4870346/can-a-jinja-variables-scope-extend-beyond-in-an-inner-block
+
+Basically, it sets an array in an outer block, appends true to it if a 
+TextAreaField is rendered and loads the WYSIWYG if the array has a(ny) value. 
+It uses an array so that it can be modified without using the JinJa2 assignment
+statement (set), which automatically declares a new variable with the same name
+in the local scope.
+
+See base.html for a full description.
+
+@author: kvlinden
+@author: dad32
+@version: Summer, 2014
+#}
+
+{% if form %}
+
+
+<div class="row">
+<div class="small-12 medium-8 large-8 columns">
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %} 
+			{% for category, message in messages %}
+				<p class="{{ category }}">{{ message }}</p>
+			{% endfor %}
+			
+			{% for field in form if field.type not in ['CSRFTokenField', 'SubmitField'] %}
+				{%for message in field.errors%}
+					<div class = "{{ category }}">{{ message}}</div>
+			{%endfor%}
+			{%endfor%}
+		{% endif %} 
+	{% endwith %}
+
+	<form name="form"  action="" method="POST">
+		{{ form.hidden_tag() }}
+		<dl>
+			{# Create empty array as a flag - see the header comments on this. #}
+			{% set load_wysiwyg_script = [] %} 
+			{% for field in form if field.type not in ['CSRFTokenField', 'SubmitField', 'HiddenField'] %}
+				{% if form.action != 'edit' or field.name != 'name' %}
+					<dt>{% if field.flags.required %} {{field.label()+": <b style = 'color:red;'> *</b>"|safe}}  {% else %} {{field.label()}}: {% endif %}</dt>
+					<dd>
+					{% if field.type == 'TextAreaField'  %}
+					
+						{{ field(class = "jqte", style = "overflow:scroll;maxlength='10';", size=15) }} 
+						{% if load_wysiwyg_script.append(true) %}{% endif %} {# Set "flag" to true. #}
+					{% else %}
+						{{ field( rows=15) }}
+					{% endif %}
+					</dd>
+				{% endif %}
+			{% endfor %}
+		</dl>
+		{% for field in form if field.type == 'SubmitField' %}
+			{{ field() }}
+		{% endfor %}
+	</form>
+	<br>
+	{# Load WYSIWYG script if "flag" is set. #}
+	{% if load_wysiwyg_script %}
+	
+		<script>
+			$('.jqte').jqte();
+		// settings of status
+			var myStatus = true;
+			$(".status").click(function()
+			{
+				myStatus = myStatus ? false : true;
+				$('.jqte').jqte({"status" : myStatus})
+			});
+
+		</script>
+		
+		
+	{% endif %}
+		
+	<script type="text/javascript" language="JavaScript">
+		if (document.forms['form'].elements['nameField']) {
+			document.forms['form'].elements['nameField'].focus();
+		}
+	</script>
+	
+</div>
+</div>
+{% endif %}

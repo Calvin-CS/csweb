@@ -1,0 +1,45 @@
+{#
+This JinJa2 file handles the primary content of csweb pages, including the
+primary content, a (single) content list and a list of tabbed content. Each
+tab has a title and content; tabs cannot have lists (unless they are
+hand-coded in the primary content).
+
+See base.html for a full description of the template mechanism and
+includes/content_list.html for a full description fo the generic list format.
+
+@author: kvlinden
+@version: Summer, 2014
+#}
+
+{% if primary or primaryList or tabList %}
+<div class="small-12 {% if sideTitle or sideContent or sideList %} medium-8 large-8 {% else %} medium-12 large-12 {% endif %} columns">
+
+	{% if primary %}<p>{{primary|safe}}</p>{% endif %}
+
+	{% if primaryList %}
+		{% set contentList = primaryList %}
+		{% set contentListHr = primaryListHr %}
+		{% include 'includes/content_list.html' %}
+	{% endif %}
+	
+	{% if tabList %}
+	<dl class="tabs" data-tab>
+		{% for tab in tabList %} 
+		<dd{% if loop.index == 1 %} class="active"{% endif %}>
+			<a href="#tab{{loop.index}}">{{tab.title}}</a>
+		</dd>
+		{% endfor %} 
+	</dl>
+    <div class="tabs-content">
+		{% for tab in tabList %} 
+		<div class="content{% if loop.index == 1 %} active{% endif %}" id="tab{{loop.index}}">
+			{{tab.primaryContent|safe}}
+		</div>
+		{% endfor %} 
+	</div>    
+	<div>
+	</div>
+	{% endif %}
+
+</div>
+{% endif %}

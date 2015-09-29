@@ -1,0 +1,66 @@
+'''
+This module defines the features required to support the reading of
+faculty/staff objects in the database. See unit.py for more details.
+
+This particular information unit is read from the CIT database. See a
+discussion of the implications of this in programs.py.
+
+This unit has not been refactored to use the Unit merge features.
+
+Created on Jul 17, 2014
+
+@author: kvlinden
+@author: dad32
+'''
+
+import requests
+
+from app.units.unit import Unit
+
+
+class People(Unit):
+    '''This class encapsulates tools for information units from people. These
+    information units are retrieved from the CIT database and thus this class
+    doesn't implement create, update or delete methods; those things must be
+    done using CIT tools. It only supports retrieving people lists; content for
+    individual people is assumed to be hand-built and available as static
+    resources at the standard, college-wide URL:
+        http://www.calvin.edu/~LOGIN_ID.
+    '''
+
+    @classmethod
+    def read_units(cls):
+        '''This method retrieves person data from CIT's database.'''
+        people = cls.get_cit_data('CPSC') + cls.get_cit_data('MATH')
+        if people is None:
+            return None
+        for person in people:
+            # Clean up some of CIT's data fields.
+            if 'binaryimageContentAsset' in person:
+                person['image'] = cls.peopleImageTemplate.format(
+                    person['binaryimageContentAsset'])
+            if 'emailAddress' in person:
+                person['email'] = person['emailAddress'].split('@')[0]
+        return people
+
+    # Utility data and methods...
+
+    # CIT URL for courses (set parameters CPSC and year)...
+    peopleImageTemplate = 'http://upbeat.calvin.edu/contentAsset/image/{}/filter/Resize/resize_w/142'
+    peopleUrlTemplate = 'https://upbeat.calvin.edu/api/content/render/false/limit/50/type/json/query/+structureName:CcProfiles%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcProfiles.academicDepartment:*{}*%20+languageId:1%20%20+deleted:false%20%20+live:true%20+live:true/orderby/CcProfiles.lastname'
+
+    @classmethod
+    def get_cit_data(cls, department):
+        '''Retrieve the faculty data for the given department from the CIT
+        database. Return None if any errors occur.
+        '''
+        # Create the appropriate URL and read the people data for the given
+        # department. Convert the data to JSON format. Return None is no
+        # people data is found.
+        url = cls.peopleUrlTemplate.format(department)
+        dataRaw = requests.get(url, verify=False).json()
+        if dataRaw is not None:
+            data = dataRaw['contentlets']
+            if len(data) > 0:
+                return data
+        return None

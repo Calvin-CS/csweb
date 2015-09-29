@@ -1,0 +1,42 @@
+@import url("course.css");
+
+a {
+	color: #003333;
+}
+
+#header {
+	background: #D6E0CC;
+}
+
+#construction {
+	background: #FFFFE0;
+}
+#option {
+	background: #d7dac3;
+	}
+
+#schedule th {
+	background: #F0F0F0;
+}
+
+#separator {
+	background: #F0F0F0;
+}
+
+h1 {
+	background: #D6E0CC;
+}
+
+div.exercise {
+	background: #D6E0CC;
+	border: 1px solid #777777;
+}
+
+div.do-this {
+	background: #D6E0CC;
+	border: 1px solid #777777;
+}
+
+#footer {
+	color: #777777;
+}

@@ -1,0 +1,145 @@
+System Requirements:
+- MongoDB must be installed, loaded and running for local development.
+- The PythonVenv for csweb must be constructed and installed.
+
+Information Architecture:
+- IAEntity 
+	data:
+		id
+		name 
+	methods: list all/highPriority entities, 
+	          static list overview content (e.g., /academics), 
+	          present long/short/listItem versions (some long versions will have tabbed content: programs; news&events)
+	          create/edit/delete, 
+	          title, short/long content, 
+	          header image(s),
+	          createDate/editDate,
+	          tags
+	          )
+	Department
+		(only 1 instance, with short content - index.html - and long content - about.html)
+	Course (integrate with CIT?)
+		(instances: CS100, ...)
+	Program (integrate some of these with CIT?)
+		(instances: BCS major, CS major/minor, ..., honors)
+?	Scholarship 
+		(Integrate with CIT?)
+		(Include all the material here: http://cs.calvin.edu/p/scholarships_and_awards. Also, link John's scholarship application page: http://153.106.116.135/.)
+		(Each scholarship should list who's received it over the years, see, e.g., http://cs.calvin.edu/p/DeRoseScholarship.)
+	Person
+		Faculty
+		Staff
+		Alum
+			(Copy the current alumni profiles.)
+		Contact (see the current form here: http://cs.calvin.edu/p/contact_us)
+	News 
+		(Integrate with CIT news? Is there a CIT news feed? Is there a CS news archive?)
+	Event 
+		(Integrate with CIT calendar? Is there a CS event archive?)
+?	Project 
+		(instances: research, summer camps, senior projects (perhaps these should be static so students can build them), csweb, CCEL, http://dahl.calvin.edu/, http://www.calvin.edu/~adams/research/microwulf/, ...)
+?	Lab
+		(instances: GLUW, Windows, systems, Supercomputing, CCEL, ...)
+?	Software
+		(instances: Dreamspark, mirror?, ...)
+?	Service
+		(instances: SlatePermutate, BookConnection, BookList, Clemenger's system, Kloosterman's freshman scholarship system, ...)
+?	Club
+		(instances: Abstraction, CSX)
+	Image 
+		(Include only the hyperlink to the appropriate static or online (e.g., Picassa) resource, plus the caption.) 
+?	Video
+?	FAQ
+		(Anchor FAQ lists on one page?)
+		(Tag these as current or incoming and allow the list to filter.)
+	Document (format: pdf, html, url; all should be tagged for filtered retrieval)
+		(guide instances: how-to guides, style guides, ...)
+		(reference instances: useful Christianity/Computing links, software development links, ...)
+		(other instances: Christianity/Computing essays, http://cs.calvin.edu/p/chairs_note_2007, http://cs.calvin.edu/p/ComputingCareersMarket, http://cs.calvin.edu/p/mission, http://cs.calvin.edu/p/MFT_Results, http://cs.calvin.edu/p/numbers/, http://cs.calvin.edu/p/GradSchool, ...)
+		TechReport
+			(These are numbered.)
+			(instances: senior project reports, pre-published research papers, ...)
+			
+
+Static Content
+	(Create a single mercurial repo for the activites, administration, department sections.)
+	(Create and post the archive, courses, documents and images separately.)
+- activities
+	(Copy this structure as it is.)
+- administration (public)
+	assessment
+		grading
+		plan
+		rhetoric
+		scholarship
+	honors
+		(the honors contract form, link this from the honors page)
+	newsletters
+		(Leave these in case we want to revive this.)
+- archive
+	(Copy this structure as is.)
+- course
+	cs
+		100
+		...
+	is
+		141
+		...
+	idis
+		110
+		...
+- department (private)
+	accreditation
+		(all the ABET self-study reports and display materials)
+	assessment
+		strategicPlan
+		seniorSurvey
+	council
+		(all committee documents and minutes)
+	curriculum
+		(all committee documents and minutes)
+		(Get the materials here: http://cs.calvin.edu/administrative/idis/rit/, but put the course objectives here: cs.calvin.edu/courses/idis/110/objectives.html.)
+	facilities
+		(all committee documents and minutes)
+	minutes
+		(all department meeting agendas, documents and minutes)
+	promotions
+		(all committee documents and minutes)
+		(get cs.calvin.edu/administrative/department.pptx)
+- documents
+	(Copy this structure as it is.)
+	(Add the pdf files for IADocument instances, see above.)
+- image
+	(Put all the raw images here; the database/CMS will include their hyperlink only.)
+	(Consider just copying everything from cs.calvin.edu/images/.)
+
+
+Navigation Structure:
+- Home
+	About (CIT custom)
+		facilities (CSX, HPC, CCEL), mirror, dreamspark?
+		mission statement
+	Academics (CIT required)
+		BCS
+			(include http://cs.calvin.edu/p/accreditation here)
+			Overview-Major-Minor-Schedule-Honors
+		CS
+			Overview-Major-Minor-Schedule-Honors
+		IS
+			Overview-Major-Minor-Schedule-Honors
+		Computational Science
+		DC
+			Overview-Major-Minor-Schedule-Honors
+		DA
+			Overview-Major-Minor-Schedule-Honors
+		Courses
+		Schedule
+	Scholarships (CIT required)
+	Student Experience (CIT recommended)
+		internships/employment, organizations off-campus programs, DreamSpark, BookConnection, FAQ?
+	Careers & Outcomes (CIT recommended)
+	Faculty @ Staff (CIT required)
+ 	News & Events (CIT recommended)
+ 		News(list?)-Events(Calendar?)
+ 	Contact Us (CIT required)
+ 		(Include a contact form based on the existing form.)

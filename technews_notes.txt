@@ -1,0 +1,73 @@
+in /app/views techNewsLimit variable controls how many technews times will be displayed on the home page.
+	note if this number is changed, esp. decreased, you should manually remove any database items because there is 
+	currently no method to delete them from the website.
+Nightly Refresh
+	cron job runs csweb/utils/updateTechnews.py
+		This page opens http://cs.calvin.edu/admin/technews/refresh which triggers a refresh of the news on the home page.
+	/app/views.py accepts this page and calls create_techNewsarticle_list(TechNews.read_units(refreshList = True,techNewsLimit = 3))
+
+		TechNews.read_units(refreshList = True, unitsDisplay = 3)
+			This is a function that calls the read_units function in the unit TechNews.  The flag indicates whether the news feed 
+			on the home page will be refreshed or not. 
+			This function 
+				reads the database stored values for the list of 'good' and 'bad' words.
+				uses the  /app/findTechNews.py display_my_results() 
+					display_my_results(goodText, badText,feed, timeDisplayLimit = 7):
+						this is the good text, bad text, the RSS feed, and the date limit for the articles to display, default is 7
+						This function parses through the string of words was extracted from the DB and puts them into an array.
+						It then gets the sites from the RSS feed it was passed.
+							Also note, this removes the timezone information, because RSS feeds tend not to standardize this.
+								This can sometime cause an error if I've missed a timezone info type.
+						It then creats a copy and formats it for use in mongo and on the web pages.
+						It then calls analyzeText(goodText, badText,resultsArray,feedResults) that does the ranking of the articles
+							
+							analyzeText() does the following
+								First based on the bag of words it calculates the stats for the wordsBags that are passed in.
+									This first creates an array of all the words.
+									Then it vectorizes the array.
+									Then it does logistic regression onthe array.
+								Next it uses the predictWords function to predict the article's ranking
+									This vectorizes (turns into numbers) all the news articles.
+									Then it uses the SKLearn Linear Regression library to predict the rankings.
+							
+						
+					Finally this returns the list of news items.
+				finally back in TechNews.read_units() the function calls update_unit to update the list in the mongo database that
+				will be displayed on the home page.
+					This function reads through the news array that was returned and randomly selects from the top Number to display +7
+						This section is done with this logic:
+							the first article being chosen in the top 4, 
+							the second in the top 9, 
+							and the rest any of the top Number to display +7
+							
+						The tech news articles are then added/updated to the database as news records.  If the record doesn't exist, it is added.
+							The information that gets stored is:
+								name (dbID) = tehn_news_<<ID>>
+								title = RSS feed title
+								summary = RSS Feed Link
+								Content == RSS Feed Summary
+								Date = today's date.
+		Finally a list of news is returned.
+		This list is then formatted by /utilities.py function create_techNewsarticle_list() to add the buttons, links, etc.
+	The list is displayed on the screen.
+				
+Home Page View of News Feed:
+	The news feed is displayed with the rest of the news articles because the tech_news articles are saved in the news table.
+	The distinguishing factor between the 2 types of news is that name (ID) starts with tech_news <<ID>> instead of just <<ID>>.
+	in the utilities.py their is an if statement for the different news feeds that show up/down instead of showing edit/delete.
+	
+Administration pages  (/admin/technews) or (/admin/news)
+	On this page the technews articles are displayed as they are currently ranked. The Up  or Down buttons asynchronously  add the words
+	to the bag of words this logic.
+	The Buttons are linked to a the  $(function() { $(".updateNews").click(function()} function in the department.js file.
+	This function opens up a wepage of the /admin/technews/<<url of article>>/<<up/down>> (/<<refresh>> if on the /admin/news site)
+	This launches a function in the views.py <<up/down>>_tech_news_article() which inturn calls the corresponding Technews unit function.
+	This function first sees if the the article is on the home page i.e. stored in the database.  
+	This is only the case if the user is on the /admin/news page (which uses the link with refresh at the end)  
+		If it is in the db then:
+			use the db content to update the bag of words with the article's summary (RSS Feed content) and title with the findAnalyzeText.py corresponding function.
+		Else
+			go out and read in the RSS feeds again with the read_units() function (see the explanation above for how this works in the Nightly Refresh section.
+			Then go through each article, see if there are matching links.
+			When it finds the matching link, add the summary and title to the corresponding db entry by using findAnalyzeText.py corresponding function.
+			

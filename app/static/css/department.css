@@ -1,0 +1,100 @@
+/* Copied these from foundation.css to implement (renamed) mods to their app.css. */
+
+/* GLOBAL NAVIGATION, renamed CSglobal */
+#cse, #cse-small {
+    width: 325px;
+}
+.csglobal {
+	background-color: #333333;
+	width: 100%;
+	overflow: hidden;
+	margin-top: 0;
+	padding: 0.5em 0 0.5em 0;
+	z-index: -1;
+}
+.csglobal ul li {
+	text-align: center;
+	margin: 0 auto;
+	padding: 0;
+	width: 90px;
+}
+#header .csglobal a {
+	position: relative;
+	color: #FFFFFF;
+	text-transform: capitalize;
+	font-weight: bold;
+	line-height: 50px;
+	margin: 0;
+	display: block;
+	white-space: nowrap;
+}
+#header .csglobal a:hover {
+	color: #f3cd00;
+}
+
+/* Flot Settings */
+.chartWrapper {
+	width: 100%;
+	margin-bottom: 1em;
+	clear: both;
+}
+.chartContent {
+	float: left;
+	min-width: 300px;
+}
+.chartLegend {
+	float: left;
+}
+.legendColorBox, .legendLabel {
+	border-style: none;
+}
+.chartFooter {
+	clear: both;
+}
+
+/* Scrollable tables */
+table.scrollable {
+	overflow: auto;
+	height: 250px;
+	display: block;
+}
+table.scrollable th {
+	background-color: #F0F0F0;
+}
+table.scrollable td.first {
+	background-color: #F0F0F0;
+	font-weight: bold;
+}
+table.scrollable, table.scrollable th, table.scrollable td {
+	border: 0;
+}
+
+/* Content List Settings */
+.contentListImage, .contentListMiddle, .contentListSideContent {
+	float: left;
+	line-height: 1.25em;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.25em;
+}
+.contentListClear {
+	clear: both;
+}
+
+/* Table settings */
+table.adminTable th,td {
+	text-align: left;
+	vertical-align: top;
+}
+
+/* Other format settings */
+.side {
+	background-color: #f2f2f2;
+	padding: 0 0.5em 0.5em 0.5em;
+	border: solid 1px #d8d8d8;
+}
+.tagline {
+	text-transform: capitalize;
+	font-size: 0.5em;
+	font-style: italic;
+}

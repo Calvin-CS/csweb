@@ -1,0 +1,201 @@
+a.external::after { 
+	content: ''; 
+	padding-left: 15px; 
+	background: url("/images/kvlinden/icons/external.gif") center right no-repeat transparent;
+}
+a.moodle::after { 
+	content: ''; 
+	padding-left: 18px; 
+	background: url("/images/kvlinden/icons/moodle.gif") center right no-repeat transparent;
+}
+a.codecademy::after { 
+	content: ''; 
+	padding-left: 15px; 
+	background: url("/images/kvlinden/icons/codecademy.gif") center right no-repeat transparent;
+}
+a.wikipedia::after { 
+	content: ''; 
+	padding-left: 15px; 
+	background: url("/images/kvlinden/icons/wikipedia.gif") center right no-repeat transparent;
+}
+a.wikiversity::after { 
+	content: ''; 
+	padding-left: 15px; 
+	background: url("/images/kvlinden/icons/wikiversity.gif") center right no-repeat transparent;
+}
+a.w3schools::after { 
+	content: ''; 
+	padding-left: 15px; 
+	background: url("/images/kvlinden/icons/w3schools.gif") center right no-repeat transparent;
+}
+a.youtube::after { 
+	content: ''; 
+	padding-left: 15px; 
+	background: url("/images/kvlinden/icons/youtube.gif") center right no-repeat transparent;
+}
+a.acm::after { 
+	content: ''; 
+	padding-left: 15px; 
+	background: url("/images/kvlinden/icons/acm.gif") center right no-repeat transparent;
+}
+a.android::after { 
+	content: ''; 
+	padding-left: 15px; 
+	background: url("/images/kvlinden/icons/android.gif") center right no-repeat transparent;
+}
+a.bitbucket::after { 
+	content: ''; 
+	padding-left: 15px; 
+	background: url("/images/kvlinden/icons/bitbucket.gif") center right no-repeat transparent;
+}
+a.googleDocs::after { 
+	content: ''; 
+	padding-left: 15px; 
+	background: url("/images/kvlinden/icons/googleDocs.gif") center right no-repeat transparent;
+}
+
+body {
+	font-family: calibri, arial, helvetica, sans-serif;
+	margin: 0;
+	padding: 10px;
+}
+
+#header {
+	padding: 5px;
+	border-top: 2px solid #000000;
+	border-bottom: 2px solid #000000;
+}
+
+#headerTitle {
+	font-size: x-large;
+	font-weight: bold;
+}
+
+#headerSubtitle {
+	font-size: large;
+	font-weight: normal;
+}
+
+#construction {
+	font-weight: bold;
+	padding: 5px;
+}
+
+#options {
+	margin: 10px;
+}
+
+#option {
+	padding: 5px;
+	font: medium;
+	}
+
+#navigationTrail {
+	font-size: x-small;
+	padding-bottom: 10px;
+}
+
+#schedule {
+	border-collapse: collapse;
+	border: 1px solid #000000;
+	border-left: 1px solid #000000;
+}
+
+#schedule th {
+	border: 1px solid #000000;
+	padding: 5px;
+	text-align: left;
+}
+
+#schedule td {
+	border: 1px solid #000000;
+	padding: 10px;
+}
+
+#separator {
+	column-span: all;
+}
+
+#projectColumn {
+	vertical-align: top;
+}
+
+div.shortAnswer {
+	padding-top: 40px;
+}
+
+h1 {
+	font-size: large;
+	font-weight: bold;
+	border-top: 2px solid #550000;
+	border-bottom: 1px solid #550000;
+}
+
+h2 {
+	font-size: medium;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: small;
+	font-weight: bold;
+}
+
+div.quote {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 5px;
+}
+
+span.quoteText {
+	font-style: italic;
+}
+
+span.quoteSource {
+	font-size: small;
+}
+
+div.exercise {
+	margin-left: 2%;
+	margin-right: 2%;
+	padding: 5px;
+	border: 1px solid #550000;
+}
+
+.algorithm li {
+	list-style-type: none;
+}
+
+.algorithm .given {
+	padding-bottom: 0.5em;
+}
+
+.algorithm .test {
+	padding-top: 0.5em;
+}
+
+.hide {
+	display: none;
+}
+
+div.do-this {
+	margin-left: 2%;
+	margin-right: 2%;
+	padding: 5px;
+	border: 1px solid #777777;
+}
+
+p.breakhere {
+	page-break-before: always;
+}
+
+#footer {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 8pt;
+	color: #777777;
+	margin: 0;
+	padding-top: 5px;
+	border-top: 2px solid #777777;
+	height: 50px;
+}

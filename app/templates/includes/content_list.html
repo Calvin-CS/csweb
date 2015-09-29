@@ -1,0 +1,61 @@
+{#
+This JinJa2 file handles generic list elements. It also assumes that the
+hr-flag has been assigned to 'contentListHr'. It also assumes that a list
+of dictionaries has been assigned to the JinJa2 variable 'contentList',
+one for each section of the list, with the following structure:
+   
+    [{'title' : 'sectionTitle', 'sectionItems' : [ {'subContent' : 'course1'}, ... ]
+
+Each section dictionary is displayed as a title list of subContent entries.
+The title is left off if the list has only one dictionary. Note that we use
+the dictionary key "sectionItems" rather than "items" because items the latter
+is a keyword. 
+    
+It applies the following, generic contentList format to each sectionItem:
+
+ |-hr--------------------------------------|
+ | image    | title        | sideContent   |
+ | imageAlt |--------------|               |
+ |          | subContent   |               |
+ |----------|--------------|---------------|
+ link (specifies where the div should hyperlink to)
+
+Notes:
+- All elements are optional. 
+- If the list item has a link value, the entire div is hyperlinked but only
+the title is marked with underlining. Don't use this div-hyperlink feature
+if either content field includes hyperlinks.
+- The title is formatted as a title. 
+- In the absence of an image and sideContent, subContent will fill the full row.
+Thus, if there is only one block of content, use subContent; sideContent is for
+overflow content.
+- The image is dropped on small screens. 
+
+See base.html for a full description.
+
+@author: kvlinden
+@version: Summer, 2014
+#}
+
+{% for section in contentList %}
+	{% if loop.length > 1 %}<h3>{{section.title|safe}}</h3>{% endif %}
+	{% for item in section.sectionItems %}
+	<div class="contentList">
+		{% if contentListHr %}<hr>{% endif %}
+		{% if item.link %}<a href="{{item.link}}">{% endif %}
+		{% if item.image %}<div class="medium-2 large-2 hide-for-small contentListImage"><img src="{{item.image|safe}}" alt="{{item.imageAlt}}"/></div>{% endif %}
+		{% if item.title or item.subContent %}
+			<div class="{% if item.sideContent %}small-12 medium-4 large-4{% elif item.image %}medium-10 large-10{% else %}small-12 medium-12 large-12{% endif %} contentListMiddle">
+				{% if item.title %}<div class="contentListTitle"><h4>{{item.title|safe}}</h4></div>{% endif %}
+				{% if item.subContent %}<div class="contentListSubContent">{{item.subContent|safe}}</div>{% endif %}
+			</div>
+		{% endif %}
+		{% if item.sideContent %}<div class="medium-6 large-6 contentListSideContent">{{item.sideContent|safe}}</div>{% endif %}
+		{% if item.link %}</a>{% endif %}
+	</div> 
+	<div class="contentListClear"></div>
+	{% endfor %}
+{% endfor %}
+<p>&nbsp;</p>
+{% if contentListHr %}<hr>{% endif %}
+

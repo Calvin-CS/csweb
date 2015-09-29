@@ -1,0 +1,94 @@
+{#
+This JinJa2 file handles the header content of csweb forms pages, including
+the main page menu. 
+
+Problems:
+- This topbar menu toggles too late for some medium-sized devices (e.g., the Nexus 7 in landscape mode),
+  but fixing this appears to be non-trivial in Foundation, see
+	http://foundation.zurb.com/forum/posts/1053-changing-topbar-breakpoint-using-css
+  As long as we are using CIT's app.css, we won't easily be able to change this.
+  -> I fixed this by copying CIT's app.css and modifying the values as described here:
+  		http://stackoverflow.com/questions/20218029/top-bar-break-point-foundation-5
+  	I set the break-point to 64.063em, which is the medium-large breakpoint. This allowed
+  	me to display the "Computing@calvin"
+- The hamburger menu doesn't appear on small screens There is something in CIT's app.css that
+  messes this up. -> I fixed this by redefining the top-bar menu-icon settings in department.css.
+
+See ../base.html for a full description.
+
+@author: dad32
+@author: kvlinden
+@version: Summer, 2014
+#}
+
+<nav class="tab-bar show-for-medium-down">
+    <section class="left tab-bar-section">
+        <a href="http://www.calvin.edu/" title="Go to Calvin's homepage">
+            <img src="//www.calvin.edu/global/images/calvin-college-inverse.svg" alt="Calvin College" width="170"
+                 height="47">
+        </a>
+    </section>
+    <section class="right-small right-medium">
+        <a href="#" class="right-off-canvas-toggle menu-icon" title="Menu"><span></span></a>
+    </section>
+</nav>
+
+<aside class="right-off-canvas-menu">
+    <ul class="off-canvas-list">
+        <li><a href="http://www.calvin.edu/" title="Go to Calvin's homepage">
+            <img src="//www.calvin.edu/global/images/calvin-college-inverse.svg" alt="Calvin College" width="170"
+                 height="47">
+        </a></li>
+        <li><a href="/">CS Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/academics" data-dropdown="academics-dropdown-menu">Academics&#x25BC;</a></li>
+        <li><a href="/research">Research</a></li>
+        <li><a href="/people">People</a></li>
+        <li><a href="/resources" data-dropdown="resources-dropdown-menu">Resources&#x25BC;</a></li>
+        <li><a href="/contact">Contact</a></li>
+        {% if admin %}
+            <li><a href="/admin" data-dropdown="admin-dropdown-menu">Admin&#x25BC;</a></li>
+        {% endif %}
+        <li>
+            <div id='cse-small'>Loading...</div>
+            <script type='text/javascript'>
+                loadGoogleCustomSearchSmall();
+            </script>
+            <link href="/static/css/minimalist.css" media="all" rel="stylesheet" type="text/css"/>
+        </li>
+    </ul>
+</aside>
+
+<nav class="hide-for-medium-down">
+    <div id="global-navigation">
+        <nav class="csglobal hide-for-medium-down" id="navigation">
+            <div class="row">
+                <ul class="large-block-grid-10">
+                    <li><a href="http://www.calvin.edu/" title="Go to Calvin's homepage">
+                        <img src="/static/images/calvin-college-inverse-nodate.svg" alt="Calvin College"
+                             width="170px" height="47px">
+                    </a> </li>
+                    <li><a href="/">&nbsp;&nbsp;&nbsp;CS Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/academics" data-dropdown="academics-dropdown-menu">Academics&#x25BC;</a></li>
+                    <li><a href="/research">Research</a></li>
+                    <li><a href="/people">People</a></li>
+                    <li><a href="/resources" data-dropdown="resources-dropdown-menu">Resources&#x25BC;</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    {% if admin %}
+                        <li><a href="/admin" data-dropdown="admin-dropdown-menu">Admin&#x25BC;</a></li>
+                    {% else %}
+                        <li>&nbsp;</li>
+                    {% endif %}
+                    <li>
+                        <div id='cse'>Loading...</div>
+                        <script type='text/javascript'>
+                            loadGoogleCustomSearch();
+                        </script>
+                        <link href="/static/css/minimalist.css" media="all" rel="stylesheet" type="text/css"/>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</nav>

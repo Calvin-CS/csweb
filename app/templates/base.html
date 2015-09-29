@@ -1,0 +1,106 @@
+{#
+This JinJa2 file is the base template for all content and form pages for
+csweb. All csweb pages have the following structure:
+
+<html>
+	<head>
+		base_head.html (the standard includes)
+	</head>
+	<body>
+		base_header.html (the menu and Google search)
+		content:
+			content_heading.html (the image and title)
+			content_primary.html
+			content_side.html
+		base_footer.html
+	</body>
+</html>
+
+|------------------------------------|
+| menu (see base_head & base_header) |
+|------------------------------------|
+| content (see content)              |
+|------------------------------------|
+| footer (see base_footer)           |
+|------------------------------------|
+
+The base_* files implement the basic navigational structure; the *_content files implement the page content.
+Content elements are generally optional - they'll be included if provided by the route handlers and left out
+otherwise.
+
+@author: kvlinden
+@version: Summer, 2014
+#}
+
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en"> <![endif]-->
+<!--[if IE 10]><html class="ie10" lang="en"> <![endif]-->
+<html class="no-js" lang="en">
+
+<head>{% include 'includes/base_head.html' %}</head>
+
+<body>
+
+<!--[if lt IE 9]>
+<div style="padding: 5px 1em; margin: 0; background-color: #fff; color: #000000; font-size: 80%; width: 100%; z-index: 9999; position: relative;">
+    <p>The <a href="http://www.calvin.edu/go/redesign2014/">Calvin website was redesigned</a> using modern Web development techniques not supported by Internet Explorer (IE) version 8 or older. Please <a href="http://whatbrowser.org/">update your browser</a>, <a href="http://www.sevenforums.com/tutorials/1196-internet-explorer-compatibility-view-turn-off.html" target="_blank">turn off &quot;Compatibility View&quot; in IE</a>, or pick a different Web browser.</p>
+    <p><a href="http://whatbrowser.org/">Modern browsers are <b>free and easy to install&nbsp;&raquo;</b></a></p>
+    <hr />
+<div>
+<![endif]-->
+
+<div class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+        <header id="header">{% include 'includes/base_header.html' %}</header>
+        <div class="contents">{% block content %}{% endblock %}</div>
+        <footer id="footer">{% include 'includes/base_footer.html' %}</footer>
+        <a href="#header" class="go-top" title="Back to top"><em class="fi-arrow-up"></em></a>
+        <a class="exit-off-canvas"></a>
+    </div>
+</div>
+
+<ul id="academics-dropdown-menu" data-dropdown-content class="f-dropdown">
+    <li><a href="/academics">Overview</a></li>
+    <li><a href="/academics/bcs">Bachelor of Computer Science</a></li>
+    <li><a href="/academics/bacs">Bachelor of Arts in Computer Science</a></li>
+    <li><a href="/academics/bais">Bachelor of Arts in Information Systems</a></li>
+    <li><a href="/academics/badc">Bachelor of Arts in Digital Communication</a></li>
+    <li><a href="/academics/bada">Bachelor of Arts in Digital Arts</a></li>
+    <li><a href="/academics/honors">Graduating with Honors</a></li>
+    <li><a href="/academics/courses">Courses &amp; Materials</a></li>
+</ul>
+
+<ul id="resources-dropdown-menu" data-dropdown-content class="f-dropdown">
+    <li><a href="/resources">Overview</a></li>
+    <li><a href="/news">News &amp; Events</a></li>
+    <li><a href="/resources/faqs">Frequently Asked Questions</a></li>
+    <li><a href="/scholarships">Scholarships</a></li>
+    <li><a href="/resources/software">Software &amp; Services</a></li>
+    <li><a href="/resources/facilities">Facilities</a></li>
+    <li><a href="/resources/jobs">Job Opportunities</a></li>
+    <li><a href="http://clubs.calvin.edu/abstract" class="external">Abstraction Student Club</a></li>
+    <li><a href="http://clubs.calvin.edu/abstract/mailing-lists/" class="external">Mailing Lists</a></li>
+    <li><a href="http://www.calvin.edu/students" class="external">Calvin Student Resources</a></li>
+</ul>
+
+<ul id="admin-dropdown-menu" data-dropdown-content class="f-dropdown">
+    <li><a href="/admin">Overview</a></li>
+    <li><a href="/admin/programs">Programs</a></li>
+    <li><a href="/admin/resources">Resources</a></li>
+    <li><a href="/admin/documents">Documents</a></li>
+    <li><a href="/admin/images">Images</a></li>
+    <li><a href="/admin/news">News Articles</a></li>
+    <li><a href="/admin/technews">Tech News</a></li>
+    <li><a href="/admin/scholarships">Scholarships</a></li>
+    <li><a href="/departments/cs/edit">Edit this content</a></li>
+    <li><a href="/logout?next=http://cs.calvin.edu/">Logout</a></li>
+</ul>
+
+
+{# College Foundation Javascript  #}
+<script src="//www.calvin.edu/global/foundation/js/modernizr.js"></script>
+<script src="//www.calvin.edu/global/foundation/js/foundation.min.js"></script>
+<script src="//www.calvin.edu/global/foundation/js/app.js"></script>
+
+</body>
+</html>

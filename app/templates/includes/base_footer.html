@@ -1,0 +1,65 @@
+{#
+This JinJa2 file handles the footer content of csweb forms pages, including
+the department address and links to all on-line department resources (e.g.,
+the Facebook account, ...). 
+
+See ../base.html for a full description.
+
+@author: kvlinden
+@author: dad32
+@version: Summer, 2014
+#}
+
+<div class="row gutter">
+    <div class="footer-address large-7 small-12 columns">
+        <div class="large-3 medium-2 hide-for-small columns">
+            <a href="http://www.calvin.edu/"><img src="//www.calvin.edu/images/nameplate-calvin-seal-footer.gif"
+                                                  alt="My Heart I Offer To You Lord, Promptly and Sincerely"
+                                                  title="My Heart I Offer To You Lord, Promptly and Sincerely"/></a>
+        </div>
+
+        <div class="large-9 medium-10 small-12 columns">
+            <ul class="vcard">
+                <li class="fn"><a href="/">Department of Computer Science</a></li>
+                <li class="fn"><a href="http://www.calvin.edu">Calvin College</a></li>
+                <li class="street-address">1740 Knollcrest Cr.</li>
+                <li class="locality"><span class="locality">Grand Rapids,</span> <span class="state">MI</span>, <span
+                        class="zip">49546</span></li>
+                <li><span class="tel"><a href="tel:616-526-7163">(616) 526-7163</a></span> | <span class="email"><a
+                        href="mailto:computing@calvin.edu">computing@calvin.edu</a></span></li>
+            </ul>
+            <p><a href="http://www.calvin.edu/legal/copyright"
+                  onclick="_gaq.push(['_trackEvent', 'Footer', 'Click', 'Copyright']);">&copy; 2015 Calvin College</a>&nbsp;|&nbsp;<a
+                    href="http://www.calvin.edu/directory/policies/web-privacy-statement" title="Web Privacy Statement"
+                    onclick="_gaq.push(['_trackEvent', 'Footer', 'Click', 'Privacy']);">Privacy</a>&nbsp;|&nbsp;<a
+                    href="http://www.calvin.edu/about/key-facts/accreditation.html"
+                    onclick="_gaq.push(['_trackEvent', 'Footer', 'Click', 'Accreditation']);">Accreditation</a></p>
+        </div>
+    </div>
+
+    <div class="large-5 small-12 columns">
+        <ul class="socialnetwork inline-list">
+            <li class="socialnetwork-channel"><a href="http://www.facebook.com/computingatcalvin"
+                                                 class="facebook has-tip tip-top" data-tooltip
+                                                 data-options="disable-for-touch:true" title="Join us on Facebook" target="_blank"
+                                                 onclick="_gaq.push(['_trackEvent', 'Footer', 'Click', 'Facebook']);"><i
+                    class="fi-social-facebook"></i></a></li>
+            <li class="socialnetwork-channel"><a href="http://twitter.com/calvincomputing"
+                                                 class="twitter has-tip tip-top"
+                                                 data-tooltip data-options="disable-for-touch:true"
+                                                 title="Follow @CalvinCollege on Twitter" target="_blank"
+                                                 onclick="_gaq.push(['_trackEvent', 'Footer', 'Click', 'Twitter']);"><i
+                    class="fi-social-twitter"></i></a></li>
+            <li class="socialnetwork-channel"><a href="https://www.linkedin.com/groups?gid=3270340"
+                                                 class="linkedin has-tip tip-top" data-tooltip
+                                                 data-options="disable-for-touch:true" title="Join us on LinkedIn" target="_blank"
+                                                 onclick="_gaq.push(['_trackEvent', 'Footer', 'Click', 'LinkedIn']);"><i
+                    class="fi-social-linkedin"></i></a></li>
+            <li class="socialnetwork-channel"><a href="http://vimeo.com/calvincomputerscience/"
+                                                 class="vimeo has-tip tip-top" data-tooltip
+                                                 data-options="disable-for-touch:true" title="Watch us on Vimeo" target="_blank"
+                                                 onclick="_gaq.push(['_trackEvent', 'Footer', 'Click', 'Vimeo']);"><i
+                    class="fi-social-vimeo"></i></a></li>
+        </ul>
+    </div>
+</div>
