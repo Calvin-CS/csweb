@@ -23,7 +23,7 @@ includes/content_list.html for a full description fo the generic list format.
 	{% endif %}
 	
 	{% if tabList %}
-	<dl class="tabs" data-tab>
+	<dl class="tabs" data-tab data-options="deep_linking:true; scroll_to_content: false">
 		{% for tab in tabList %} 
 		<dd{% if loop.index == 1 %} class="active"{% endif %}>
 			<a href="#tab{{loop.index}}">{{tab.title}}</a>
