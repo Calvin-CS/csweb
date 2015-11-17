@@ -24,6 +24,9 @@
 	
 	<target name="build-prepare">
 		<mkdir dir="${build.output}" />
+	</target>
+
+	<target name="upload-prepare">
 		<mkdir dir="${build.uploadPath}" />
 	</target>
 
@@ -66,7 +69,7 @@
 			compression="gzip" />
 	</target>
 	
-	<target name="upload" depends="package,upload-clean">
+	<target name="upload" depends="package,upload-clean,upload-prepare">
 		<exec dir="${build.uploadPath}" executable="rsync" failonerror="true">
 			<arg value="-vazHAX" />
 			<arg value="--delete-during" />
