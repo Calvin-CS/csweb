@@ -40,7 +40,7 @@
 		<antcall target="test-python" />
 	</target>
 	
-	<target name="package-copyWeb" depends="build-prepare,build-composer,build-minify,version">
+	<target name="package-copyWeb" depends="build-prepare,version">
 		<copy todir="${build.uploadPath}">
 			<fileset dir="app"/>
 			<fileset dir="data"/>
