@@ -24,6 +24,7 @@
 	
 	<target name="build-prepare">
 		<mkdir dir="${build.output}" />
+		<mkdir dir="${build.uploadPath}" />
 	</target>
 
 	<target name="build" />
