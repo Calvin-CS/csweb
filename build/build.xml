@@ -38,12 +38,17 @@
 	</target>
 	
 	<target name="package-copyWeb" depends="build-prepare,version">
-		<copy todir="${build.uploadPath}">
+		<copy todir="${build.uploadPath}/app">
 			<fileset dir="app"/>
-			<fileset dir="data"/>
-			<fileset dir="utils"/>
-			<!-- what about run_*.py ??? -->
 		</copy>
+		<copy todir="${build.uploadPath}/data">
+			<fileset dir="data"/>
+		</copy>
+		<copy todir="${build.uploadPath}/utils">
+			<fileset dir="utils"/>
+		</copy>
+		<copy file="run_test.py" todir="${build.uploadPath}"/>
+		<copy file="run_prod.py" todir="${build.uploadPath}"/>
 
 		<!--
 		<chgrp type="both" group="www-data">
