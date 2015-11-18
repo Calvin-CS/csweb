@@ -52,12 +52,14 @@
 			<!-- what about run_*.py ??? -->
 		</copy>
 
+		<!--
 		<chgrp type="both" group="www-data">
 			<dirset dir="${build.uploadPath}" />
 			<fileset dir="${build.uploadPath}" >
 			    <include name="**/*"/>
 			</fileset>
 		</chgrp>
+		-->
 	</target>
 	
 	<target name="package" depends="clean,build-prepare,package-copyWeb" >
