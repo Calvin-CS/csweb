@@ -62,6 +62,7 @@ class Scholarships(Unit, UnitForm):
     cit2cs_name_map[u'NSF Scientific Computing Scholarship'] = u'isri'
     cit2cs_name_map[u'Patricia S. Duthler Computer Science Scholarship'] = u'duthler'
     cit2cs_name_map[u'Grateful Computer Science Alumnus Scholarship'] = u'grateful'
+    cit2cs_name_map[u'George and Gayle Hommes Family Scholarship'] = u'hommes'
 
     @classmethod
     def read_units(cls):

@@ -1743,9 +1743,9 @@ followed by rapid growth as the market began responding to the demand for comput
 <tr><td>2010/11</td><td>Avery Martin, Thomas Wodarek</td></tr>
 <tr><td>2009/10</td><td>Greg Clark, Avery Martin</td></tr>
 </table>
-''',
+'''
 #        'appInfo': None
-         'applicationprocess': 'To Apply: Create an account or login on the <a href="http://153.106.116.135/" class="external"> First-Year Scholarships home page.</a> Then go to Computer Science Scholarships for First-Year Students.'
+#         'applicationprocess': 'To Apply: Create an account or login on the <a href="http://153.106.116.135/" class="external"> First-Year Scholarships home page.</a> Then go to Computer Science Scholarships for First-Year Students.'
         },
 
         {'name': 'nyhoff',
@@ -1759,9 +1759,9 @@ followed by rapid growth as the market began responding to the demand for comput
 <tr><th>Year</th><th>Recipients</th>
 <tr><td>2013/14</td><td>Jesse Bloomster</td></tr>
 <tr><td>2012/13</td><td>James Lamine</td></tr>
-</table>''',
+</table>'''
 #            'appInfo': None
-         'applicationprocess': 'To Apply: Create an account or login on the <a href="http://153.106.116.135/" class="external"> First-Year Scholarships home page.</a> Then go to Computer Science Scholarships for First-Year Students.'
+#         'applicationprocess': 'To Apply: Create an account or login on the <a href="http://153.106.116.135/" class="external"> First-Year Scholarships home page.</a> Then go to Computer Science Scholarships for First-Year Students.'
            },
           
 
