@@ -1,12 +1,20 @@
 Configuring and Running CSWeb
-12august2014 - kvlinden
-Updates: 17march2015 - kvlinden, dad32
-
-
-IP: 153.106.116.87
 I generally followed these instructions to configure the system tools:
 	http://www.eightytwo.com.au/notes/linux/webserver-setup-guide/
 	See the notes below for special handling.
+
+Machines:
+- cs.calvin.edu (153.106.116.6)
+    the production server
+    CS password access (no public key access via Bitvise for some reason)
+    Still on Ubuntu 12.
+- cs-dev.cs.calvin.edu (153.106.116.18)
+    the development server
+    public key access via Bitvise (no password access for some reason)
+    Questions:
+        Why is the system pre-loaded with student accounts? This should be a cs.calvin.edu development server only.
+
+
 To reload/restart the web service, run deploy_prod.py from a machine that can access the server.
 Useful commands:
 	netstat -lnptu
@@ -17,12 +25,6 @@ Reboot script (?):
 	/etc/init.d/uwsgi start	
 
 Notes on the system tools
-
----------------------------------------------------------------------
-- Linux: Ubuntu precise (12.04.4 LTS)
-	root passwd: b+s+27 (see Gary)
-	csweb passwd: <std-weak>+Computing (see Keith)
-	Gary set this up.
 
 ---------------------------------------------------------------------
 - Mongo: 2.4.9
@@ -174,15 +176,15 @@ List of Pages
 			This file is meant to be run by a cron job.  It logs into csweb, and then calls the ./admin/technews/refresh page to get the new data and recalculate the stats.
 			See http://stackoverflow.com/questions/4460262/running-a-python-script-with-cron for mor inforamtion on how to set up the cron job
 		/app/findTechNews.py
-			This file is the main ‘brains’ behind most of the functionality of this feature.  The readRSS contains some logic to only get more recent articles.
+			This file is the main ï¿½brainsï¿½ behind most of the functionality of this feature.  The readRSS contains some logic to only get more recent articles.
 	 
 	pointers to files that code important things (e.g., the news feed list)
 		/csweb/app/static/rssfeeds.txt
 			News feeds list.
 		/app/utilities
 			This file contains multiple functions for the project.
-			create_news_list and create_newsarticle_list – displays the technews with the other onsite news articles
-			create_techNewsarticle_list – creats the article list for tech news by itself (used for admins).
+			create_news_list and create_newsarticle_list ï¿½ displays the technews with the other onsite news articles
+			create_techNewsarticle_list ï¿½ creats the article list for tech news by itself (used for admins).
 		/app/units/tech_news.py
 			This file contains the unit definition similar to the local news articles.  This calls the app. findTechNews functions but mostly handles database operations.
 		/app/views.py
