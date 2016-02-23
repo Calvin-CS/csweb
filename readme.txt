@@ -70,48 +70,7 @@ Notes on the system tools
 		/etc/init.d/nginx start               (starts the server, I believe)	
 		/opt/nginx/sbin/nginx -s reload       (reloads the config for a running Nginx)
 	Config file: /opt/nginx/conf/nginx.conf
-	    Here is the server configuration portion of this file:
-		    server {
-		        listen   80;
-		        server_name cs.calvin.edu calvin.edu;
-		        access_log /srv/www/calvin.edu/logs/access.log;
-		        error_log /srv/www/calvin.edu/logs/error.log;
-		
-		        # Activate the uWSGI gateway for Flask.
-		        location / {
-		            include        uwsgi_params;
-		            uwsgi_pass     127.0.0.1:9001;
-		        }
-		        location /static/ {
-		            root /srv/www/calvin.edu/csweb/app;
-		        }
-		        location /books/ {
-		            alias /srv/www/calvin.edu/csweb/app/static/activities/books/;
-		            autoindex on;
-		        }
-		        location /courses/ {
-		            alias /srv/www/calvin.edu/csweb/app/static/courses/;
-		            autoindex on;
-		        }
-		        location /curriculum/ {
-		            alias /srv/www/calvin.edu/csweb/app/static/courses/;
-		        }
-		        location /administration/ {
-		            alias /srv/www/calvin.edu/csweb/app/static/administration/;
-		            autoindex on;
-		        }
-		        location /department/ {
-		            auth_basic "Department Login";
-		            auth_basic_user_file /srv/www/calvin.edu/.htpasswd;
-		            alias /srv/www/calvin.edu/csweb/app/static/department/;
-		            autoindex on;
-		        }
-		        # Restrict access to all files with names staring with .*
-		        location ~ /\. { deny all; }
-	        }
-	Questions:
-		- I'm not sure why the config serves up /images properly. - kvlinden, 12aug2014
-		- Should we set up an HTTPS server? There is code in the config that appears to do this.
+	    See utils/nginx.conf
 
 
 ---------------------------------------------------------------------
