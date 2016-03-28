@@ -1,31 +1,43 @@
+See the department Confluence page for system notes:
+    https://wiki.calvin.edu/pages/viewpage.action?pageId=26411289
+
 Configuring and Running CSWeb
-I generally followed these instructions to configure the system tools:
+- I generally followed these instructions to configure the system tools:
 	http://www.eightytwo.com.au/notes/linux/webserver-setup-guide/
-	See the notes below for special handling.
+	https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04
 
 Machines:
 - cs.calvin.edu (153.106.116.6)
     the production server
-    CS password access (no public key access via Bitvise for some reason)
+    CS password access (no public key access via Bitvise yet - Chris plans to change this)
     Still on Ubuntu 12.
 - cs-dev.cs.calvin.edu (153.106.116.18)
     the development server
-    public key access via Bitvise (no password access for some reason)
+    public key access via Bitvise (use public key stored in Bitvise under short standard passwd + bitvise).
     Questions:
         Why is the system pre-loaded with student accounts? This should be a cs.calvin.edu development server only.
 
-
-To reload/restart the web service, run deploy_prod.py from a machine that can access the server.
 Useful commands:
 	netstat -lnptu
 	ps -aux
-Reboot script (?):
-	/etc/init.d/mongodb start
-	/etc/init.d/nginx start	
-	/etc/init.d/uwsgi start	
 
-Notes on the system tools
+Tools
+- Mongo 3.2 (create the csweb users to authenticate/authorize on the csweb db. See the Confluence page).
+    mongo -u csweb -p PASSWD
+        use csweb
+        show collections
+        db.COLLECTION.find()
+        exit
 
+- Nginx
+
+- uWSGI
+
+- Flask
+
+
+
+Old Tool Notes
 ---------------------------------------------------------------------
 - Mongo: 2.4.9
 	Installed MongoDB as shown here: 

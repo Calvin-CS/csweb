@@ -27,6 +27,8 @@ class Config(object):
 
 class ProductionConfig(Config):
     MONGO_DBNAME = 'csweb'
+    MONGO_USERNAME = 'csweb'
+    MONGO_PASSWORD = 'bjarne'
     # Don't create a database now; the production server uses the production
     # database, which should already be running.
     DATA = None
