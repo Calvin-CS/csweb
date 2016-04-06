@@ -23,8 +23,7 @@ Useful commands:
 
 Tools
 - Mongo 3.2 (create the csweb users to authenticate/authorize on the csweb db. See the Confluence page).
-    mongo -u csweb -p PASSWD
-        use csweb
+    mongo -u csweb -p COURSE_PASSWD csweb
         show collections
         db.COLLECTION.find()
         exit

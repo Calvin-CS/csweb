@@ -3,7 +3,7 @@
 
 option batch abort
 option confirm off
-open sftp://root@153.106.116.6
+open sftp://kvlinden@153.106.116.18
 
 # Copy the files over.
 put C:\projects\csweb\csweb\run_*.py /srv/www/calvin.edu/csweb/
