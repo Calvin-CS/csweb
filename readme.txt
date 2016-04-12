@@ -16,6 +16,13 @@ Machines:
     public key access via Bitvise (use public key stored in Bitvise under short standard passwd + bitvise).
     Questions:
         Why is the system pre-loaded with student accounts? This should be a cs.calvin.edu development server only.
+- teamcity.cs.calvin.edu
+    TeamCity server
+    Access using kvlinden department login and configure via TC's web interface.
+- teamcityba-1.cs.calvin.edu
+    TeamCity build agent
+    Should be configured in the same way as {cs|cs.dev}.calvin.edu.
+    Eventually, we'll add cs262-dev/teamcityba-2 pair for cs262 projects (i.e., PostgresSQL, J2EE, etc.).
 
 Useful commands:
 	netstat -lnptu
@@ -34,7 +41,8 @@ Tools
 
 - Flask
 
-
+- TeamCity
+    Use Ant for deployment for now. Gradle is designed for Java (CS 262?)
 
 Old Tool Notes
 ---------------------------------------------------------------------
