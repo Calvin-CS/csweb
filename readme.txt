@@ -20,9 +20,8 @@ Machines:
     TeamCity server
     Access using kvlinden department login and configure via TC's web interface.
 - teamcityba-1.cs.calvin.edu
-    TeamCity build agent
+    TeamCity build agent - see the build script in build/build.xml.
     Should be configured in the same way as {cs|cs.dev}.calvin.edu.
-    Eventually, we'll add cs262-dev/teamcityba-2 pair for cs262 projects (i.e., PostgresSQL, J2EE, etc.).
 
 Useful commands:
 	netstat -lnptu
@@ -43,6 +42,19 @@ Tools
 
 - TeamCity
     Use Ant for deployment for now. Gradle is designed for Java (CS 262?)
+    We set the ${upload.credentials} and ${upload.destination} parameters in TC so that we don't need to store them in the build scripts or on the build agent.
+	    They should be set with the proper public keys, etc.
+    Hirt built a bauser account on ba-1 and on cs-dev solely for the purpose of deploying files.
+    Eventually, we'll add cs262-dev/teamcityba-2 pair for cs262 projects (i.e., PostgresSQL, J2EE, etc.).
+    Add an ssh command spec for the build.xml file that runs arbitrary commands needed to kick uwsgi...
+        ssh bauser@cs-dev "the command"
+    and add this to build.xml
+	    <target name="upload" depends="package">
+		    <exec dir="${build.uploadPath}" executable="ssh" failonerror="true">
+			    <arg value="${upload.credentials}" />
+			    <arg value="the command" />
+		    </exec>
+	    </target>
 
 Old Tool Notes
 ---------------------------------------------------------------------
