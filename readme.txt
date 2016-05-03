@@ -20,8 +20,9 @@ Machines:
     TeamCity server
     Access using kvlinden department login and configure via TC's web interface.
 - teamcityba-1.cs.calvin.edu
-    TeamCity build agent - see the build script in build/build.xml.
+    TeamCity build agent
     Should be configured in the same way as {cs|cs.dev}.calvin.edu.
+        Eventually, we'll add cs262-dev/teamcityba-2 pair for cs262 projects (i.e., PostgresSQL, J2EE, etc.).
 
 Useful commands:
 	netstat -lnptu
@@ -41,20 +42,32 @@ Tools
 - Flask
 
 - TeamCity
-    Use Ant for deployment for now. Gradle is designed for Java (CS 262?)
-    We set the ${upload.credentials} and ${upload.destination} parameters in TC so that we don't need to store them in the build scripts or on the build agent.
-	    They should be set with the proper public keys, etc.
-    Hirt built a bauser account on ba-1 and on cs-dev solely for the purpose of deploying files.
-    Eventually, we'll add cs262-dev/teamcityba-2 pair for cs262 projects (i.e., PostgresSQL, J2EE, etc.).
-    Add an ssh command spec for the build.xml file that runs arbitrary commands needed to kick uwsgi...
-        ssh bauser@cs-dev "the command"
-    and add this to build.xml
-	    <target name="upload" depends="package">
-		    <exec dir="${build.uploadPath}" executable="ssh" failonerror="true">
-			    <arg value="${upload.credentials}" />
-			    <arg value="the command" />
-		    </exec>
-	    </target>
+    Build agent is specified here: TC->projects->DeptWebsite->CompatibleAgents
+        ->Details
+            hostname, IP, port, etc.
+    Build configuration is specified here: TC->projects->DeptWebsite->Settings
+        ->VCSettings
+            specified a VCroot:
+                URL: https://github.com/Calvin-CS/csweb.git
+                branch: refs/heads/development
+        ->BuildStep:Ant
+            specifies the runner type (ant) and the build file (/build/build.xml)
+                Needs to include command to kick uWSGI on cs-dev
+                    ssh bauser@cs-dev "the command"
+                as follows:
+	                <target name="upload" depends="package">
+        		        <exec dir="${build.uploadPath}" executable="ssh" failonerror="true">
+		        	        <arg value="${upload.credentials}" />
+			                <arg value="the command" />
+        		        </exec>
+        	        </target>
+            Use Ant for deployment for now; Gradle is designed for Java (CS 262?)
+        ->Triggers
+            specifies default trigger for build (on checkin to VCSroot)
+        ->Parameters (specified here rather than in build.xml so that they don't get uploaded to GitHub)
+            ${upload.credentials} (NB. Hirt built a bauser account on ba-1 and on cs-dev solely for the purpose of deploying files.)
+            ${upload.destination} (i.e., the development server, bauser@cs-dev:/srv/www/calvin.edu/csweb (needs to change))
+
 
 Old Tool Notes
 ---------------------------------------------------------------------
