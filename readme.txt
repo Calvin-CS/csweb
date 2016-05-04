@@ -16,15 +16,6 @@ Machines:
     public key access via Bitvise (use public key stored in Bitvise under short standard passwd + bitvise).
     Questions:
         Why is the system pre-loaded with student accounts? This should be a cs.calvin.edu development server only.
-        How should we handle the production database?
-            Scripts will copy the current version of the database from the production server to this server.
-            Process for csweb db upgrade:
-                1. Turn off the db copy (prod->dev) script (or at least ensure that it won't run during testing/deployment).
-                2. Deploy new csweb to cs-dev.
-                3. Modify the dev machine's copy of the current db for the new structure required by the new csweb.
-                4. Manually copy the dev machine's db to the production machine.
-                5. Deploy new csweb to cs.
-                6. Turn of the db copy (prod->dev) script.
 - teamcity.cs.calvin.edu
     TeamCity server
     Access using kvlinden department login and configure via TC's web interface.
@@ -43,6 +34,15 @@ Tools
         show collections
         db.COLLECTION.find()
         exit
+    How should we handle the production database?
+        Scripts will copy the current version of the database from the production server to this server.
+        Process for csweb db upgrade:
+            1. Turn off the db copy (prod->dev) script (or at least ensure that it won't run during testing/deployment).
+            2. Deploy new csweb to cs-dev.
+            3. Modify the dev machine's copy of the current db for the new structure required by the new csweb.
+            4. Manually copy the dev machine's db to the production machine.
+            5. Deploy new csweb to cs.
+            6. Turn of the db copy (prod->dev) script.
 
 - Nginx
 
@@ -56,24 +56,29 @@ Tools
         master - basic work
         development - TC auto-deploys this branch to cs-dev.cs.calvin.edu (the development server)
         production - TC auto-deploys this branch to cs.calvin.edu (the live production server)
-    To deploy development (or production) version
+    To deploy development version:
         1. Develop new features on master (or other work) branches.
-        2. Merge current master version into the development (or production) branch.
-        3. Commit/push development (or production) branch to GitHub.
+        2. Merge current master version into the development branch.
+        3. Commit/push development branch to GitHub.
+    To deploy the production version:
+        1. Make sure that all the key changes made to the development branch are merged back into master.
+        2. Repeat the deployment process listed above but target the production branch.
 
 - TeamCity
     Build agent is specified here: TC->projects->DeptWebsite->CompatibleAgents
         ->Details
             hostname, IP, port, etc.
-        TC must configure system/file access to this agent automatically.
+        TC appears to configure system/file access to this agent automatically.
     Build configuration is specified here: TC->projects->DeptWebsite->Settings
         ->VCSettings
             specified a VCroot:
                 URL: https://github.com/Calvin-CS/csweb.git
                 branch: refs/heads/development
         ->BuildStep:Ant
-            specifies the runner type (ant) and the build file (/build/build.xml)
-                Needs to include command to kick uWSGI on cs-dev
+            Specifies the runner type (ant) and the steps in the build process.
+                For now, the build agent will simply download code from GitHub, copy it to cs-dev and restart the cs-dev servers.
+                This can be done with a single Ant script target based on the build file (build/build.xml).
+                Ant script needs to include command to kick uWSGI on cs-dev
                     ssh bauser@cs-dev "the command"
                 as follows:
 	                <target name="upload" depends="package">
