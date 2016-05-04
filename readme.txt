@@ -50,12 +50,16 @@ Tools
 
 - Flask
 
-- GitHub
+- Git/GitHub
     https://github.com/Calvin-CS/csweb
     Branches:
         master - basic work
         development - TC auto-deploys this branch to cs-dev.cs.calvin.edu (the development server)
         production - TC auto-deploys this branch to cs.calvin.edu (the live production server)
+    To deploy development (or production) version
+        1. Develop new features on master (or other work) branches.
+        2. Merge current master version into the development (or production) branch.
+        3. Commit/push development (or production) branch to GitHub.
 
 - TeamCity
     Build agent is specified here: TC->projects->DeptWebsite->CompatibleAgents
