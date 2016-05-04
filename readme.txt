@@ -23,6 +23,9 @@ Machines:
     TeamCity build agent
     Should be configured in the same way as {cs|cs.dev}.calvin.edu.
         Eventually, we'll add cs262-dev/teamcityba-2 pair for cs262 projects (i.e., PostgresSQL, J2EE, etc.).
+- Note that the cs, cs-dev and teamcityba servers need a bauser account that can
+    write to the appropriate directories
+    restart the servers
 
 Useful commands:
 	netstat -lnptu
