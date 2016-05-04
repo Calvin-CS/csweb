@@ -16,6 +16,15 @@ Machines:
     public key access via Bitvise (use public key stored in Bitvise under short standard passwd + bitvise).
     Questions:
         Why is the system pre-loaded with student accounts? This should be a cs.calvin.edu development server only.
+        How should we handle the production database?
+            Scripts will copy the current version of the database from the production server to this server.
+            Process for csweb db upgrade:
+                1. Turn off the db copy (prod->dev) script (or at least ensure that it won't run during testing/deployment).
+                2. Deploy new csweb to cs-dev.
+                3. Modify the dev machine's copy of the current db for the new structure required by the new csweb.
+                4. Manually copy the dev machine's db to the production machine.
+                5. Deploy new csweb to cs.
+                6. Turn of the db copy (prod->dev) script.
 - teamcity.cs.calvin.edu
     TeamCity server
     Access using kvlinden department login and configure via TC's web interface.
@@ -41,10 +50,18 @@ Tools
 
 - Flask
 
+- GitHub
+    https://github.com/Calvin-CS/csweb
+    Branches:
+        master - basic work
+        development - TC auto-deploys this branch to cs-dev.cs.calvin.edu (the development server)
+        production - TC auto-deploys this branch to cs.calvin.edu (the live production server)
+
 - TeamCity
     Build agent is specified here: TC->projects->DeptWebsite->CompatibleAgents
         ->Details
             hostname, IP, port, etc.
+        TC must configure system/file access to this agent automatically.
     Build configuration is specified here: TC->projects->DeptWebsite->Settings
         ->VCSettings
             specified a VCroot:
