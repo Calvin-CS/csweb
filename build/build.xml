@@ -33,7 +33,7 @@
 
     <target name="restart">
        <exec dir="${build.output}" executable="ssh" failonerror="true">
-	       <arg value="bauser@cs-dev.cs.calvin.edu" />
+	       <arg value="${upload.credentials}" />
 	       <arg value="service uwsgi restart" />
        </exec>
     </target>
