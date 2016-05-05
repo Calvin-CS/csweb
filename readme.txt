@@ -13,19 +13,21 @@ Machines:
     Still on Ubuntu 12.
 - cs-dev.cs.calvin.edu (153.106.116.18)
     the development server
-    public key access via Bitvise (use public key stored in Bitvise under short standard passwd + bitvise).
+    public key access over Calvin VPN via Bitvise (see system notes for Bitvise).
     Questions:
         Why is the system pre-loaded with student accounts? This should be a cs.calvin.edu development server only.
 - teamcity.cs.calvin.edu
     TeamCity server
-    Access using kvlinden department login and configure via TC's web interface.
+    never logged into this - configure it via TC's web interface
 - teamcityba-1.cs.calvin.edu
     TeamCity build agent
-    Should be configured in the same way as {cs|cs.dev}.calvin.edu.
+    public key access over Calvin VPN via Bitvise
+    If we want to run unittests before deployment this server should be built in the same way as {cs|cs.dev}.calvin.edu.
         Eventually, we'll add cs262-dev/teamcityba-2 pair for cs262 projects (i.e., PostgresSQL, J2EE, etc.).
-- Note that the cs, cs-dev and teamcityba servers need a bauser account that can
+- Note that the cs, cs-dev (and teamcityba?) servers need a bauser account that can
     write to the appropriate directories
     restart the servers
+    See https://confluence.jetbrains.com/display/TCD9/Setting+up+and+Running+Additional+Build+Agents#SettingupandRunningAdditionalBuildAgents-Prerequisites
 
 Useful commands:
 	netstat -lnptu
