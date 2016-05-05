@@ -31,7 +31,14 @@
 		</exec>
 	</target>
 
-	<target name="deploy" depends="clean,copy,upload" />
+    <target name="restart">
+       <exec dir="${build.output}" executable="ssh" failonerror="true">
+	       <arg value="${upload.credentials}" />
+	       <arg value="service uwsgi restart" />
+       </exec>
+    </target>
+
+	<target name="deploy" depends="clean,copy,upload,restart" />
 
 
     <!-- Old Stuff from chirt -->
