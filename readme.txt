@@ -18,8 +18,7 @@ Machines:
         Why is the system pre-loaded with student accounts? This should be a cs.calvin.edu development server only.
 - teamcity.cs.calvin.edu
     TeamCity server
-    Access? I've installed public keys for both my machines on https://freeipa1.cs.calvin.edu but it only works at the office, not at home.
-    Configure via TC's web interface.
+    never logged into this - configure it via TC's web interface
 - teamcityba-1.cs.calvin.edu
     TeamCity build agent
     public key access over Calvin VPN via Bitvise
