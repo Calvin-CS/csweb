@@ -3,6 +3,10 @@
 
 	<property name="build.output" value="output" />
 
+	<target name="clean">
+		<delete dir="${build.output}" quiet="true" />
+	</target>
+
 	<target name="copy">
 		<copy todir="${build.output}/app">
 			<fileset dir="app"/>
@@ -22,12 +26,12 @@
 			<arg value="-vazHAX" />
 			<arg value="--delete-during" />
 			<arg value='--rsh=ssh -i ${upload.credentials}' />
-			<arg value="${build.output}/" />
+			<!-- <arg value="${build.output}/" /> -->
 			<arg value="${upload.destination}" />
 		</exec>
 	</target>
 
-	<target name="deploy" depends="copy,upload" />
+	<target name="deploy" depends="clean,copy,upload" />
 
 
     <!-- Old Stuff from chirt -->
@@ -37,10 +41,6 @@
 	<property name="build.uploadPath" value="${build.output}" />
 	<property name="build.packageFile" value="${build.output}/${application.name}.tgz" />
 
-	<target name="clean">
-		<delete dir="${build.output}" quiet="true" />
-	</target>
-		
 	<target name="version">
 		<property name="version" value="${build.number}" />
 		<echo>${version}</echo>
