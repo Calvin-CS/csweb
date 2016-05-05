@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE project>
-<project name="CSWeb" default="build" basedir="..">
+<project name="CSWeb" default="deploy" basedir="..">
+
+	<property name="build.output" value="output" />
+
+	<target name="copy">
+		<copy todir="${build.output}/app">
+			<fileset dir="app"/>
+		</copy>
+		<copy todir="${build.output}/data">
+			<fileset dir="data"/>
+		</copy>
+		<copy todir="${build.output}/utils">
+			<fileset dir="utils"/>
+		</copy>
+		<copy file="run_test.py" todir="${build.output}"/>
+		<copy file="run_prod.py" todir="${build.output}"/>
+    </target>
+
+	<target name="upload">
+		<exec dir="${build.output}" executable="rsync" failonerror="true">
+			<arg value="-vazHAX" />
+			<arg value="--delete-during" />
+			<arg value='--rsh=ssh -i ${upload.credentials}' />
+			<arg value="${build.output}/" />
+			<arg value="${upload.destination}" />
+		</exec>
+	</target>
+
+	<target name="deploy" depends="copy,upload" />
+
+
+    <!-- Old Stuff from chirt -->
 
 	<property name="application.name" value="csweb" />
-
 	<property name="build.number" value="0.0.0.0" />
-	<property name="build.output" value="output" />
+	<property name="build.uploadPath" value="${build.output}" />
 	<property name="build.packageFile" value="${build.output}/${application.name}.tgz" />
-
-	<property name="build.uploadPath" value="${build.output}/package/htdocs" />
 
 	<target name="clean">
 		<delete dir="${build.output}" quiet="true" />
@@ -59,25 +87,17 @@
 		</chgrp>
 		-->
 	</target>
-	
+
 	<target name="package" depends="clean,build-prepare,package-copyWeb" >
-		<tar 
+    <!--
+		<tar
 			destfile="${build.packageFile}"
 			basedir="${build.output}/package"
 			excludes="${build.packageFile}"
 			longfile="gnu"
 			compression="gzip" />
+	-->
 	</target>
-	
-	<target name="upload" depends="package">
-		<exec dir="${build.uploadPath}" executable="rsync" failonerror="true">
-			<arg value="-vazHAX" />
-			<arg value="--delete-during" />
-			<arg value='--rsh=ssh -i ${upload.credentials}' />
-			<arg value="${build.uploadPath}/" />
-			<arg value="${upload.destination}" />
-		</exec>
-	</target>
-	
+
 </project>
 
