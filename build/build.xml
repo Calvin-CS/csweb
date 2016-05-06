@@ -32,7 +32,7 @@
 		<exec dir="${build.output}" executable="rsync" failonerror="true">
 			<arg value="-vazHAX" />
 			<arg value="--delete-during" />
-			<arg value="--rsh='/usr/bin/ssh -i ${upload.credentials}'" />
+			<arg value="--rsh='ssh -i ${upload.credentials}'" />
 			<arg value="${build.output}/" />
 			<arg value="${upload.destination}" />
 		</exec>
