@@ -17,15 +17,22 @@
 		<copy todir="${build.output}/utils">
 			<fileset dir="utils"/>
 		</copy>
-		<copy file="run_test.py" todir="${build.output}"/>
-		<copy file="run_prod.py" todir="${build.output}"/>
+		<copy file="run_test.py*" todir="${build.output}"/>
+		<copy file="run_prod.py*" todir="${build.output}"/>
+    </target>
+
+    <target name="compile">
+       <exec dir="${build.output}" executable="/usr/local/TeamCityBuildAgent/work/venv/bin/python" failonerror="true">
+	       <arg value="-m compileall" />
+	       <arg value="." />
+       </exec>
     </target>
 
 	<target name="upload">
 		<exec dir="${build.output}" executable="rsync" failonerror="true">
 			<arg value="-vazHAX" />
 			<arg value="--delete-during" />
-			<arg value='--rsh=ssh -i ${upload.credentials}' />
+			<arg value="--rsh='ssh -i ${upload.credentials}'" />
 			<!-- <arg value="${build.output}/" /> -->
 			<arg value="${upload.destination}" />
 		</exec>
@@ -33,12 +40,13 @@
 
     <target name="restart">
        <exec dir="${build.output}" executable="ssh" failonerror="true">
-	       <arg value="${upload.credentials}" />
-	       <arg value="service uwsgi restart" />
+	       <arg value="-i ${upload.credentials}" />
+	       <arg value="${upload.user}" />
+	       <arg value="'sudo service uwsgi restart'" />
        </exec>
     </target>
 
-	<target name="deploy" depends="clean,copy,upload,restart" />
+	<target name="deploy" depends="clean,copy,compile,upload,restart" />
 
 
     <!-- Old Stuff from chirt -->
