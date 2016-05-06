@@ -23,7 +23,7 @@
 
     <target name="compile">
        <exec dir="${build.output}" executable="/usr/local/TeamCityBuildAgent/work/venv/bin/python" failonerror="true">
-	       <arg value="-m compileall" />
+	       <arg value="-m compileall " />
 	       <arg value="." />
        </exec>
     </target>
