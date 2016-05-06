@@ -33,7 +33,7 @@
 			<arg value="-vazHAX" />
 			<arg value="--delete-during" />
 			<arg value="--rsh='ssh -i ${upload.credentials}'" />
-			<!-- <arg value="${build.output}/" /> -->
+			<arg value="${build.output}/" />
 			<arg value="${upload.destination}" />
 		</exec>
 	</target>
