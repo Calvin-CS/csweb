@@ -46,7 +46,7 @@
        </exec>
     </target>
 
-	<target name="deploy" depends="clean,copy,compile,restart" />
+	<target name="deploy" depends="clean,copy,compile,upload,restart" />
 
 
     <!-- Old Stuff from chirt -->
