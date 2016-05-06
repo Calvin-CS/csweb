@@ -2,6 +2,7 @@
 <project name="CSWeb" default="deploy" basedir="..">
 
 	<property name="build.output" value="output" />
+	<property name="venv.python" value="/usr/local/TeamCityBuildAgent/work/venv/bin/python" />
 
 	<target name="clean">
 		<delete dir="${build.output}" quiet="true" />
@@ -22,9 +23,8 @@
     </target>
 
     <target name="compile">
-       <exec dir="${build.output}" executable="/usr/local/TeamCityBuildAgent/work/venv/bin/python" failonerror="true">
-	       <arg value="-m compileall " />
-	       <arg value="." />
+       <exec dir="${build.output}" executable="${venv.python}" failonerror="true">
+	       <arg line="-m compileall ." />
        </exec>
     </target>
 
