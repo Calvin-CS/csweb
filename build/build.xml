@@ -17,8 +17,8 @@
 		<copy todir="${build.output}/utils">
 			<fileset dir="utils"/>
 		</copy>
-		<copy file="run_test.py*" todir="${build.output}"/>
-		<copy file="run_prod.py*" todir="${build.output}"/>
+		<copy file="run_test.py" todir="${build.output}"/>
+		<copy file="run_prod.py" todir="${build.output}"/>
     </target>
 
     <target name="compile">
