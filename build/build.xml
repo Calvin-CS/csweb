@@ -39,9 +39,7 @@
 	</target>
 
     <target name="restart">
-       <exec dir="${build.output}" executable="echo" failonerror="true">
-	       <arg line="$USER" />
-       </exec>
+        <echo message="testing: $USER"/>
         <!--
        <exec dir="${build.output}" executable="ssh" failonerror="true">
 	       <arg value="-i ${upload.credentials}" />
