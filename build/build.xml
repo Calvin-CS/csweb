@@ -39,10 +39,12 @@
 	</target>
 
     <target name="restart">
-       <exec dir="${build.output}" executable="sudo ssh" failonerror="true">
+       <exec dir="${build.output}" executable="ssh" failonerror="true">
 	       <arg value="-i ${upload.credentials}" />
+	       <!--
 	       <arg value="${upload.user}" />
 	       <arg value="sudo service uwsgi restart" />
+	       -->
        </exec>
     </target>
 
