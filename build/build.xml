@@ -39,7 +39,7 @@
 	</target>
 
     <target name="restart">
-        <echo message="testing: $USER"/>
+        <exec executable="whoami" />
         <!--
        <exec dir="${build.output}" executable="ssh" failonerror="true">
 	       <arg value="-i ${upload.credentials}" />
