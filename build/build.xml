@@ -30,7 +30,7 @@
 
 	<target name="upload">
 		<exec dir="${build.output}" executable="rsync" failonerror="true">
-			<arg value="-vazOHAX" />
+			<arg value="-vazHAX" />
 			<arg value="--delete-during" />
 			<arg value="-e ssh -i ${upload.credentials}" />
 			<arg value="." />
