@@ -49,7 +49,6 @@
 	<target name="deploy" depends="clean,copy,compile,upload,restart" />
 
 
-
     <!-- Old Stuff from chirt -->
 
 	<property name="application.name" value="csweb" />
