@@ -39,11 +39,16 @@
 	</target>
 
     <target name="restart">
+       <exec dir="${build.output}" executable="echo" failonerror="true">
+	       <arg value="$USER" />
+       </exec>
+        <!--
        <exec dir="${build.output}" executable="ssh" failonerror="true">
 	       <arg value="-i ${upload.credentials}" />
 	       <arg value="${upload.user}" />
 	       <arg value="sudo service uwsgi restart" />
        </exec>
+       -->
     </target>
 
 	<target name="deploy" depends="clean,copy,compile,upload,restart" />
