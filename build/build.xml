@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE project>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
 <project name="CSWeb" default="deploy" basedir="..">
 
 	<property name="build.output" value="output" />
@@ -34,83 +35,17 @@
 			<arg value="--delete-during" />
 			<arg value="-e ssh -i ${upload.credentials}" />
 			<arg value="." />
-			<arg value="${upload.destination}" />
+			<arg value="${upload.dev.destination}" />
 		</exec>
 	</target>
 
     <target name="restart">
        <exec dir="${build.output}" executable="ssh" failonerror="true">
-           <arg line="-i ${upload.credentials} ${upload.user} sudo service uwsgi restart"/>
+           <arg line="-i ${upload.credentials} ${upload.dev.user} sudo service uwsgi restart"/>
        </exec>
     </target>
 
 	<target name="deploy" depends="clean,copy,compile,upload,restart" />
-
-
-    <!-- Old Stuff from chirt -->
-
-	<property name="application.name" value="csweb" />
-	<property name="build.number" value="0.0.0.0" />
-	<property name="build.uploadPath" value="${build.output}" />
-	<property name="build.packageFile" value="${build.output}/${application.name}.tgz" />
-
-	<target name="version">
-		<property name="version" value="${build.number}" />
-		<echo>${version}</echo>
-	</target>
-	
-	<target name="build-prepare">
-		<mkdir dir="${build.output}" />
-		<mkdir dir="${build.uploadPath}" />
-	</target>
-
-	<target name="build" />
-
-	<target name="test-python" depends="">
-		<exec dir="test" executable="python">
-			<arg value="-m" />
-			<arg value="unittest" />
-			<arg file="run_test" />
-		</exec>
-	</target>
-
-	<target name="test">
-		<antcall target="test-python" />
-	</target>
-	
-	<target name="package-copyWeb" depends="build-prepare,version">
-		<copy todir="${build.uploadPath}/app">
-			<fileset dir="app"/>
-		</copy>
-		<copy todir="${build.uploadPath}/data">
-			<fileset dir="data"/>
-		</copy>
-		<copy todir="${build.uploadPath}/utils">
-			<fileset dir="utils"/>
-		</copy>
-		<copy file="run_test.py" todir="${build.uploadPath}"/>
-		<copy file="run_prod.py" todir="${build.uploadPath}"/>
-
-		<!--
-		<chgrp type="both" group="www-data">
-			<dirset dir="${build.uploadPath}" />
-			<fileset dir="${build.uploadPath}" >
-			    <include name="**/*"/>
-			</fileset>
-		</chgrp>
-		-->
-	</target>
-
-	<target name="package" depends="clean,build-prepare,package-copyWeb" >
-    <!--
-		<tar
-			destfile="${build.packageFile}"
-			basedir="${build.output}/package"
-			excludes="${build.packageFile}"
-			longfile="gnu"
-			compression="gzip" />
-	-->
-	</target>
 
 </project>
 

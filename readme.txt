@@ -70,6 +70,7 @@ Tools
         2. Repeat the deployment process listed above but target the production branch.
 
 - TeamCity
+    https://wiki.calvin.edu/pages/viewpage.action?pageId=27067013
     Build agent is specified here: TC->projects->DeptWebsite->CompatibleAgents
         ->Details
             hostname, IP, port, etc.
@@ -96,8 +97,8 @@ Tools
         ->Triggers
             specifies default trigger for build (on checkin to VCSroot)
         ->Parameters (specified here rather than in build.xml so that they don't get uploaded to GitHub)
-            ${upload.credentials} (NB. Hirt built a bauser account on ba-1 and on cs-dev solely for the purpose of deploying files.)
-            ${upload.destination} (i.e., the development server, bauser@cs-dev:/srv/www/calvin.edu/csweb (needs to change))
+            These specify the users and paths for the dev/prod deployments.
+            I may need to create a second bauser@cs.calvin.edu key on teamcityba-1.
 
 
 Old Tool Notes
