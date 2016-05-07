@@ -40,7 +40,7 @@
 
     <target name="restart">
        <exec dir="${build.output}" executable="echo" failonerror="true">
-	       <line value="$USER" />
+	       <arg line="$USER" />
        </exec>
         <!--
        <exec dir="${build.output}" executable="ssh" failonerror="true">
