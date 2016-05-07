@@ -42,7 +42,7 @@
        <exec dir="${build.output}" executable="ssh" failonerror="true">
 	       <arg value="-i ${upload.credentials}" />
 	       <arg value="${upload.user}" />
-	       <arg value="sudo service uwsgi restart" />
+	       <arg value="service uwsgi restart" />
        </exec>
     </target>
 
