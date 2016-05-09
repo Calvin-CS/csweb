@@ -55,6 +55,9 @@
        <exec dir="${build.output}" executable="ssh" failonerror="true">
            <arg line="-i ${upload.credentials} ${upload.user} sudo systemctl restart uwsgi"/>
        </exec>
+       <exec dir="${build.output}" executable="ssh" failonerror="true">
+           <arg line="-i ${upload.credentials} ${upload.user} sudo chmod g+s ."/>
+       </exec>
     </target>
 
 	<target name="deploy" depends="clean,copy,compile,upload,restart" />
