@@ -84,21 +84,12 @@ Tools
             Specifies the runner type (ant) and the steps in the build process.
                 For now, the build agent will simply download code from GitHub, copy it to cs-dev and restart the cs-dev servers.
                 This can be done with a single Ant script target based on the build file (build/build.xml).
-                Ant script needs to include command to kick uWSGI on cs-dev
-                    ssh bauser@cs-dev "the command"
-                as follows:
-	                <target name="upload" depends="package">
-        		        <exec dir="${build.uploadPath}" executable="ssh" failonerror="true">
-		        	        <arg value="${upload.credentials}" />
-			                <arg value="the command" />
-        		        </exec>
-        	        </target>
+                The process also needed to set and preserve the group sticky bit for app/static and to retain all the existing static files.
             Use Ant for deployment for now; Gradle is designed for Java (CS 262?)
         ->Triggers
             specifies default trigger for build (on checkin to VCSroot)
         ->Parameters (specified here rather than in build.xml so that they don't get uploaded to GitHub)
             These specify the users and paths for the dev/prod deployments.
-            I may need to create a second bauser@cs.calvin.edu key on teamcityba-1.
 
 
 Old Tool Notes
