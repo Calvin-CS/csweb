@@ -48,4 +48,3 @@
 	<target name="deploy" depends="clean,copy,compile,upload,restart" />
 
 </project>
-
