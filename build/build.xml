@@ -33,7 +33,9 @@
 		<exec dir="${build.output}" executable="rsync" failonerror="true">
 			<arg value="-vazHAX" />
             <arg value="--dry-run" />
-            <arg value="--exclude-from='build/exclude.txt'" />
+            <arg value="--exclude=.htpasswd" />
+            <arg value="--exclude=html/" />
+            <arg value="--exclude=app/static/" />
 			<arg value="--delete-during" />
 			<arg value="-e ssh -i ${upload.credentials}" />
 			<arg value="." />
