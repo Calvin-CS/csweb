@@ -49,10 +49,6 @@
 			<arg value="." />
 			<arg value="${upload.destination}/app/static" />
 		</exec>
-        <!-- (Re)Set the group sticky bit on app/static. -->
-       <exec dir="${build.output}" executable="ssh" failonerror="true">
-           <arg line="-i ${upload.credentials} ${upload.user} sudo chmod g+s ."/>
-       </exec>
 	</target>
 
     <target name="restart">
