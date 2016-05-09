@@ -13,6 +13,10 @@
 		<copy todir="${build.output}/app">
 			<fileset dir="app"/>
 		</copy>
+        <!-- Set the group-sticky bits on ./app/static. -->
+        <chmod file="${upload.destination}" perm="g+s"/>
+        <chmod file="${upload.destination}/app" perm="g+s"/>
+        <chmod file="${upload.destination}/app/static" perm="g+s"/>
 		<copy todir="${build.output}/data">
 			<fileset dir="data"/>
 		</copy>
@@ -32,7 +36,7 @@
 	<target name="upload">
         <!-- First, copy the non-static files, deleting removed destination files. -->
 		<exec dir="${build.output}" executable="rsync" failonerror="true">
-			<arg value="-vazHAX" />
+			<arg value="-vazpHAX" />
             <!-- I couldn't configure the location of the exclude file properly, so I hard-coded them here. -->
             <arg value="--exclude=.htpasswd" />
             <arg value="--exclude=html/" />
@@ -44,15 +48,11 @@
 		</exec>
         <!-- Now, copy the static files, without deleting existing destination files. -->
 		<exec dir="${build.output}/app/static" executable="rsync" failonerror="true">
-			<arg value="-vazHAX" />
+			<arg value="-vazpHAX" />
 			<arg value="-e ssh -i ${upload.credentials}" />
 			<arg value="." />
 			<arg value="${upload.destination}/app/static" />
 		</exec>
-        <!-- Set the group-sticky bits on ./app/static. -->
-        <chmod file="." perm="g+s"/>
-        <chmod file="./app" perm="g+s"/>
-        <chmod file="./app/static" perm="g+s"/>
 	</target>
 
     <target name="restart">
