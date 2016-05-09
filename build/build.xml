@@ -22,9 +22,9 @@
 		<copy file="run_test.py" todir="${build.output}"/>
 		<copy file="run_prod.py" todir="${build.output}"/>
         <!-- Set the group-sticky bits on ./app/static. -->
-        <chmod file="${build.output}" perm="g+s"/>
-        <chmod file="${build.output}/app" perm="g+s"/>
-        <chmod file="${build.output}/app/static" perm="g+s"/>
+        <chmod dir="${build.output}" perm="g+s"/>
+        <chmod dir="${build.output}/app" perm="g+s"/>
+        <chmod dir="${build.output}/app/static" perm="g+s"/>
     </target>
 
     <target name="compile">
