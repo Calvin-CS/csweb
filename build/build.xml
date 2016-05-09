@@ -35,13 +35,13 @@
 			<arg value="--delete-during" />
 			<arg value="-e ssh -i ${upload.credentials}" />
 			<arg value="." />
-			<arg value="${upload.dev.destination}" />
+			<arg value="${upload.destination}" />
 		</exec>
 	</target>
 
     <target name="restart">
        <exec dir="${build.output}" executable="ssh" failonerror="true">
-           <arg line="-i ${upload.credentials} ${upload.dev.user} sudo service uwsgi restart"/>
+           <arg line="-i ${upload.credentials} ${upload.user} sudo service uwsgi restart"/>
        </exec>
     </target>
 
