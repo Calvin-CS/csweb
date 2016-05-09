@@ -49,15 +49,16 @@
 			<arg value="." />
 			<arg value="${upload.destination}/app/static" />
 		</exec>
+        <!-- Set the group-sticky bits on ./app/static. -->
+        <chmod file="." perm="g+s"/>
+        <chmod file="./app" perm="g+s"/>
+        <chmod file="./app/static" perm="g+s"/>
 	</target>
 
     <target name="restart">
        <exec dir="${build.output}" executable="ssh" failonerror="true">
            <arg line="-i ${upload.credentials} ${upload.user} sudo systemctl restart uwsgi"/>
        </exec>
-        <chmod file="." perm="g+s"/>
-        <chmod file="./app" perm="g+s"/>
-        <chmod file="./app/static" perm="g+s"/>
     </target>
 
 	<target name="deploy" depends="clean,copy,compile,upload,restart" />
