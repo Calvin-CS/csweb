@@ -53,7 +53,7 @@
 
     <target name="restart">
        <exec dir="${build.output}" executable="ssh" failonerror="true">
-           <arg line="-i ${upload.credentials} ${upload.user} sudo chmod g+s ."/> <!-- systemctl restart uwsgi -->
+           <arg line="-i ${upload.credentials} ${upload.user} sudo systemctl restart uwsgi"/>
        </exec>
     </target>
 
