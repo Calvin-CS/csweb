@@ -13,10 +13,6 @@
 		<copy todir="${build.output}/app">
 			<fileset dir="app"/>
 		</copy>
-        <!-- Set the group-sticky bits on ./app/static. -->
-        <chmod file="${upload.destination}" perm="g+s"/>
-        <chmod file="${upload.destination}/app" perm="g+s"/>
-        <chmod file="${upload.destination}/app/static" perm="g+s"/>
 		<copy todir="${build.output}/data">
 			<fileset dir="data"/>
 		</copy>
@@ -25,6 +21,10 @@
 		</copy>
 		<copy file="run_test.py" todir="${build.output}"/>
 		<copy file="run_prod.py" todir="${build.output}"/>
+        <!-- Set the group-sticky bits on ./app/static. -->
+        <chmod file="${build.output}" perm="g+s"/>
+        <chmod file="${build.output}/app" perm="g+s"/>
+        <chmod file="${build.output}/app/static" perm="g+s"/>
     </target>
 
     <target name="compile">
