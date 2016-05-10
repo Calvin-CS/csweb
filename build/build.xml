@@ -5,6 +5,18 @@
 	<property name="build.output" value="output" />
 	<property name="venv.python" value="/usr/local/TeamCityBuildAgent/work/venv/bin/python" />
 
+    <target name="compile">
+       <exec dir="." executable="${venv.python}" failonerror="true">
+	       <arg line="-m compileall ." />
+       </exec>
+    </target>
+
+    <target name="test">
+       <exec dir="${build.output}" executable="${venv.python}" failonerror="true">
+	       <arg line="-m unittest run_test" />
+       </exec>
+    </target>
+
 	<target name="clean">
 		<delete dir="${build.output}" quiet="true" />
 	</target>
@@ -19,18 +31,11 @@
 		<copy todir="${build.output}/utils">
 			<fileset dir="utils"/>
 		</copy>
-		<copy file="run_test.py" todir="${build.output}"/>
 		<copy file="run_prod.py" todir="${build.output}"/>
         <!-- Set the group-sticky bits on ./app/static. -->
         <chmod dir="${build.output}" perm="g+s"/>
         <chmod dir="${build.output}/app" perm="g+s"/>
         <chmod dir="${build.output}/app/static" perm="g+s"/>
-    </target>
-
-    <target name="compile">
-       <exec dir="${build.output}" executable="${venv.python}" failonerror="true">
-	       <arg line="-m compileall ." />
-       </exec>
     </target>
 
 	<target name="upload">
@@ -61,6 +66,6 @@
        </exec>
     </target>
 
-	<target name="deploy" depends="clean,copy,compile,upload,restart" />
+	<target name="deploy" depends="compile,test,clean,copy,upload,restart" />
 
 </project>
