@@ -1,13 +1,13 @@
 '''
 This module loads the unit tests for csweb application so that they can be
-run-as-unittest in Eclipse/PyDev or, to see some error output that is not
+run as a Python test in PyCharm or, to see some error output that is not
 displayed by PUnit, run on the Linux command line using:
 
    venv/bin/python -m unittest run_test
 
 Each test uses a separate (but equal) database. MongoDB must be running.
 
-NB. Eclipse will discontinue console output if you uncheck
+NB. If using Eclipse/PyDev, Eclipse will discontinue console output if you uncheck
 Eclipse-'Run Configurations'-common-'Allocate Console', but this turns off
 the console output that can help debug runtime errors that mess up the
 testing.

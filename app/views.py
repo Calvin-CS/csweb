@@ -376,7 +376,7 @@ def contact():
     department = Departments.read_unit('cs')
     return display_content(
         form=form,
-        title='Contact Uss',
+        title='Contact Us',
         primary=department.get('contact'),
         sideTitle='Admissions at Calvin',
         sideContent='''<p>Interested in what Calvin has to offer?<br>
