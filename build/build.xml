@@ -12,7 +12,7 @@
     </target>
 
     <target name="test">
-       <exec dir="${build.output}" executable="${venv.python}" failonerror="true">
+       <exec dir="." executable="${venv.python}" failonerror="true">
 	       <arg line="-m unittest run_test" />
        </exec>
     </target>
