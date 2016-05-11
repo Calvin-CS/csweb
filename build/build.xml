@@ -32,7 +32,7 @@
 			<fileset dir="utils"/>
 		</copy>
 		<copy todir="${build.output}">
-            <fileset>
+            <fileset dir=".">
                 <include name="run_prod.py*" />
             </fileset>
         </copy>
