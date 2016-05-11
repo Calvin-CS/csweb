@@ -46,6 +46,7 @@
             <arg value="--exclude=.htpasswd" />
             <arg value="--exclude=html/" />
             <arg value="--exclude=app/static/" />
+            <arg value="--exclude=lost+found/" />
 			<arg value="--delete-during" />
 			<arg value="-e ssh -i ${upload.credentials}" />
 			<arg value="." />
