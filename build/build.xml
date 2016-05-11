@@ -31,7 +31,11 @@
 		<copy todir="${build.output}/utils">
 			<fileset dir="utils"/>
 		</copy>
-		<copy file="run_prod.py" todir="${build.output}"/>
+		<copy todir="${build.output}">
+            <fileset>
+                <include name="run_prod.py*" />
+            </fileset>
+        </copy>
         <!-- Set the group-sticky bits on ./app/static. -->
         <chmod dir="${build.output}" perm="g+s"/>
         <chmod dir="${build.output}/app" perm="g+s"/>
