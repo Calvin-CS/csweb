@@ -7,7 +7,7 @@ calling the refresh page.
 @author: David Dick, dad32
 @version:2015.03.07
 
-Replaced id/passwd with arguments -kvlinden, 11may2016
+Replaced id/passwd with command-line arguments -kvlinden, 11may2016
 
 '''
 

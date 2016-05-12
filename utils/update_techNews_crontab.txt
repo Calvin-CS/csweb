@@ -1,1 +1,1 @@
-0 5 * * * /srv/www/calvin.edu/csweb/utils/update_techNews.py > /dev/null 2>&1
+0 5 * * * /srv/www/calvin.edu/csweb/utils/update_techNews.py ID PASSWD > /dev/null 2>&1
