@@ -48,6 +48,18 @@ Tools
             4. Manually copy the dev machine's db to the production machine.
             5. Deploy new csweb to cs.
             6. Turn of the db copy (prod->dev) script.
+    To add a new user
+        1. Create a new encrypted password by adding this to dev.py and running run_dev
+            {'name': 'USER_ID', 'password': custom_app_context.encrypt('NEW_PASSWD')}
+            This encrypts the password as Mongo expects.
+        2. Get a copy of the encrypted version of the password by running this on a bash shell:
+            ./mongo.exe csweb_dev < test.js > test.out
+            Here, test.js contains the command db.users.find().
+            Copy the encrypted password from the output.
+        3. Go to cs-prod and insert a new user record into that Mongo using this command
+            db.users.insert({"name" : "USER_ID", "password" : "ENCRYPTED_PASSWORD"})
+        4. Remove the old user
+            db.users.remove({"name" : "OLD_ID"})
 
 - Nginx
 

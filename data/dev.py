@@ -1642,7 +1642,9 @@ followed by rapid growth as the market began responding to the demand for comput
           }],
 
         # users...
-        [{'name': 'calvin', 'password': custom_app_context.encrypt('h4bb2s')}],
+        [
+            {'name': 'calvin', 'password': custom_app_context.encrypt('h4bb2s')},
+        ],
 
         # images...
         [{'name': 'micwic2011',
