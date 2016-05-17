@@ -91,15 +91,14 @@ otherwise.
     <li><a href="/admin/news">News Articles</a></li>
     <li><a href="/admin/technews">Tech News</a></li>
     <li><a href="/admin/scholarships">Scholarships</a></li>
-    <li><a href="/departments/cs/edit">Edit this content</a></li>
-    <li><a href="/logout?next=http://cs.calvin.edu/">Logout</a></li>
+    {% if editable %}<li><a href="{{ editableUrl }}">Edit this content</a></li>{% endif %}
+    <li><a href="/logout?next=/">Logout</a></li>
 </ul>
 
 
 {# College Foundation Javascript  #}
 <script src="//www.calvin.edu/global/foundation/js/modernizr.js"></script>
-<script src="//www.calvin.edu/global/foundation/js/foundation.min.js"></script>
-<script src="//www.calvin.edu/global/foundation/js/app.js"></script>
+<script src="//www.calvin.edu/global/foundation/js/foundation.min.js"></script><script src="//www.calvin.edu/global/foundation/js/app.js"></script>
 
 </body>
 </html>
