@@ -11,7 +11,7 @@ function addConstructionBanner(flag) {
 
 function hideClassExercises(flag) {
 	if (flag) {
-		var exercises = document.querySelectorAll(".exercise");
+		var exercises = document.querySelectorAll(".exercise-hidden");
 		for (var i = 0; i < exercises.length; i++) {
 			console.log(exercises[i]);
 			document.body.removeChild(exercises[i]);
