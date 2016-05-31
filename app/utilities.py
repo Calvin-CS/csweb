@@ -92,10 +92,11 @@ def create_news_list(newsList,
                 content += newsItem.get('content')
             if includeLink:
                 link = newsItem.get('summary')
-                content += \
-                    ' <small>' + \
-                    '<a href= "' + link + '" target="_blank" class="external"> <em>read more...</em></a>' + \
-                    '</small>'
+                if link != None:
+                    content += \
+                        ' <small>' + \
+                        '<a href= "' + link + '" target="_blank" class="external"> <em>read more...</em></a>' + \
+                        '</small>'
             entry['subContent'] = content
             techNews.append(entry)
         else:
@@ -652,6 +653,9 @@ def create_techNewsarticle_list(news_articles):
         item = {}
 
         documentUrl = article.get('links')[0].get('href')
+        # Skip cases where there is no href specified. -kvlinden, 31man2016
+        if documentUrl == None:
+            break
         item['subContent'] = \
             '<div class = "article">' + \
             '<strong>' + article.get('title') + '</strong><br>' + \
