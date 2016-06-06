@@ -500,10 +500,12 @@ def create_scholarship_side(scholarship):
         result += scholarship.get('gpatext')
         result += '<br>'
     if scholarship.get('needpref') is not None:
-        if scholarship.get('needpref'):
+        if scholarship.get('needpref') == 'TRUE':
+            result += '<b>Financial need?:</b> Required<br>'
+        elif scholarship.get('needpref') == 'CONSIDERED':
             result += '<b>Financial need?:</b> Preferred<br>'
         else:
-            result += '<b>Financial need?:</b> Not required<br>'
+            result += '<b>Financial need?:</b> Not considered<br>'
     if scholarship.get('applicationprocess'):
         result += capitalize(scholarship.get('applicationprocess'))
     if scholarship.get('appInfo'):
