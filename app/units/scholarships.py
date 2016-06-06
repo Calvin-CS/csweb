@@ -182,6 +182,7 @@ class Scholarships(Unit, UnitForm):
         dataRaw = requests.get(url, verify=False).json()
         if dataRaw is not None:
             data = dataRaw['contentlets']
+            #print data
             if len(data) > 0:
                 return data[0]
         else:

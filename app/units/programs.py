@@ -49,7 +49,7 @@ class Programs(Unit, UnitForm):
         result = Unit.merge_records(
             cls.get_cit_data(name),
             g.mongo.db.programs.find_one({'name': name})
-            )
+        )
         if result:
             # Modify the course hyperlinks to link to our own pages.
             if 'majorCourses' in result:
@@ -78,7 +78,7 @@ class Programs(Unit, UnitForm):
         result = []
         # Read a master scholarships list to be used multiple times.
         scholarships = Scholarships.read_units()
-        for programName in ['bcs', 'bacs', 'bais', 'badc', 'bada']:
+        for programName in ['bcs', 'bacs', 'bais', 'badc']:
             program = cls.read_unit(programName, scholarships=scholarships)
             if program is not None:
                 result.append(program)
@@ -115,7 +115,7 @@ class Programs(Unit, UnitForm):
     cs2cit_program_name_mapping['bacs'] = 'BA.CPSC'
     cs2cit_program_name_mapping['bais'] = 'INSYS'
     cs2cit_program_name_mapping['badc'] = 'CASCS'
-#     cs2cit_program_name_mapping['bada'] = 'digital-art'
+    #     cs2cit_program_name_mapping['bada'] = 'digital-art'
 
     # CIT URL for program resources (set program name parameter) ...
     programUrlTemplate = 'https://upbeat.calvin.edu/api/content/render/false/type/json/query/+structureName:CcAcademicProgram%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcAcademicProgram.academicDepartment:*C*S*%20+languageId:1%20%20+deleted:false%20%20+CcAcademicProgram.academicProgramCode:{}%20+live:true/orderby/undefined%20desc'
@@ -139,7 +139,7 @@ class Programs(Unit, UnitForm):
 
         if dataRaw is None or \
                 not ('contentlets' in dataRaw) or \
-                len(dataRaw['contentlets']) < 1:
+                        len(dataRaw['contentlets']) < 1:
             return None
 
         # Return the actual data from the raw result.
@@ -150,31 +150,31 @@ class Programs(Unit, UnitForm):
         ('<h1>', '<h2>'), \
         ('</h1>', '</h2>'), \
         ('/academics/majors-minors/course-description.html?course=CS-',
-            '/courses/cs/'), \
+         '/courses/cs/'), \
         ('/academics/majors-minors/course-description.html?course=IS-',
-            '/courses/is/'), \
+         '/courses/is/'), \
         ('/academics/majors-minors/course-description.html?course=ENGR-',
-            'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ENGR-'), \
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ENGR-'), \
         ('/academics/majors-minors/course-description.html?course=MATH-',
-            'http://www.calvin.edu/academics/majors-minors/course-description.html?course=MATH-'), \
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=MATH-'), \
         ('/academics/majors-minors/course-description.html?course=BUS-',
-            'http://www.calvin.edu/academics/majors-minors/course-description.html?course=BUS-'), \
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=BUS-'), \
         ('/academics/majors-minors/course-description.html?course=ECON-',
-            'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ECON-'), \
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ECON-'), \
         ('/academics/majors-minors/course-description.html?course=ENGL-',
-            'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ENGL-'), \
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ENGL-'), \
         ('/academics/majors-minors/course-description.html?course=ARTS-',
-            'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ARTS-'), \
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ARTS-'), \
         ('/academics/majors-minors/course-description.html?course=CAS-',
-            'http://www.calvin.edu/academics/majors-minors/course-description.html?course=CAS-'), \
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=CAS-'), \
         ('/academics/majors-minors/course-description.html?course=ASTR-',
-            'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ASTR-'), \
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ASTR-'), \
         ('/academics/majors-minors/course-description.html?course=BIOL-',
-            'http://www.calvin.edu/academics/majors-minors/course-description.html?course=BIOL-'), \
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=BIOL-'), \
         ('/academics/majors-minors/course-description.html?course=CHEM-',
-            'http://www.calvin.edu/academics/majors-minors/course-description.html?course=CHEM-'), \
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=CHEM-'), \
         ('/academics/majors-minors/course-description.html?course=PHYS-',
-            'http://www.calvin.edu/academics/majors-minors/course-description.html?course=PHYS-')
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=PHYS-')
 
     @staticmethod
     def multiple_replacer(*key_values):
@@ -218,7 +218,7 @@ class Programs(Unit, UnitForm):
         # Only read the scholarship units if we haven't already done so.
         for scholarship in scholarships:
             if scholarship.get('programs') is None or \
-               programName not in scholarship.get('programs'):
+                            programName not in scholarship.get('programs'):
                 continue
             formatedText += '<li>'
             if scholarship.get('url'):
@@ -226,8 +226,8 @@ class Programs(Unit, UnitForm):
             else:
                 url = '/scholarships/' + scholarship.get('name')
             formatedText += '<strong>' + \
-                create_hyperlink(url, scholarship.get('title')) + \
-                '</strong>'
+                            create_hyperlink(url, scholarship.get('title')) + \
+                            '</strong>'
             formatedText += ' &ndash; '
             if scholarship.get('shortDescription') is not None:
                 formatedText += scholarship.get('shortDescription')
