@@ -78,7 +78,7 @@ class Programs(Unit, UnitForm):
         result = []
         # Read a master scholarships list to be used multiple times.
         scholarships = Scholarships.read_units()
-        for programName in ['bcs', 'bacs', 'bais', 'badc']:
+        for programName in ['bcs', 'bacs', 'bais', 'bads', 'badc']:
             program = cls.read_unit(programName, scholarships=scholarships)
             if program is not None:
                 result.append(program)
@@ -114,6 +114,7 @@ class Programs(Unit, UnitForm):
     cs2cit_program_name_mapping['bcs'] = 'BCS.CPSC'
     cs2cit_program_name_mapping['bacs'] = 'BA.CPSC'
     cs2cit_program_name_mapping['bais'] = 'INSYS'
+    cs2cit_program_name_mapping['bads'] = 'DS'
     cs2cit_program_name_mapping['badc'] = 'CASCS'
     #     cs2cit_program_name_mapping['bada'] = 'digital-art'
 
@@ -136,6 +137,7 @@ class Programs(Unit, UnitForm):
             return None
         # Get the data from the API and convert it to JSON.
         dataRaw = requests.get(url, verify=False).json()
+        print name, dataRaw
 
         if dataRaw is None or \
                 not ('contentlets' in dataRaw) or \
