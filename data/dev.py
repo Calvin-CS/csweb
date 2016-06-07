@@ -179,10 +179,12 @@ data = [
 <p></tr></table>
 '''      
       },
-     {'name': 'badc'
-      },
-     
-     {'name': 'bada',
+        {'name': 'badc'
+         },
+        {'name': 'bads'
+         },
+
+        {'name': 'bada',
       'title': 'Digital Art',
       'flavorTextForHeadline': '''Calvin&rsquo;s BA in digital art
                 is designed for students who have broad interests
