@@ -29,12 +29,12 @@ See ../base.html for a full description.
 		</section>
 	</div>
 	{% endif %}
-	
+
 {% if title %}
 <div class="row">
-	<div class="small-12 columns">
+	<section class="small-12 columns">
 		<h1>{{ title|safe }}</h1>
 		{% if subtitle %} <em>{{ subtitle|safe }}</em> {% endif %}
-	</div>
+	</section>
 </div>
 {% endif %} {% endif %}
