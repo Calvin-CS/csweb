@@ -160,6 +160,8 @@ class Programs(Unit, UnitForm):
          'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ENGR-'), \
         ('/academics/majors-minors/course-description.html?course=MATH-',
          'http://www.calvin.edu/academics/majors-minors/course-description.html?course=MATH-'), \
+        ('/academics/majors-minors/course-description.html?course=STAT-',
+         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=STAT-'), \
         ('/academics/majors-minors/course-description.html?course=BUS-',
          'http://www.calvin.edu/academics/majors-minors/course-description.html?course=BUS-'), \
         ('/academics/majors-minors/course-description.html?course=ECON-',
