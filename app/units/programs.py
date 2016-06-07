@@ -154,6 +154,8 @@ class Programs(Unit, UnitForm):
          '/courses/cs/'), \
         ('/academics/majors-minors/course-description.html?course=IS-',
          '/courses/is/'), \
+        ('/academics/majors-minors/course-description.html?course=DATA-',
+         '/courses/ds/'), \
         ('/academics/majors-minors/course-description.html?course=ENGR-',
          'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ENGR-'), \
         ('/academics/majors-minors/course-description.html?course=MATH-',
