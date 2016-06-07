@@ -137,7 +137,6 @@ class Programs(Unit, UnitForm):
             return None
         # Get the data from the API and convert it to JSON.
         dataRaw = requests.get(url, verify=False).json()
-        print name, dataRaw
 
         if dataRaw is None or \
                 not ('contentlets' in dataRaw) or \
