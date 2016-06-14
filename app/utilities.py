@@ -210,6 +210,7 @@ def create_course_tab_list(courseList, department):
         return [{'subContent': 'no courses found...'}]
     csCourses = ''
     isCourses = ''
+    dataCourses = ''
     interimCourses = ''
     for course in courseList:
         courseName = course.get('id')
@@ -229,14 +230,18 @@ def create_course_tab_list(courseList, department):
             csCourses += entry
         elif course.get('Prefix') == 'IS':
             isCourses += entry
+        elif course.get('Prefix') == 'DATA':
+            dataCourses += entry
     result = []
     result.append({'title': 'Computer Science',
                    'primaryContent': '<p>' + csCourses + '</p>'})
     result.append({'title': 'Information Systems',
                    'primaryContent': '<p>' + isCourses + '</p>'})
+    result.append({'title': 'Data Science',
+                   'primaryContent': '<p>' + dataCourses + '</p>'})
     result.append({'title': 'Interim',
                    'primaryContent': '<p>' + interimCourses + '</p>'})
-    result.append({'title': 'Annual Course Schedule',
+    result.append({'title': 'Schedule',
                    'primaryContent': department.get('courseSchedule')})
     return result
 
