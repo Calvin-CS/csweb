@@ -31,7 +31,7 @@ class People(Unit):
     @classmethod
     def read_units(cls):
         '''This method retrieves person data from CIT's database.'''
-        people = cls.get_cit_data('CPSC') + cls.get_cit_data('MATH')
+        people = cls.get_cit_data('CPSC') + cls.get_cit_data('MATH') + cls.get_cit_data('CIT')
         if people is None:
             return None
         for person in people:
