@@ -54,5 +54,6 @@ class Courses(Unit):
             if dataRaw is not None:
                 data = dataRaw['contentlets']
                 if len(data) > 0:
+                    #print data
                     return data
         return None
