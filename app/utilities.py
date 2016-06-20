@@ -253,12 +253,13 @@ def create_people_list(peopleList):
     else:
         peopleList.sort(cmp=None, key=lambda person: person.get('lastName'),
                         reverse=False)
+    print peopleList
     facultyList = []
     contributingList = []
     emeritiList = []
     staffList = []
     for person in peopleList:
-        if is_noncomputing_mathematician(person):
+        if is_noncomputing_mathematician(person) or is_noncomputing_cit(person):
             continue
         # Create a person list entry.
         entry = {}
@@ -266,11 +267,13 @@ def create_people_list(peopleList):
         entry.update(create_person_sub_content(person))
         entry.update(create_person_side_content(person))
         # Add the entry to the correct person list.
-        if 'Emeritus' in person.get('jobFunction'):
+        if 'Emeritus' in person.get('jobFunction', ''):
             emeritiList.append(entry)
-        elif 'MATH' in person.get('academicDepartment'):
+        elif 'MATH' in person.get('academicDepartment', ''):
             contributingList.append(entry)
-        elif 'Academic' in person.get('jobFunction'):
+        elif 'CIT' in person.get('academicDepartment', ''):
+            contributingList.append(entry)
+        elif 'Academic' in person.get('jobFunction', ''):
             facultyList.append(entry)
         else:
             staffList.append(entry)
@@ -292,6 +295,14 @@ def is_noncomputing_mathematician(person):
     return \
         person.get('academicDepartment') == 'MATH' and \
         person.get('lastName') not in ['Pruim', 'Stob', 'Fife']
+
+
+def is_noncomputing_cit(person):
+    '''Determine if this person is in CIT and is not
+    one of those professors that routinely teach computing-related courses.'''
+    return \
+        person.get('academicDepartment') == 'CIT' and \
+        person.get('lastName') not in ['Paige', 'Vedra', 'Fife']
 
 
 def create_person_image_content(person):
@@ -328,9 +339,9 @@ def create_person_side_content(person):
 def create_address_entry(person):
     '''Build an HTML-formatted address entry for the given person.'''
     return \
-        person.get('title') + '<br><br>' + \
-        person.get('telephone') + '<br>' + \
-        person.get('campusAddress') + ' ' + \
+        person.get('title', '') + '<br><br>' + \
+        person.get('telephone', '') + '<br>' + \
+        person.get('campusAddress', '') + ' ' + \
         create_hyperlink('http://www.calvin.edu/map/index.htm?building=NH',
                          'map') + '<br>'
 

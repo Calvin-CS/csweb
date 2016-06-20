@@ -54,9 +54,14 @@ a.github::after {
     background: url("/images/kvlinden/icons/github.gif") center right no-repeat transparent;
 }
 a.googleDocs::after {
-	content: ''; 
-	padding-left: 15px; 
+	content: '';
+	padding-left: 15px;
 	background: url("/images/kvlinden/icons/googleDocs.gif") center right no-repeat transparent;
+}
+a.mdn::after {
+	content: '';
+	padding-left: 15px;
+	background: url("/images/kvlinden/icons/mdn.gif") center right no-repeat transparent;
 }
 
 body {
