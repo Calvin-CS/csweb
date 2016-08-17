@@ -1950,9 +1950,15 @@ scholarships for all students, due in late January
            ''',
            'recipients':None,
            'appInfo': 'The rules and restrictions on these scholarships vary. Apply for them directly at the given websites.'
-           }
-          
-          ],
+           },
+
+         {'name': 'hommes', 'ordinal': 4},
+         {'name': 'grateful', 'ordinal': 4},
+         {'name': 'tools', 'ordinal': 4},
+         {'name': 'duthler', 'ordinal': 4},
+         {'name': 'ost', 'ordinal': 4},
+         {'name': 'spectrum', 'ordinal': 4},
+         ],
 
           # articles...
           [

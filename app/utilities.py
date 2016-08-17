@@ -433,7 +433,7 @@ def create_scholarships_list(scholarships):
             url = scholarship.get('url')
         else:
             try:
-                    url = '/scholarships/' + scholarship.get('name')
+                url = '/scholarships/' + scholarship.get('name')
             except:
                 url = '#'
         item['title'] = create_hyperlink(url, scholarship.get('title'))
