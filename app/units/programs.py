@@ -78,7 +78,7 @@ class Programs(Unit, UnitForm):
         result = []
         # Read a master scholarships list to be used multiple times.
         scholarships = Scholarships.read_units()
-        for programName in ['bcs', 'bacs', 'bais', 'bads', 'badc']:
+        for programName in ['bcs', 'cs', 'is', 'ds', 'dc']:
             program = cls.read_unit(programName, scholarships=scholarships)
             if program is not None:
                 result.append(program)
@@ -112,11 +112,11 @@ class Programs(Unit, UnitForm):
     # Mapping from our program IDs to CIT's names...
     cs2cit_program_name_mapping = {}
     cs2cit_program_name_mapping['bcs'] = 'BCS.CPSC'
-    cs2cit_program_name_mapping['bacs'] = 'BA.CPSC'
-    cs2cit_program_name_mapping['bais'] = 'INSYS'
-    cs2cit_program_name_mapping['bads'] = 'DS'
-    cs2cit_program_name_mapping['badc'] = 'CASCS'
-    #     cs2cit_program_name_mapping['bada'] = 'digital-art'
+    cs2cit_program_name_mapping['cs'] = 'BA.CPSC'
+    cs2cit_program_name_mapping['is'] = 'INSYS'
+    cs2cit_program_name_mapping['ds'] = 'DS'
+    cs2cit_program_name_mapping['dc'] = 'CASCS'
+    #cs2cit_program_name_mapping['bada'] = 'digital-art'
 
     # CIT URL for program resources (set program name parameter) ...
     programUrlTemplate = 'https://upbeat.calvin.edu/api/content/render/false/type/json/query/+structureName:CcAcademicProgram%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcAcademicProgram.academicDepartment:*C*S*%20+languageId:1%20%20+deleted:false%20%20+CcAcademicProgram.academicProgramCode:{}%20+live:true/orderby/undefined%20desc'

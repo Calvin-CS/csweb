@@ -18,20 +18,17 @@ data = [
     [{'name': 'bcs',
       'title': 'bcs title'
       },
-     {'name': 'bacs',
-      'title': 'bacs title'
+     {'name': 'cs',
+      'title': 'cs title'
       },
-     {'name': 'bais',
-      'title': 'bais title'
+     {'name': 'is',
+      'title': 'is title'
       },
-     {'name': 'bads',
+     {'name': 'ds',
       'title': 'bads title'
       },
-     {'name': 'badc',
+     {'name': 'dc',
       'title': 'badc title'
-      },
-     {'name': 'bada',
-      'title': 'bada title'
       }
      ],
 

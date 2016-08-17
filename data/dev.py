@@ -87,7 +87,7 @@ data = [
 </tr></table>
 '''
       },
-     {'name': 'bacs',
+     {'name': 'cs',
       'modelSchedule': '''
 <p>The following course schedule provides a suggested framework for students pursuing a BA (or BS) in CS.</p>
 <table border="1" class="degree">
@@ -129,7 +129,7 @@ data = [
 <p></tr></table></p>
 <p><sup>*</sup> <span class="caps">MATH</span> 171, 172, and 243 are preferred, but students may choose to take <span class="caps">MATH</span> 143 and 171 or <span class="caps">MATH</span> 143 and 132 instead.</p>'''
       },
-      {'name': 'bais',
+      {'name': 'is',
       'modelSchedule': '''
 <p>The following course schedule provides a suggested framework for students pursuing this degree.</p>
 <table border="1" class="degree">
@@ -179,12 +179,12 @@ data = [
 <p></tr></table>
 '''      
       },
-        {'name': 'badc'
+        {'name': 'dc'
          },
-        {'name': 'bads'
+        {'name': 'ds'
          },
 
-        {'name': 'bada',
+        {'name': 'da',
       'title': 'Digital Art',
       'flavorTextForHeadline': '''Calvin&rsquo;s BA in digital art
                 is designed for students who have broad interests
@@ -471,13 +471,13 @@ strong computing programs, including our
   BA/BS degrees in
  <ul>
   <li>
-  <a href="http://cs.calvin.edu/p/bacs">computer science</a>,</li>
+  <a href="http://cs.calvin.edu/academics/cs">computer science</a>,</li>
   <li>
-  <a href="http://cs.calvin.edu/p/bais">information systems</a>, </li>
+  <a href="http://cs.calvin.edu/academics/is">information systems</a>, </li>
   <li>
-  <a href="http://cs.calvin.edu/p/bada">digital art</a>, and</li>
+  <a href="http://cs.calvin.edu/p/ds">data science</a>, and</li>
   <li>
-  <a href="http://cs.calvin.edu/p/badc">digital communication</a>;</li></p>
+  <a href="http://cs.calvin.edu/p/dc">digital communication</a>;</li></p>
 </ul>
 <li>
 an excellent <a href="http://cs.calvin.edu/people">faculty</a>,</li>
@@ -723,13 +723,13 @@ were most likely designed by computer scientists.</p>
 <ul>
 <li>The <a href="/p/bcs">BCS</a> is for students who want to
     challenge themselves with our strongest program in computing, mathematics and science.</li>
-<li>The traditional <a href="/p/bacs">BA in Computer Science</a> is for
+<li>The traditional <a href="/p/cs">BA in Computer Science</a> is for
     students who want a broader education, perhaps with a second major in some other area of interest.</li>
-<li>The <a href="/p/bais">BA in information Systems (IS)</a> is for students who want
+<li>The <a href="/p/is">BA in information Systems (IS)</a> is for students who want
     to focus on applying technology to the business environment; it's a
     great blend for someone choosing between computer technology and
     business management.  Our IS majors have go on to diverse careers as systems analysts, technology support specialists and software developers for business applications. </li>
-<li>The <a href="/p/badc">BA in Digital Communications</a> is for
+<li>The <a href="/p/dc">BA in Digital Communications</a> is for
     students who are interested in applying computer technology to
     mass media; students take a lot of administration courses from us
     and several courses from CAS.</li>
@@ -902,7 +902,7 @@ Science, feel free to <a href="/p/contact_us">contact us</a>.</p></div>
     <p>If you decide you really do want a PhD, take the hardest
     classes in Computer Science and take a hard minor.  The 
 <a href="/p/bcs">BCS</a> is certainly good; if you opt for the 
-<a href="/p/bacs">BA in CS</a>, you should have a hard minor or a
+<a href="/p/cs">BA in CS</a>, you should have a hard minor or a
     second major.  It used to be the case that graduates schools
     <em>preferred</em> a BA; it indicates a breadth of knowledge and
     an ability to learn without being spoon-fed the material.  While
@@ -1371,25 +1371,25 @@ not just those from the BCS program, and that the minimum percentile is often ab
 </div>
 <script>
 var bcsRaw = [21, 26, 26, 38, 45, 27, 13, 9, 20, 11, 17, 22, 35];
-var bacsRaw = [120, 92, 20, 45, 29, 37, 36, 38, 34, 42, 36, 57, 58];
-var baisRaw = [0, 3, 16, 28, 34, 26, 23, 26, 21, 20, 21, 21, 19];
-var badcRaw = [0, 3, 3, 9, 14, 9, 8, 9, 6, 8, 6, 9, 13];
-var bcs = [], bacs = [], bais = [], badc = [], total = [];
+var csRaw = [120, 92, 20, 45, 29, 37, 36, 38, 34, 42, 36, 57, 58];
+var isRaw = [0, 3, 16, 28, 34, 26, 23, 26, 21, 20, 21, 21, 19];
+var dcRaw = [0, 3, 3, 9, 14, 9, 8, 9, 6, 8, 6, 9, 13];
+var bcs = [], cs = [], is = [], dc = [], total = [];
 var year = 2002;
 for (var i = 0; i < bcsRaw.length; i++) {
     bcs.push([year, bcsRaw[i]]);
-    bacs.push([year, bacsRaw[i]]);
-    bais.push([year, baisRaw[i]]);
-    badc.push([year, badcRaw[i]]);
-    total.push([year, bcsRaw[i] + bacsRaw[i] + baisRaw[i] + badcRaw[i]]);
+    cs.push([year, csRaw[i]]);
+    is.push([year, isRaw[i]]);
+    dc.push([year, dcRaw[i]]);
+    total.push([year, bcsRaw[i] + csRaw[i] + isRaw[i] + dcRaw[i]]);
     year++;
 }
 var data = [ 
         { label: "total", data: total },
-        { label: "bacs", data: bacs }, 
+        { label: "cs", data: cs },
         { label: "bcs", data: bcs }, 
-        { label: "bais", data: bais }, 
-        { label: "badc", data: badc }
+        { label: "is", data: is },
+        { label: "dc", data: dc }
         ]
 var options = {
     series: { 
@@ -1419,26 +1419,26 @@ $("#enrollmentLegend").append("<center><small>Flot " + $.plot.version + "</small
 </div>
 <script>
 var bcsRaw = [11, 8, 11, 8, 4, 11, 3, 3, 2, 6, 3, 2, 9];
-var bacsRaw = [19, 15, 18, 6, 10, 8, 5, 6,6, 4, 1, 4, 8];
-var baisRaw = [0, 0, 1, 4, 14, 9, 7, 6, 7, 6, 4, 6, 7];
-var badcRaw = [0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0];
-var bcs = [], bacs = [], bais = [], badc = [], total = [];
+var csRaw = [19, 15, 18, 6, 10, 8, 5, 6,6, 4, 1, 4, 8];
+var isRaw = [0, 0, 1, 4, 14, 9, 7, 6, 7, 6, 4, 6, 7];
+var dcRaw = [0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0];
+var bcs = [], cs = [], is = [], dc = [], total = [];
 var year = 2002;
 var yearString;
 for (var i = 0; i < bcsRaw.length; i++) {
     bcs.push([year, bcsRaw[i]]);
-    bacs.push([year, bacsRaw[i]]);
-    bais.push([year, baisRaw[i]]);
-    badc.push([year, badcRaw[i]]);
-    total.push([year, bcsRaw[i] + bacsRaw[i] + baisRaw[i] + badcRaw[i]]);
+    cs.push([year, csRaw[i]]);
+    is.push([year, isRaw[i]]);
+    dc.push([year, dcRaw[i]]);
+    total.push([year, bcsRaw[i] + csRaw[i] + isRaw[i] + dcRaw[i]]);
     year++;
 }
 var data = [ 
         { label: "total", data: total },
-        { label: "bacs", data: bacs }, 
+        { label: "cs", data: cs },
         { label: "bcs", data: bcs }, 
-        { label: "bais", data: bais }, 
-        { label: "badc", data: badc }
+        { label: "is", data: is },
+        { label: "dc", data: dc }
     ]
 var options = {
     series: { 
@@ -1668,7 +1668,7 @@ followed by rapid growth as the market began responding to the demand for comput
           'ordinal': 3,
            'shortDescription': '''The VanderBrug scholarships are given to upper-division students in computer science.''',
 #            'shortDesc': '''The Gordon J. VanderBrug scholarships are funded by an endowment graciously provided by the VanderBrug family. They are given to strong juniors and seniors in computer science. Interested Calvin students should apply in the Spring semester for the following year.''',
-           'programs': ['bcs', 'bacs', 'bais'],
+           'programs': ['bcs', 'cs', 'is'],
            'recipients': '''
 <table class="scrollable" style="height: 300px">
             <tr><th>Year</th><th>Recipients</th></tr>
@@ -1695,7 +1695,7 @@ followed by rapid growth as the market began responding to the demand for comput
           'ordinal': 2,           
            'shortDescription': '''Computer Science majors with an interest in science are strongly encouraged to apply for a NSF Scientific Computation Scholarship. These scholarships target students who are interested in integrating computing and the natural sciences, and provide up to four years of support.''',
            'details':None,
-           'programs': ['bcs', 'bacs', 'bais'],
+           'programs': ['bcs', 'cs', 'is'],
            'recipients':None,
            'appInfo':None,
            'url': 'http://www.calvin.edu/isri/nsf-scholarships/index.html'},
@@ -1705,7 +1705,7 @@ followed by rapid growth as the market began responding to the demand for comput
            'title': 'Science Division Scholarships',
            'shortDescription': '''The Calvin College Science Division provides a variety of scholarship opportunities.''',
            'details':None,
-           'programs': ['bcs', 'bacs', 'bais'],
+           'programs': ['bcs', 'cs', 'is'],
            'recipients':None,
            'appInfo':None,
            'url': 'http://www.calvin.edu/academic/science/scholarships/'},                  
@@ -1715,7 +1715,7 @@ followed by rapid growth as the market began responding to the demand for comput
            'shortDescription': '''The DornerWorks scholarship is awarded to a student who is interested in embedded systems.''',
 #            'shortDesc': '''The DornerWorks Computer/Software Engineering Scholarship is funded by DornerWorks Ltd. The scholarship is given to a strong sophomore, junior, or senior majoring in computer engineering or computer science. Students must be full-time and have a 3.3 or higher GPA. Preference will be given to students who have an internship with DornerWorks, who are interested in embedded systems, who have demonstrated leadership ability, who have financial need, and/or are entering their junior year. Interested first, second, and third-year Calvin students should apply in the Spring semester for the following year. ''',
            'details': '''DornerWorks Ltd is an electronics engineering consulting firm founded in 2000 by David Dorner, located in Grand Rapids, MI. The company offers its clients consulting expertise in electronic hardware, embedded software, and custom logic design, especially avionics and medical devices. We gratefully thank Mr. Dorner for his generosity in funding this scholarship. ''',
-           'programs': ['bcs', 'bacs', 'bais'],
+           'programs': ['bcs', 'cs', 'is'],
            'recipients': '''
 <table class="scrollable" style="height: 300px">
 <tr><th>Year</th><th>Recipients</th></tr>
@@ -1737,7 +1737,7 @@ followed by rapid growth as the market began responding to the demand for comput
            'shortDescription': '''The DeRose scholarship is given to a strong first year computer science major, and it normally continues through their second year.''',
 #            'shortDesc': ''' ''',
            'details': '''Dr. DeRose is a world-class expert on technologies for electronic documents, including markup systems; information retrieval; hypertext/hypermedia; version and edition management; distributed annotation and review systems; digital libraries, archiving, and preservation. We gratefully thank him for his generosity in funding this scholarship.''',
-           'programs': ['bcs', 'bacs', 'bais'],
+           'programs': ['bcs', 'cs', 'is'],
            'recipients': '''
 <table class="scrollable" style="height: 300px">
 <tr><th>Year</th><th>Recipients</th></tr>
@@ -1757,7 +1757,7 @@ followed by rapid growth as the market began responding to the demand for comput
            'shortDescription': ''' The Nyhoff scholarship is given to a strong first year computer science major or minor.''',
 #            'shortDesc': '''The Larry and Sharlene Nyhoff Scholarship in Computer Science is funded by an endowment established by Dr. Larry Nyhoff. The scholarship is awarded to a strong first year student majoring or minoring in one of the computer science programs. Interested high school students should apply in January or early February of their senior year, before their first year at Calvin.''',
 #            'details': '''Dr. Nyhoff is a professor emeritus of Calvin College. His teaching career at Calvin has spanned has more than 40 years. He has authored more than 30 textbooks, which are used in colleges and universities around the world. We gratefully thank him for his generosity in funding this scholarship.''',
-           'programs': ['bcs', 'bacs', 'bais'],
+           'programs': ['bcs', 'cs', 'is'],
            'recipients': '''
 <table class="scrollable" style="height: 300px">
 <tr><th>Year</th><th>Recipients</th>
@@ -1775,7 +1775,7 @@ followed by rapid growth as the market began responding to the demand for comput
            'shortDescription': '''The CCA computing award is given to the top graduating senior in computer science.''',
 #            'shortDesc': '''The Department of Computer Science awards the CCA Computing Award (CCA) to its top graduate in computer science. The winners of this award since the founding the department in 1997/98 are shown here.''',
             'longDescription': '''The Department of Computer Science awards the CCA Computing Award (CCA) to its top graduate in computer science. The winners of this award since the founding the department in 1997/98 are shown here.''',
-           'programs': ['bcs', 'bacs'],           
+           'programs': ['bcs', 'cs'],
            'recipients': '''
 <table class="scrollable" style="height: 300px">
 <tr>
@@ -1855,7 +1855,7 @@ followed by rapid growth as the market began responding to the demand for comput
            'shortDescription': '''The CISA information systems award is given to the top graduating senior in information systems.''',
 #            'shortDesc': '''The Department of Computer Science awards the CCA Computing Award (CCA) to its top graduate in computer science. The winners of this award since the founding the department in 1997/98 are shown here.''',
            'longDescription': '''The Department of Computer Science awards the CISA Information Systems Award (CCA) to its top graduate in information systems. The winners of this award since the award&rsquo;s inception are shown here.''',
-           'programs': ['bais'],           
+           'programs': ['is'],
            'recipients': '''
 <table class="scrollable" style="height: 300px">
 <tr>
@@ -1887,7 +1887,7 @@ followed by rapid growth as the market began responding to the demand for comput
            'title': 'Calvin-Wide Scholarships',
            'shortDescription': '''You can refer to the scholarship search database for more information on scholarships for Calvin students.''',
 #            'shortDesc':None,
-           'programs': ['bcs', 'bacs', 'bais', 'badc', 'bada'],
+           'programs': ['bcs', 'cs', 'is', 'dc', 'ds'],
            'recipients':None,
            'appInfo':None,
            'url': 'http://www.calvin.edu/finaid/types/scholarships/search/'},
@@ -1895,7 +1895,7 @@ followed by rapid growth as the market began responding to the demand for comput
              {'name': 'external',
           'ordinal': 9,
            'title': 'External Scholarships',
-           'programs': ['bcs', 'bacs', 'bais', 'badc', 'bada'],
+           'programs': ['bcs', 'cs', 'is', 'dc', 'ds'],
            'shortDescription': 'The department maintains a list of external scholarship funding sources.',
            'longDescription': '''
            Here are some external scholarships that our students have applied for and/or received over the years:

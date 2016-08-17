@@ -246,69 +246,36 @@ def create_course_tab_list(courseList, department):
     return result
 
 
-def create_people_list(peopleList):
+def create_people_list(people_by_role):
     '''This routine converts the domain content in the people list into a list
     of rhetorical elements described in includes/content_primary.html. It
     produces a list of dictionaries, one dictionary for each sub-list of
     faculty (i.e., faculty, staff, ...). See the full description of this
     mechanism in content_list.html.
     '''
-    if peopleList is None:
+    if people_by_role is None:
         return [{'subContent': 'no people found...'}]
-    else:
-        peopleList.sort(cmp=None, key=lambda person: person.get('lastName'),
-                        reverse=False)
-    print peopleList
-    facultyList = []
-    contributingList = []
-    emeritiList = []
-    staffList = []
-    for person in peopleList:
-        if is_noncomputing_mathematician(person) or is_noncomputing_cit(person):
-            continue
-        # Create a person list entry.
+    result = []
+    result.append({'title': 'Faculty',
+                   'sectionItems': create_people_entries(people_by_role['faculty'])})
+    result.append({'title': 'Contributing Faculty',
+                   'sectionItems': create_people_entries(people_by_role['contributing'])})
+    result.append({'title': 'Emeriti',
+                   'sectionItems': create_people_entries(people_by_role['emeriti'])})
+    result.append({'title': 'Staff',
+                   'sectionItems': create_people_entries(people_by_role['staff'])})
+    return result
+
+def create_people_entries(people):
+    '''This routine creates a person entry from the raw information for each of the given list of people.'''
+    entries = []
+    for person in people:
         entry = {}
         entry.update(create_person_image_content(person))
         entry.update(create_person_sub_content(person))
         entry.update(create_person_side_content(person))
-        # Add the entry to the correct person list.
-        if 'Emeritus' in person.get('jobFunction', ''):
-            emeritiList.append(entry)
-        elif 'MATH' in person.get('academicDepartment', ''):
-            contributingList.append(entry)
-        elif 'CIT' in person.get('academicDepartment', ''):
-            contributingList.append(entry)
-        elif 'Academic' in person.get('jobFunction', ''):
-            facultyList.append(entry)
-        else:
-            staffList.append(entry)
-    result = []
-    result.append({'title': 'Faculty',
-                   'sectionItems': facultyList})
-    result.append({'title': 'Contributing Faculty',
-                   'sectionItems': contributingList})
-    result.append({'title': 'Emeriti',
-                   'sectionItems': emeritiList})
-    result.append({'title': 'Staff',
-                   'sectionItems': staffList})
-    return result
-
-
-def is_noncomputing_mathematician(person):
-    '''Determine if this person is in the mathematics department and is not
-    one of those professors that routinely teach computing-related courses.'''
-    return \
-        person.get('academicDepartment') == 'MATH' and \
-        person.get('lastName') not in ['Pruim', 'Stob', 'Fife']
-
-
-def is_noncomputing_cit(person):
-    '''Determine if this person is in CIT and is not
-    one of those professors that routinely teach computing-related courses.'''
-    return \
-        person.get('academicDepartment') == 'CIT' and \
-        person.get('lastName') not in ['Paige', 'Vedra', 'Fife']
-
+        entries.append(entry)
+    return entries
 
 def create_person_image_content(person):
     '''Create a set of dictionary entries specifying a person's image.'''

@@ -44,13 +44,13 @@ class CSWebTestViews(CSWebTestBase):
         # programs and links to their pages.
         response = self.app.get('/academics')
         self.assertRegexpMatches(response.data, '.*Computer Science.*')
-        self.assertRegexpMatches(response.data, '.*academics/bacs.*')
+        self.assertRegexpMatches(response.data, '.*academics/cs.*')
         self.assertRegexpMatches(response.data, '.*Information Systems.*')
-        self.assertRegexpMatches(response.data, '.*academics/bais.*')
+        self.assertRegexpMatches(response.data, '.*academics/is.*')
         self.assertRegexpMatches(response.data, '.*Digital Communication.*')
-        self.assertRegexpMatches(response.data, '.*academics/badc.*')
+        self.assertRegexpMatches(response.data, '.*academics/dc.*')
 
-#     def test_academics_programs(self):
+    #     def test_academics_programs(self):
 #         # Go to the BCS program page and make sure that it presents a list of courses and links to their pages (on our site).
 #         response = self.app.get('/academics/bcs')
 #         self.assertRegexpMatches(response.data, '.*.BCS*')
