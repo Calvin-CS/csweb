@@ -63,6 +63,9 @@ class Scholarships(Unit, UnitForm):
     cit2cs_name_map[u'Patricia S. Duthler Computer Science Scholarship'] = u'duthler'
     cit2cs_name_map[u'Grateful Computer Science Alumnus Scholarship'] = u'grateful'
     cit2cs_name_map[u'George and Gayle Hommes Family Scholarship'] = u'hommes'
+    cit2cs_name_map[u'Michigan Industrial Tools Scholarship'] = u'tools'
+    cit2cs_name_map[u'Strategic Partners - Spectrum Health Scholarship'] = u'spectrum'
+    cit2cs_name_map[u'Strategic Partners - Open Systems Technology Scholarship'] = u'ost'
 
     @classmethod
     def read_units(cls):
@@ -124,7 +127,7 @@ class Scholarships(Unit, UnitForm):
                                 CIT&rsquo;s description)')
     applicationInfoField = TextAreaField('Application Procedure')
     programsField = TextField('Applicable Programs (separate values using \
-                                commas, e.g., bcs, bacs, bais, badc, bada)')
+                                commas, e.g., bcs, cs, is, dc, ds)')
     urlField = TextField('External URL (if any)')
     recipientsField = TextAreaField('Recipients')
 
