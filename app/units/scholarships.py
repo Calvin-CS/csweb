@@ -53,7 +53,9 @@ class Scholarships(Unit, UnitForm):
     # titlealpha as well, but it appears to swap first and last names.
     CIT_TITLE_KEY = 'title'
     # These titles and names must match those found in the CIT and CS
-    # databases respectively.
+    # databases respectively. The short name must be a unique sub-set
+    # of the full title so that the reverse search in read_unit() works
+    # properly.
     cit2cs_name_map = {}
     cit2cs_name_map[u'DornerWorks Computer&Software Engineering Scholarship'] = u'dornerworks'
     cit2cs_name_map[u'Gordon J. VanderBrug Scholarship'] = u'vanderbrug'
@@ -65,7 +67,7 @@ class Scholarships(Unit, UnitForm):
     cit2cs_name_map[u'George and Gayle Hommes Family Scholarship'] = u'hommes'
     cit2cs_name_map[u'Michigan Industrial Tools Scholarship'] = u'tools'
     cit2cs_name_map[u'Strategic Partners - Spectrum Health Scholarship'] = u'spectrum'
-    cit2cs_name_map[u'Strategic Partners - Open Systems Technology Scholarship'] = u'ost'
+    cit2cs_name_map[u'Strategic Partners - Open Systems Technology Scholarship'] = u'open'
 
     @classmethod
     def read_units(cls):
@@ -185,7 +187,7 @@ class Scholarships(Unit, UnitForm):
         dataRaw = requests.get(url, verify=False).json()
         if dataRaw is not None:
             data = dataRaw['contentlets']
-            #print data
+            print data
             if len(data) > 0:
                 return data[0]
         else:

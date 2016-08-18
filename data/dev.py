@@ -1956,7 +1956,7 @@ scholarships for all students, due in late January
          {'name': 'grateful', 'ordinal': 4},
          {'name': 'tools', 'ordinal': 4},
          {'name': 'duthler', 'ordinal': 4},
-         {'name': 'ost', 'ordinal': 4},
+         {'name': 'open', 'ordinal': 4},
          {'name': 'spectrum', 'ordinal': 4},
          ],
 
