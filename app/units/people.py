@@ -34,7 +34,7 @@ class People(Unit):
     personUrlTemplate = 'https://upbeat.calvin.edu/api/content/render/false/limit/50/type/json/query/+structureName:CcProfiles%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcProfiles.id:{}%20+languageId:1%20%20+deleted:false%20%20+live:true%20+live:true'
 
     # People to add to the department manually by Calvin loginID.
-    contributing_faculty_ids = ['rpruim', 'stob', 'bp28', 'avedra']
+    contributing_faculty_ids = ['rpruim', 'stob', 'bp28', 'avedra', 'dsc8']
 
     @classmethod
     def read_units(cls):
