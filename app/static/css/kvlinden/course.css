@@ -93,11 +93,11 @@ body {
 
 #options {
 	margin: 10px;
+	font-size: large;
 }
 
-#option {
+.option {
 	padding: 5px;
-	font: medium;
 	}
 
 #navigationTrail {

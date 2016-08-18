@@ -60,6 +60,12 @@ Tools
             db.users.insert({"name" : "USER_ID", "password" : "ENCRYPTED_PASSWORD"})
         4. Remove the old user
             db.users.remove({"name" : "OLD_ID"})
+    To add a new scholarship, I need to seed the DB, probably because my local/CIT server routines are incorrect.
+        db.scholarships.insert({'name': 'XXX', 'programs': ['bcs', 'cs'], 'ordinal': NumberInt(13)})
+            The XXX name must match the mapped name in units/programs.py.
+            Explicitly specify a list of programs.
+            Use NumberInt() to create integer; Mongo assumes float otherwise, which messes up my storage routine.
+                http://stackoverflow.com/questions/8218484/mongodb-inserts-float-when-trying-to-insert-integer
 
 - Nginx
 
