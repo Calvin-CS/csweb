@@ -47,6 +47,7 @@
 		<exec dir="${build.output}" executable="rsync" failonerror="true">
 			<arg value="-vazpHAX" />
             <!-- I couldn't configure the location of the exclude file properly, so I hard-coded them here. -->
+            <arg value="--exclude=alice/" />
             <arg value="--exclude=.htpasswd" />
             <arg value="--exclude=html/" />
             <arg value="--exclude=app/static/" />

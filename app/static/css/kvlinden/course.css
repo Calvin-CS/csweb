@@ -208,6 +208,14 @@ p.breakhere {
 	page-break-before: always;
 }
 
+p.short-answer {
+    margin-bottom: 3em;
+}
+
+p.long-answer {
+    margin-bottom: 5em;
+}
+
 #footer {
 	font-family: arial, helvetica, sans-serif;
 	font-size: 8pt;

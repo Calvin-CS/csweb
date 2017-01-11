@@ -47,8 +47,10 @@ class Courses(Unit):
         # to JSON format. Return None is no course data is found. This year's
         # catalog may not be available, but last year's probably is, so go
         # back at most one year.
+        # [nb. 2015 appears to be the last available catalog, so I set the system to search
+        # back 4 years and will check into the catalog availability. -kvlinden, jan2017]
         startYear = datetime.today().year +1
-        for year in range(startYear, startYear - 3, -1):
+        for year in range(startYear, startYear - 5, -1):
             url = cls.coursesUrlTemplate.format(department, year)
             dataRaw = requests.get(url, verify=False).json()
             if dataRaw is not None:

@@ -67,7 +67,7 @@ class Scholarships(Unit, UnitForm):
     cit2cs_name_map[u'George and Gayle Hommes Family Scholarship'] = u'hommes'
     cit2cs_name_map[u'Michigan Industrial Tools Scholarship'] = u'tools'
     cit2cs_name_map[u'Strategic Partners - Spectrum Health Scholarship'] = u'spectrum'
-    cit2cs_name_map[u'Strategic Partners - Open Systems Technology Scholarship'] = u'open'
+    cit2cs_name_map[u'Strategic Partners - Open Systems Technologies Scholarship'] = u'open'
 
     @classmethod
     def read_units(cls):
