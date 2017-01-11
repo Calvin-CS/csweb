@@ -68,8 +68,8 @@ Tools
                 http://stackoverflow.com/questions/8218484/mongodb-inserts-float-when-trying-to-insert-integer
 
 - Nginx
-
 - uWSGI
+    See these notes on the department Confluence page (ComputerScience-Infrastructure-CSWebservers).
 
 - Flask
 
