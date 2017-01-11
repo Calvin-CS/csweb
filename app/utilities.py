@@ -314,8 +314,9 @@ def create_address_entry(person):
         person.get('title', '') + '<br><br>' + \
         person.get('telephone', '') + '<br>' + \
         person.get('campusAddress', '') + ' ' + \
-        create_hyperlink('http://www.calvin.edu/map/index.htm?building=NH',
+        create_hyperlink('https://calvin.edu/map/?place=north-hall',
                          'map') + '<br>'
+
 
 
 def create_admin_list():
