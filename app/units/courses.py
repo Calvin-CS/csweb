@@ -35,27 +35,21 @@ class Courses(Unit):
     # Utility data and methods...
 
     # CIT URL for courses (set parameters, e.g., course.dept<-CPSC; course.catalogYear<-2016)...
-    coursesUrlTemplate = 'https://upbeat.calvin.edu/api/content/render/false/limit/100/type/json/query/+structureName:course%20+(conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST)%20+course.dept:*{}*%20+course.catalogYear:{}%20+languageId:1%20%20+deleted:false%20%20+live:true/orderby/course.id'
+    # Removed the calendar year option, defaulting to the "current" catalog in all cases. - kvlinden, Jan2017
+#    old URL with calendar year option  'https://upbeat.calvin.edu/api/content/render/false/limit/100/type/json/query/+structureName:course%20+(conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST)%20+course.dept:*{}*%20+course.catalogYear:{}%20+languageId:1%20%20+deleted:false%20%20+live:true/orderby/course.id'
+    coursesUrlTemplate = 'https://calvin.edu/api/content/render/false/limit/100/type/json/query/+structureName:course%20+(conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST)%20+course.dept:*{}*%20+languageId:1%20%20+deleted:false%20%20+live:true/orderby/course.id'
 
     @classmethod
     def get_cit_data(cls, department):
         '''Retrieve the course data for the given department from the CIT
         database. Return None if any errors occur.
         '''
-        # Create the appropriate URL and read the course data, starting with
-        # this year and going back until something is found. Convert the data
-        # to JSON format. Return None is no course data is found. This year's
-        # catalog may not be available, but last year's probably is, so go
-        # back at most one year.
-        # [nb. 2015 appears to be the last available catalog, so I set the system to search
-        # back 4 years and will check into the catalog availability. -kvlinden, jan2017]
-        startYear = datetime.today().year +1
-        for year in range(startYear, startYear - 5, -1):
-            url = cls.coursesUrlTemplate.format(department, year)
-            dataRaw = requests.get(url, verify=False).json()
-            if dataRaw is not None:
-                data = dataRaw['contentlets']
-                if len(data) > 0:
-                    #print data
-                    return data
+        # Create the appropriate URL and read the course data. Convert the data
+        # to JSON format. Return None is no course data is found.
+        url = cls.coursesUrlTemplate.format(department)
+        dataRaw = requests.get(url, verify=False).json()
+        if dataRaw is not None:
+            data = dataRaw['contentlets']
+            if len(data) > 0:
+                return data
         return None
