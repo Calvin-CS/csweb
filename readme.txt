@@ -9,7 +9,7 @@ Configuring and Running CSWeb
 Machines:
 - cs.calvin.edu (153.106.116.6)
     the production server
-    CS password access (no public key access via Bitvise yet - Chris plans to change this)
+    public key access over Calvin VPN via Bitvise (see system notes for Bitvise).
     Still on Ubuntu 12.
 - cs-dev.cs.calvin.edu (153.106.116.18)
     the development server
