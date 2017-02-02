@@ -314,10 +314,18 @@ def create_address_entry(person):
         person.get('title', '') + '<br><br>' + \
         person.get('telephone', '') + '<br>' + \
         person.get('campusAddress', '') + ' ' + \
-        create_hyperlink('https://calvin.edu/map/?place=north-hall',
-                         'map') + '<br>'
+        create_address_hyperlink(person.get('campusAddress', ''))
 
-
+def create_address_hyperlink(address):
+    '''Build a hyperlink for known buildings (i.e., North Hall, Science Building), otherwise return nothing.'''
+    building = ''
+    if address.startswith('NH '):
+        building = 'north-hall'
+    elif address.startswith('SB '):
+        building = 'science-building'
+    else:
+        return ''
+    return create_hyperlink('https://calvin.edu/map/?place=' + building, 'map') + '<br>'
 
 def create_admin_list():
     '''This routine creates a simple administration page with links to the
