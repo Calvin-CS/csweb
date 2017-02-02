@@ -360,22 +360,23 @@ def display_refresh_admin_tech_news():
 # -----------------------------------------------------------------------------
 # The contact us handler...
 
-@web.route('/contact', methods=['GET', 'POST'])
+@web.route('/contact')
 def contact():
     '''Configure and display the contact us page, with its input form and
     email feature.
     '''
-    form = Contacts()
-    if form.is_submitted():
-        if request.form.get('cancel'):
-            return redirect(url_for('web.display_index'))
-        if form.validate():
-            Contacts.send_email(mail, form)
-            return redirect(url_for('web.display_index'))
-        flash('All fields are required.')
+    # This stopped working when Calvin moved to Office365 email and I didn't have time to figure out how to fix it.
+    # form = Contacts()
+    # if form.is_submitted():
+    #     if request.form.get('cancel'):
+    #         return redirect(url_for('web.display_index'))
+    #     if form.validate():
+    #         Contacts.send_email(mail, form)
+    #         return redirect(url_for('web.display_index'))
+    #     flash('All fields are required.')
     department = Departments.read_unit('cs')
     return display_content(
-        form=form,
+    #     form=form,
         title='Contact Us',
         primary=department.get('contact'),
         sideTitle='Admissions at Calvin',
