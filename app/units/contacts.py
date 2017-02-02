@@ -37,7 +37,8 @@ class Contacts(UnitForm):
                       cc=[email])
         msg.body = '   From: %s\n  Email: <%s>\nMessage: %s' % \
             (name, email, message)
-        mail.send(msg)
+        with mail.connect() as conn:
+            conn.send(msg)
 
     nameField = TextField("Name",
                           [validators.Required("Please enter your name.")])

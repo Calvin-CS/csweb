@@ -1467,16 +1467,15 @@ followed by rapid growth as the market began responding to the demand for comput
             <li>Request more information by <a href="/contact">contacting us</a></li>
         </ul>
           ''',
-       'contact': '''<h3>Visit us</h3>
-    <p><strong>Department of Computer Science</strong><br>
+       'contact': '''    <p><strong>Department of Computer Science</strong><br>
     North Hall | <a href="http://www.calvin.edu/map/index.htm?building=NH"
                     alt="North Hall map">map</a><br>
     Calvin College<br>
     Grand Rapids, MI 49546<br>
     USA<br>
     1-616-526-7163<br>
+    computing@calvin.edu
     </p>
-    <h3>Send us a note</h3>
     ''',
     'research': '''
     <p>The department maintains a number of active research and scholarship programs, including the following.</p>

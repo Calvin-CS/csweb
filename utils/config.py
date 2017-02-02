@@ -20,9 +20,10 @@ class Config(object):
     # Building a new key on each restart invalidates old sessions but should
     # otherwise work fine.
     SECRET_KEY = os.urandom(24)
-    MAIL_SERVER = 'mailhost.calvin.edu'
-    MAIL_PORT = 465
-    MAIL_USE_SSL = True
+    MAIL_SERVER = 'smtp.office365.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    SECURITY_EMAIL_SENDER = 'computing@calvin.edu'
 
 
 class ProductionConfig(Config):
