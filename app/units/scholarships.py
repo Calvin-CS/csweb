@@ -156,8 +156,8 @@ class Scholarships(Unit, UnitForm):
     # Mapping from our program IDs to CIT's names is done by merging
     # our data entries (with name) with theirs (with title).
 
-    scholarshipsUrlTemplate = 'https://upbeat.calvin.edu/api/content/render/false/type/json/query/+structureName:CcScholarships%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcScholarships.department:*{}*%20+languageId:1%20%20+deleted:false%20%20+live:true/orderby/CcScholarships.title'
-    scholarshipUrlTemplate =  'https://upbeat.calvin.edu/api/content/render/false/type/json/query/+structureName:CcScholarships%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcScholarships.department:*{}*%20+CcScholarships.title:*{}*%20+languageId:1%20%20+deleted:false%20%20+live:true/orderby/CcScholarships.title'
+    scholarshipsUrlTemplate = 'https://calvin.edu/api/content/render/false/type/json/query/+structureName:CcScholarships%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcScholarships.department:*{}*%20+languageId:1%20%20+deleted:false%20%20+live:true/orderby/CcScholarships.title'
+    scholarshipUrlTemplate =  'https://calvin.edu/api/content/render/false/type/json/query/+structureName:CcScholarships%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcScholarships.department:*{}*%20+CcScholarships.title:*{}*%20+languageId:1%20%20+deleted:false%20%20+live:true/orderby/CcScholarships.title'
 
     @classmethod
     def get_cit_scholarships(cls, department):

@@ -119,7 +119,7 @@ class Programs(Unit, UnitForm):
     #cs2cit_program_name_mapping['bada'] = 'digital-art'
 
     # CIT URL for program resources (set program name parameter) ...
-    programUrlTemplate = 'https://upbeat.calvin.edu/api/content/render/false/type/json/query/+structureName:CcAcademicProgram%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcAcademicProgram.academicDepartment:*C*S*%20+languageId:1%20%20+deleted:false%20%20+CcAcademicProgram.academicProgramCode:{}%20+live:true/orderby/undefined%20desc'
+    programUrlTemplate = 'https://calvin.edu/api/content/render/false/type/json/query/+structureName:CcAcademicProgram%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcAcademicProgram.academicDepartment:*C*S*%20+languageId:1%20%20+deleted:false%20%20+CcAcademicProgram.academicProgramCode:{}%20+live:true/orderby/undefined%20desc'
 
     @classmethod
     def get_cit_data(cls, name):
