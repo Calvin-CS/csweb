@@ -29,9 +29,9 @@ class People(Unit):
     '''
 
     # CIT URL for people (set parameters, marked by {} in the template, for department or userid)...
-    peopleImageTemplate = 'http://upbeat.calvin.edu/contentAsset/image/{}/filter/Resize/resize_w/142'
-    departmentUrlTemplate = 'https://upbeat.calvin.edu/api/content/render/false/limit/50/type/json/query/+structureName:CcProfiles%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcProfiles.academicDepartment:{}%20+languageId:1%20%20+deleted:false%20%20+live:true%20+live:true/orderby/CcProfiles.lastname'
-    personUrlTemplate = 'https://upbeat.calvin.edu/api/content/render/false/limit/50/type/json/query/+structureName:CcProfiles%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcProfiles.id:{}%20+languageId:1%20%20+deleted:false%20%20+live:true%20+live:true'
+    peopleImageTemplate = 'http://calvin.edu/contentAsset/image/{}/filter/Resize/resize_w/142'
+    departmentUrlTemplate = 'https://calvin.edu/api/content/render/false/limit/50/type/json/query/+structureName:CcProfiles%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcProfiles.academicDepartment:{}%20+languageId:1%20%20+deleted:false%20%20+live:true%20+live:true/orderby/CcProfiles.lastname'
+    personUrlTemplate = 'https://calvin.edu/api/content/render/false/limit/50/type/json/query/+structureName:CcProfiles%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcProfiles.id:{}%20+languageId:1%20%20+deleted:false%20%20+live:true%20+live:true'
 
     # People to add to the department manually by Calvin loginID.
     contributing_faculty_ids = ['rpruim', 'stob', 'bp28', 'avedra', 'dsc8']
@@ -65,11 +65,14 @@ class People(Unit):
         faculty = []
         emeriti = []
         staff = []
+        exfaculty = ['smn4', 'jnyhoff'] # CIT keeps these people on the system for some reason.
         for person in cs_people:
             if 'Academic' in person.get('jobFunction', ''):
-                faculty.append(person)
+                if not (person.get('id') in exfaculty):
+                    faculty.append(person)
             elif 'Emeritus' in person.get('jobFunction', ''):
-                emeriti.append(person)
+                if not (person.get('id') in exfaculty):
+                    emeriti.append(person)
             else:
                 staff.append(person)
         return {'faculty': faculty, 'emeriti': emeriti, 'staff': staff}
