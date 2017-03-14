@@ -82,7 +82,6 @@ class Scholarships(Unit, UnitForm):
             if cit_entry[cls.CIT_TITLE_KEY] in cls.cit2cs_name_map:
                 cit_entry['name'] = \
                     cls.cit2cs_name_map[cit_entry[cls.CIT_TITLE_KEY]]
-            print(cit_entry['title'])
         return Unit.merge_lists(cit_list,
                                 list(g.mongo.db.scholarships.find().sort('ordinal')))
 

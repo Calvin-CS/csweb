@@ -456,7 +456,6 @@ def create_scholarships_list(scholarships):
                 url = '#'
         if scholarship.get('title') == None:
             # Skip unknown scholarships
-            print(scholarship)
             break
         item['title'] = create_hyperlink(url, scholarship.get('title'))
 
