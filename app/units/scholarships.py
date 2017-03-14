@@ -67,7 +67,8 @@ class Scholarships(Unit, UnitForm):
     cit2cs_name_map[u'George and Gayle Hommes Family Scholarship'] = u'hommes'
     cit2cs_name_map[u'Michigan Industrial Tools Scholarship'] = u'tools'
     cit2cs_name_map[u'Strategic Partners - Spectrum Health Scholarship'] = u'spectrum'
-    cit2cs_name_map[u'Strategic Partners - Open Systems Technologies Scholarship'] = u'open'
+    cit2cs_name_map[u'Strategic Partners - Open Systems Technologies Scholarship (current students)'] = u'open1'
+    cit2cs_name_map[u'Strategic Partners - Open Systems Technologies Scholarship (prospective, first-year students)'] = u'open2'
 
     @classmethod
     def read_units(cls):
@@ -168,7 +169,7 @@ class Scholarships(Unit, UnitForm):
         # department. Convert the data to JSON format. Return None is no
         # people data is found.
         url = cls.scholarshipsUrlTemplate.format(department)
-        dataRaw = requests.get(url, verify=False).json()
+        dataRaw = requests.get(url, verify=True).json()
         if dataRaw is not None:
             data = dataRaw['contentlets']
             if len(data) > 0:
@@ -184,15 +185,14 @@ class Scholarships(Unit, UnitForm):
         from the CIT database. Return None if any errors occur.
         '''
         url = cls.scholarshipUrlTemplate.format(department, scholarship)
-        dataRaw = requests.get(url, verify=False).json()
+        dataRaw = requests.get(url, verify=True).json()
         if dataRaw is not None:
             data = dataRaw['contentlets']
-            print data
             if len(data) > 0:
                 return data[0]
         else:
             url = cls.scholarshipUrlTemplate.format(department, scholarship.replace('&','/'))
-            dataRaw = requests.get(url, verify=False).json()
+            dataRaw = requests.get(url, verify=True).json()
             if dataRaw is not None:
                 data = dataRaw['contentlets']
                 if len(data) > 0:

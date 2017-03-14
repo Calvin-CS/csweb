@@ -731,6 +731,8 @@ def create_hyperlink(url, destination):
         anchor = '<a href="' + url + '">'
     else:
         anchor = '<a href="' + url + '" class="external">'
+    if destination is None:
+        destination = 'scholarship...'
     return anchor + destination + '</a>'
 
 
