@@ -440,6 +440,10 @@ def create_scholarships_list(scholarships):
     '''This routine creates a list of scholarship entries.'''
     scholarshipItems = []
     for scholarship in scholarships:
+        # Ignore scholarship that we don't know about. Update the list in units/scholarships.py
+        if scholarship.get('name') == None:
+            break
+
         item = {}
         # Hyperlink the title to either the URL in the CS db or directly to
         # the scholarship page.
