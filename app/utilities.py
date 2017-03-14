@@ -450,6 +450,10 @@ def create_scholarships_list(scholarships):
                 url = '/scholarships/' + scholarship.get('name')
             except:
                 url = '#'
+        if scholarship.get('title') == None:
+            # Skip unknown scholarships
+            print(scholarship)
+            break
         item['title'] = create_hyperlink(url, scholarship.get('title'))
 
         # Add the local shortDescription if it exists.
@@ -731,8 +735,6 @@ def create_hyperlink(url, destination):
         anchor = '<a href="' + url + '">'
     else:
         anchor = '<a href="' + url + '" class="external">'
-    if destination is None:
-        destination = 'scholarship...'
     return anchor + destination + '</a>'
 
 

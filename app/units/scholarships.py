@@ -58,17 +58,17 @@ class Scholarships(Unit, UnitForm):
     # properly.
     cit2cs_name_map = {}
     cit2cs_name_map[u'DornerWorks Computer&Software Engineering Scholarship'] = u'dornerworks'
-    cit2cs_name_map[u'Gordon J. VanderBrug Scholarship'] = u'vanderbrug'
-    cit2cs_name_map[u'Steven DeRose Family Scholarship'] = u'derose'
-    cit2cs_name_map[u'Larry and Sharlene Nyhoff Scholarship in Computer Science'] = u'nyhoff'
-    cit2cs_name_map[u'NSF Scientific Computing Scholarship'] = u'isri'
-    cit2cs_name_map[u'Patricia S. Duthler Computer Science Scholarship'] = u'duthler'
-    cit2cs_name_map[u'Grateful Computer Science Alumnus Scholarship'] = u'grateful'
     cit2cs_name_map[u'George and Gayle Hommes Family Scholarship'] = u'hommes'
+    cit2cs_name_map[u'Gordon J. VanderBrug Scholarship'] = u'vanderbrug'
+    cit2cs_name_map[u'Grateful Computer Science Alumnus Scholarship'] = u'grateful'
+    cit2cs_name_map[u'Larry and Sharlene Nyhoff Scholarship in Computer Science'] = u'nyhoff'
     cit2cs_name_map[u'Michigan Industrial Tools Scholarship'] = u'tools'
-    cit2cs_name_map[u'Strategic Partners - Spectrum Health Scholarship'] = u'spectrum'
-    cit2cs_name_map[u'Strategic Partners - Open Systems Technologies Scholarship (current students)'] = u'open1'
-    cit2cs_name_map[u'Strategic Partners - Open Systems Technologies Scholarship (prospective, first-year students)'] = u'open2'
+    cit2cs_name_map[u'Patricia S. Duthler Computer Science Scholarship'] = u'duthler'
+    cit2cs_name_map[u'Steven DeRose Family Scholarship'] = u'derose'
+    #cit2cs_name_map[u'NSF Scientific Computing Scholarship'] = u'isri'
+    #cit2cs_name_map[u'Strategic Partners - Spectrum Health Scholarship (current students)'] = u'spectrum'
+    #cit2cs_name_map[u'Strategic Partners - Open Systems Technologies Scholarship (current students)'] = u'open'
+    #cit2cs_name_map[u'Strategic Partners - Open Systems Technologies Scholarship (prospective, first-year students)'] = u'open'
 
     @classmethod
     def read_units(cls):
@@ -82,6 +82,7 @@ class Scholarships(Unit, UnitForm):
             if cit_entry[cls.CIT_TITLE_KEY] in cls.cit2cs_name_map:
                 cit_entry['name'] = \
                     cls.cit2cs_name_map[cit_entry[cls.CIT_TITLE_KEY]]
+            print(cit_entry['title'])
         return Unit.merge_lists(cit_list,
                                 list(g.mongo.db.scholarships.find().sort('ordinal')))
 

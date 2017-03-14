@@ -1689,16 +1689,6 @@ followed by rapid growth as the market began responding to the demand for comput
 #                 > Upper Class Named Scholarship Application.'''
                 },
 
-         {'name': 'isri',
-           'title': 'NSF Scientific Computing Scholarship',
-          'ordinal': 2,           
-           'shortDescription': '''Computer Science majors with an interest in science are strongly encouraged to apply for a NSF Scientific Computation Scholarship. These scholarships target students who are interested in integrating computing and the natural sciences, and provide up to four years of support.''',
-           'details':None,
-           'programs': ['bcs', 'cs', 'is'],
-           'recipients':None,
-           'appInfo':None,
-           'url': 'http://www.calvin.edu/isri/nsf-scholarships/index.html'},
-
          {'name': 'science',
           'ordinal': 7,
            'title': 'Science Division Scholarships',
