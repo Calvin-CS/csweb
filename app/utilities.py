@@ -213,6 +213,7 @@ def create_course_tab_list(courseList, department):
     dataCourses = ''
     interimCourses = ''
     for course in courseList:
+        print(course)
         courseName = course.get('id')
         # Remove lab courses.
         if courseName.endswith('L'):
@@ -239,8 +240,8 @@ def create_course_tab_list(courseList, department):
                    'primaryContent': '<p>' + isCourses + '</p>'})
     result.append({'title': 'Data Science',
                    'primaryContent': '<p>' + dataCourses + '</p>'})
-    result.append({'title': 'Interim',
-                   'primaryContent': '<p>' + interimCourses + '</p>'})
+    #result.append({'title': 'Interim',
+    #               'primaryContent': '<p>' + interimCourses + '</p>'})
     result.append({'title': 'Schedule',
                    'primaryContent': department.get('courseSchedule')})
     return result
