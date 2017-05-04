@@ -1173,194 +1173,61 @@ emails directly.</li>
                 class="caps">ETS</span></a> Major Field Test for Computer Science.</p>
 
 <div id="etsChartWrapper" class="chartWrapper">
-<h3>ETS Scores for Computer Science</h3>
-<div id="etsChart" class="chartContent" style="height: 250px; width: 60%;"></div>
+<h3>ETS Scores for Computer Science Graduates (most recent five years)</h3>
+<div id="etsChart" class="chartContent" style="height: 250px; width: 90%;"></div>
 <div id="etsLegend" class="chartLegend"></div>
-<div id="graduateFooter" class="chartFooter"></div>
+<div id="etsFooter" class="chartFooter"></div>
 </div>
 <script>
-var maxPercentileRaw = [99.9, 97, 99.9, 99.9, 99.9, 99, 98];
-var medInstPercentileRaw = [95, 96, 95, 96, 96, 99, 80];
-var medIndPercentileRaw = [87, 91, 87, 92, 92, 91, 65];
-var minPercentileRaw = [69, 29, 61, 55, 29, 57, 30];
-var maxPercentile = [], medInstPercentile = [], medIndPercentile = [], minPercentile = [];
-var year = 2007;
-for (var i = 0; i < maxPercentileRaw.length; i++) {
-    maxPercentile.push([year, maxPercentileRaw[i]]);
-    medInstPercentile.push([year, medInstPercentileRaw[i]]);
-    medIndPercentile.push([year, medIndPercentileRaw[i]]);
-    minPercentile.push([year, minPercentileRaw[i]]);
-    year++;
-}
-var data = [ 
-        { label: "Percentile of Calvin&rsquo;s top student", data: maxPercentile },
-        { label: "Percentile of Calvin&rsquo;s median student<br>(compared to institutional medians, nation-wide)", data: medInstPercentile },
-        { label: "Percentile of Calvin&rsquo;s median student<br>(compared to individual medians, nation-wide)", data: medIndPercentile },
-        { label: "Percentile of Calvin&rsquo;s lowest student", data: minPercentile },
-    ]
-var options = {
-    series: { 
-        lines: { show: true, fill: false },
-        points: { show: true }
-    },
-    grid: {
-        hoverable: true,
-        borderWidth: 0
-    },
-    yaxis: {
-        max: 100.0,
-        min: 0.0,
-        ticks: 10
-    },
-    xaxis: {
-        tickDecimals: 0
-    },
-    legend: { 
-        container: $("#etsLegend"),
-        noColumns: 1
-    },
-    colors: ['#8888CC','#AA5555','#88CC88','#CCCC88']
-}
-$.plot("#etsChart", data, options);    
-$("#etsLegend").append("<center><small>Flot " + $.plot.version + "</small></center>");
-
-$("<div id='tooltip'></div>").css({
-    position: "absolute",
-    display: "none",
-    border: "1px solid #fdd",
-    padding: "5px 20px",
-    "background-color": "#fee",
-    opacity: 0.8
-}).appendTo("body");
-
-$("#etsChart").bind("plothover", function (event, pos, item) {
-    if ($("#enablePosition:checked").length > 0) {
-        var str = "(" + pos.x.toFixed(2) + ", " + pos.y.toFixed(2) + ")";
-        $("#hoverdata").text(str);
-    }
-    if (item) {
-        var x = item.datapoint[0].toFixed(2),
-            y = item.datapoint[1].toFixed(2);
-
-        $("#tooltip").html(item.series.label + ", " + y)
-            .css({top: item.pageY+5, left: item.pageX+5})
-            .fadeIn(200);
-    } else {
-        $("#tooltip").hide();
-    }
+// Numbers of students in the given percentiles per year (2012-present)
+var mostRecentYearCount = 5;
+var rawCounts = [
+    ["0-9", [0,0,0,0,2]],
+    ["10-19", [0,0,0,0,2]],
+    ["20-29", [0,0,0,0,2]],
+    ["30-39", [0,1,0,1,3]],
+    ["40-49", [0,0,0,0,3]],
+    ["50-59", [1,0,0,1,0]],
+    ["60-69", [1,2,3,1,4]],
+    ["70-79", [1,0,2,0,0]],
+    ["80-89", [1,0,3,5,3]],
+    ["90-99", [5,2,8,9,1]]
+];
+var labelledCountSums = rawCounts.map(function(row){
+    return [ row[0], row[1].slice(-1 * mostRecentYearCount).reduce(function(sum,x){
+        return sum+x;
+    }) ];
 });
+var options = {
+                series: {
+                                bars: {
+                                                show: true,
+                                                barWidth: 0.66,
+                                                align: "center"
+                                }
+                },
+                xaxis: {
+                                mode: "categories",
+                                tickLength: 0,
+                                axisLabel: "Percentiles",
+                                axisLabelUseCanvas: true,
+        axisLabelFontSizePixels: 12,
+        axisLabelPadding: 5
+                },
+                yaxis: {
+                                axisLabel: "Student Count",
+                                axisLabelUseCanvas: true,
+        axisLabelFontSizePixels: 12,
+        axisLabelPadding: 5
+                }
+};
+$.plot($("#etsChart"), [ labelledCountSums ], options);
+$("#etsLegend").append("<center><small>Flot " + $.plot.version + "</small></center>");
+</script>
 
-</script>    
+<p>As can be seen here, our average students routinely score at or above the 90th percentile nation-wide.
+Note that the scores include all senior CS majors, not just those from the BCS program.</p>
 
-<!--
-<table class="scrollable">
-    <tr>
-      <th rowspan="2">Year</th>
-      <th colspan="2">Maximum</th>
-      <th colspan="2">Minimum</th>
-      <th colspan="3">Median</th>
-    </tr>
-    <tr>
-
-      <th>Score<sup>&nbsp;</sup><br>(max: 200)</th>
-      <th>Percentile<sup>1</sup><br>&nbsp;</th>
-      <th>Score<sup>&nbsp;</sup><br>(max: 200)</th>
-      <th>Percentile<sup>1</sup><br>&nbsp;</th>
-      <th>Score<sup>&nbsp;</sup><br>(max: 200)</th>
-      <th>Percentile<sup>1</sup><br>&nbsp;</th>
-      <th>Percentile<sup>2</sup><br>&nbsp;</th>
-    </tr>
-    <tr>
-      <td class="first">2014</td>
-      <td>178</td>
-      <td>TBD</td>
-      <td>154</td>
-      <td>TBD</td>
-      <td>170</td>
-      <td>TBD</td>
-      <td>TBD</td>
-    </tr>
-    <tr>
-      <td class="first">2013</td>
-      <td>187</td>
-      <td>98</td>
-      <td>141</td>
-      <td>30</td>
-      <td>157</td>
-      <td>65</td>
-      <td>80</td>
-    </tr>
-    <tr>
-      <td class="first">2012</td>
-      <td>192</td>
-      <td>99</td>
-      <td>152</td>
-      <td>57</td>
-      <td>173</td>
-      <td>91</td>
-      <td>99</td>
-    </tr>
-    <tr>
-      <td class="first">2011</td>
-      <td>197</td>
-      <td>99.9</td>
-      <td>140</td>
-      <td>29</td>
-      <td>175</td>
-      <td>92</td>
-      <td>96+</td>
-    </tr>
-    <tr>
-      <td class="first">2010</td>
-      <td>196</td>
-      <td>99.9</td>
-      <td>152</td>
-      <td>55</td>
-      <td>176</td>
-      <td>92</td>
-      <td>96+</td>
-    </tr>
-    <tr>
-      <td class="first">2009</td>
-      <td>196</td>
-      <td>99.9</td>
-      <td>154</td>
-      <td>61</td>
-      <td>170</td>
-      <td>87</td>
-      <td>95+</td>
-    </tr>
-    <tr>
-      <td class="first">2008</td>
-      <td>186</td>
-      <td>97</td>
-      <td>140</td>
-      <td>29</td>
-      <td>174</td>
-      <td>91</td>
-      <td>96+</td>
-    </tr>
-    <tr>
-      <td class="first">2007</td>
-      <td>200</td>
-      <td>99.99</td>
-      <td>156</td>
-      <td>69</td>
-      <td>170</td>
-      <td>87</td>
-      <td>95+</td>
-    </tr>    
-</table>
-<p><font size="-2">
-1. Percentage of individual scores (nation-wide) that are at or below this score.
-<br>
-2. Percentage of institutional mean scores (nation-wide) that are at or below this score.
-</font></p>
--->
-
-<p>As can be seen here, our average students routinely score at or above the 90th percentile nation-wide. Note that the following table includes all senior CS majors, 
-not just those from the BCS program, and that the minimum percentile is often above 50%, which means that all the seniors that year were above average!</p>
-                
 <p>The following charts show the total enrollment and graduates by major program.</p>
 
 <div id="enrollmentChartWrapper" class="chartWrapper">
