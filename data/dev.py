@@ -1206,6 +1206,7 @@ var options = {
                                                 align: "center"
                                 }
                 },
+                colors: ["#550000"],
                 xaxis: {
                                 mode: "categories",
                                 tickLength: 0,
