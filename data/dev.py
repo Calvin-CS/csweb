@@ -18,8 +18,9 @@ data = [
 
     # programs...
     [
-        {'name': 'bcs',
-      'modelSchedule': '''
+{'name': 'csm'},{'name': 'ism'},{'name': 'dsm'},{'name': 'dam'},{'name': 'dcm'},
+         {'name': 'bcs',
+          'modelSchedule': '''
 <p>The following course schedule provides a suggested framework for students pursuing the <span class="caps">BCS</span> degree, assuming that they have had some high school language and will do a senior project (instead of an internship).  Any exemptions a student can bring from high school would increase the flexibility of this schedule.</p>
 <table border="1" class="degree">
 <tr><th>Year</th><th>Fall</th><th>Interim</th><th>Spring</th></tr>
