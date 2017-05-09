@@ -52,9 +52,9 @@ class Programs(Unit, UnitForm):
         )
         if result:
             # Modify the course hyperlinks to link to our own pages.
-            if 'majorCourses' in result:
-                result['majorCourses'] = \
-                    cls.fix_courses(result['majorCourses'])
+            if 'courses' in result:
+                result['courses'] = \
+                    cls.fix_courses(result['courses'])
             if 'minorCourses' in result:
                 result['minorCourses'] = \
                     cls.fix_courses(result['minorCourses'])
@@ -78,7 +78,7 @@ class Programs(Unit, UnitForm):
         result = []
         # Read a master scholarships list to be used multiple times.
         scholarships = Scholarships.read_units()
-        for programName in ['bcs', 'cs', 'is', 'ds', 'dc']:
+        for programName in ['bcs', 'cs', 'is', 'ds', 'dc', 'csm', 'ism', 'dsm', 'dam']:
             program = cls.read_unit(programName, scholarships=scholarships)
             if program is not None:
                 result.append(program)
@@ -111,15 +111,21 @@ class Programs(Unit, UnitForm):
     # Utility data and methods...
     # Mapping from our program IDs to CIT's names...
     cs2cit_program_name_mapping = {}
-    cs2cit_program_name_mapping['bcs'] = 'BCS.CPSC'
-    cs2cit_program_name_mapping['cs'] = 'BA.CPSC'
-    cs2cit_program_name_mapping['is'] = 'INSYS'
-    cs2cit_program_name_mapping['ds'] = 'DS'
-    cs2cit_program_name_mapping['dc'] = 'CASCS'
+    cs2cit_program_name_mapping['bcs'] = 'CPSC.BCS.MAJ' #'BCS.CPSC'
+    cs2cit_program_name_mapping['cs'] = 'CPSC.MAJ'
+    cs2cit_program_name_mapping['csm'] = 'CPSC.MIN'
+    cs2cit_program_name_mapping['is'] = 'INSYS.MAJ'
+    cs2cit_program_name_mapping['ism'] = 'INSYS.MIN'
+    cs2cit_program_name_mapping['ds'] = 'DATA.MAJ'
+    cs2cit_program_name_mapping['dsm'] = 'DATA.MIN'
+    cs2cit_program_name_mapping['dam'] = 'ANLYT.MIN'
+    cs2cit_program_name_mapping['dc'] = 'CASCS.MAJ'
+    #cs2cit_program_name_mapping['dcm'] = 'CASCS.MIN'
     #cs2cit_program_name_mapping['bada'] = 'digital-art'
 
     # CIT URL for program resources (set program name parameter) ...
-    programUrlTemplate = 'https://calvin.edu/api/content/render/false/type/json/query/+structureName:CcAcademicProgram%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcAcademicProgram.academicDepartment:*C*S*%20+languageId:1%20%20+deleted:false%20%20+CcAcademicProgram.academicProgramCode:{}%20+live:true/orderby/undefined%20desc'
+#    programUrlTemplate = 'https://calvin.edu/api/content/render/false/type/json/query/+structureName:CcAcademicProgram%20+%28conhost:cd97e902-9dba-4e51-87f9-1f712806b9c4%20conhost:SYSTEM_HOST%29%20+CcAcademicProgram.academicDepartment:*C*S*%20+languageId:1%20%20+deleted:false%20%20+CcAcademicProgram.academicProgramCode:{}%20+live:true/orderby/undefined%20desc'
+    programUrlTemplate = 'https://calvin.edu/api/content/render/false/query/+contentType:CcMajorsAndPrograms%20+CcMajorsAndPrograms.programCode:*{}*%20+deleted:false%20+live:true/orderby/modDate%20d'
 
     @classmethod
     def get_cit_data(cls, name):
@@ -147,39 +153,37 @@ class Programs(Unit, UnitForm):
         return dataRaw['contentlets'][0]
 
     # String replacements that hack CIT's text for our site. Yuck!
+    CIT_HREF = 'class="courseLink" href="#" data-reveal-id="COURSE"id="'
     programStringReplacements = \
         ('<h1>', '<h2>'), \
         ('</h1>', '</h2>'), \
-        ('/academics/majors-minors/course-description.html?course=CS-',
-         '/courses/cs/'), \
-        ('/academics/majors-minors/course-description.html?course=IS-',
-         '/courses/is/'), \
-        ('/academics/majors-minors/course-description.html?course=DATA-',
-         '/courses/ds/'), \
-        ('/academics/majors-minors/course-description.html?course=ENGR-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ENGR-'), \
-        ('/academics/majors-minors/course-description.html?course=MATH-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=MATH-'), \
-        ('/academics/majors-minors/course-description.html?course=STAT-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=STAT-'), \
-        ('/academics/majors-minors/course-description.html?course=BUS-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=BUS-'), \
-        ('/academics/majors-minors/course-description.html?course=ECON-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ECON-'), \
-        ('/academics/majors-minors/course-description.html?course=ENGL-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ENGL-'), \
-        ('/academics/majors-minors/course-description.html?course=ARTS-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ARTS-'), \
-        ('/academics/majors-minors/course-description.html?course=CAS-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=CAS-'), \
-        ('/academics/majors-minors/course-description.html?course=ASTR-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=ASTR-'), \
-        ('/academics/majors-minors/course-description.html?course=BIOL-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=BIOL-'), \
-        ('/academics/majors-minors/course-description.html?course=CHEM-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=CHEM-'), \
-        ('/academics/majors-minors/course-description.html?course=PHYS-',
-         'http://www.calvin.edu/academics/majors-minors/course-description.html?course=PHYS-')
+        (CIT_HREF + 'CS-', 'href="/courses/cs/'), \
+        (CIT_HREF + 'IS-', 'href="/courses/is/'), \
+        (CIT_HREF + 'DATA-', 'href="/courses/ds/')
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="ENGR-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=ENGR-'), \
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="MATH-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=MATH-'), \
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="STAT-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=STAT-'), \
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="BUS-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=BUS-'), \
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="ECON-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=ECON-'), \
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="ENGL-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=ENGL-'), \
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="ARTS-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=ARTS-'), \
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="CAS-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=CAS-'), \
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="ASTR-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=ASTR-'), \
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="BIOL-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=BIOL-'), \
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="CHEM-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=CHEM-'), \
+        # ('class="courseLink" href="#" data-reveal-id="COURSE"id="PHYS-',
+        #  'href="http://www.calvin.edu/academics/majors-minors/course-description.html?course=PHYS-')
 
     @staticmethod
     def multiple_replacer(*key_values):
