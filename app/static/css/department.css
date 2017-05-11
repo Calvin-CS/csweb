@@ -1,8 +1,11 @@
 /* Copied these from foundation.css to implement (renamed) mods to their app.css. */
 
 /* GLOBAL NAVIGATION, renamed CSglobal */
-#cse, #cse-small {
+#cse {
     width: 325px;
+}
+#cse-small {
+    width: 225px;
 }
 .csglobal {
 	background-color: #333333;
