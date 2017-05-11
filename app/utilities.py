@@ -147,8 +147,8 @@ def create_programs_list(programsList):
     for program in programsList:
         entry = {}
         entry['title'] = create_hyperlink('/academics/' + program.get('name'),
-                                          program.get('title'))
-        entry['subContent'] = program.get('flavorTextForHeadline')
+                                          program.get('programTitle'))
+        entry['subContent'] = program.get('introText')
         programItems.append(entry)
     # Manually add the other academic menu options.
     programItems.append(create_honors_list_entry())
@@ -179,9 +179,9 @@ def create_program_tab_list(program):
     program data includes the relevant entries.
     '''
     result = []
-    if program.get('majorCourses'):
+    if program.get('courses'):
         result.append({'title': 'Major',
-                       'primaryContent': program.get('majorCourses')})
+                       'primaryContent': program.get('courses')})
     if program.get('modelSchedule'):
         result.append({'title': 'Scheduling',
                        'primaryContent': program.get('modelSchedule')})
@@ -213,7 +213,6 @@ def create_course_tab_list(courseList, department):
     dataCourses = ''
     interimCourses = ''
     for course in courseList:
-        print(course)
         courseName = course.get('id')
         # Remove lab courses.
         if courseName.endswith('L'):
@@ -240,8 +239,8 @@ def create_course_tab_list(courseList, department):
                    'primaryContent': '<p>' + isCourses + '</p>'})
     result.append({'title': 'Data Science',
                    'primaryContent': '<p>' + dataCourses + '</p>'})
-    #result.append({'title': 'Interim',
-    #               'primaryContent': '<p>' + interimCourses + '</p>'})
+    # result.append({'title': 'Interim',
+    #                'primaryContent': '<p>' + interimCourses + '</p>'})
     result.append({'title': 'Schedule',
                    'primaryContent': department.get('courseSchedule')})
     return result

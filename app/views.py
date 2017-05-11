@@ -404,7 +404,7 @@ def display_programs():
         primary='''The Department of Computer Science offers the following
                    academic programs. To learn more about our academics goals,
                    see our <a href="/administration/assessment/plan">program
-                   outcomes</a>.''',
+                   outcomes</a> or the college course <a href="https://calvin.edu/offices-services/center-for-student-success/catalog/">catalog</a>''',
         primaryList=create_programs_list(Programs.read_units()),
         primaryListHr=False,
         editable=False
@@ -418,8 +418,8 @@ def display_program(name=None):
     return display_content(
         breadcrumbs=get_breadcrumbs('academics', program.get('name')),
         image=Images.read_tagged_unit(name),
-        title=program.get('title'),
-        primary=program.get('majorDescription'),
+        title=program.get('programTitle'),
+        primary=program.get('overview'),
         tabList=create_program_tab_list(program),
         editable=True,
         editableUrl=url_for('web.update_program', name=name)

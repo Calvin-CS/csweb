@@ -38,6 +38,7 @@ function toggleText(){
 
 // Google Search
 
+/* old search engine
 function loadGoogleCustomSearch(){
 google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
 					google.setOnLoadCallback(function() {
@@ -77,7 +78,7 @@ google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALI
 					  customSearchControl.draw('cse-small', options);
 					}, true);
 }
-
+*/
 // Universal Google Analytics
 
 (function(i, s, o, g, r, a, m) {

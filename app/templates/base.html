@@ -99,6 +99,14 @@ otherwise.
 {# College Foundation Javascript  #}
 <script src="//www.calvin.edu/global/foundation/js/modernizr.js"></script>
 <script src="//www.calvin.edu/global/foundation/js/foundation.min.js"></script><script src="//www.calvin.edu/global/foundation/js/app.js"></script>
-
+<script>
+    {# Google custom search engine #}
+    (function() {
+        var cx = '008173497228264816344:tyx7kgx-954'; // Insert your own Custom Search engine ID here
+        var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+    })();
+</script>
 </body>
 </html>
