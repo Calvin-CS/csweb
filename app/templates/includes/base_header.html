@@ -55,7 +55,7 @@ See ../base.html for a full description.
             <script type='text/javascript'>
                 loadGoogleCustomSearchSmall();
             </script>-->
-            <gcse:search id="cse-small"></gcse:search>
+            <gcse:searchbox-only id="cse-small" newWindow="true"></gcse:searchbox-only>
             <link href="/static/css/minimalist.css" media="all" rel="stylesheet" type="text/css"/>
         </li>
     </ul>
@@ -84,7 +84,7 @@ See ../base.html for a full description.
                     {% endif %}
                     <li>
                         <!--<div id='cse'>Loading...</div>-->
-                        <gcse:search id="cse"></gcse:search>
+                        <gcse:search id="cse" enableHistory="true"></gcse:search>
                         <!--
                         <script type='text/javascript'>
                             loadGoogleCustomSearch();
