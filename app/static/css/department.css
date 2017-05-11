@@ -1,9 +1,11 @@
-/* Copied these from foundation.css to implement (renamed) mods to their app.css. */
-
-/* GLOBAL NAVIGATION, renamed CSglobal */
+/* Google custom search box */
 #cse, #cse-small {
     width: 325px;
 }
+
+/* Copied these from foundation.css to implement (renamed) mods to their app.css. */
+
+/* GLOBAL NAVIGATION, renamed CSglobal */
 .csglobal {
 	background-color: #333333;
 	width: 100%;

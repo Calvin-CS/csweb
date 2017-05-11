@@ -50,12 +50,7 @@ See ../base.html for a full description.
             <li><a href="/admin" data-dropdown="admin-dropdown-menu">Admin&#x25BE;</a></li>
         {% endif %}
         <li>
-            <!--Old Google search engine
-            <div id='cse-small'>Loading...</div>
-            <script type='text/javascript'>
-                loadGoogleCustomSearchSmall();
-            </script>-->
-            <gcse:searchbox-only id="cse-small" newWindow="true"></gcse:searchbox-only>
+            <gcse:searchbox-only id="cse-small" newWindow="true">loading...</gcse:searchbox-only>
             <link href="/static/css/minimalist.css" media="all" rel="stylesheet" type="text/css"/>
         </li>
     </ul>
@@ -83,12 +78,7 @@ See ../base.html for a full description.
                         <li>&nbsp;</li>
                     {% endif %}
                     <li>
-                        <!--<div id='cse'>Loading...</div>-->
-                        <gcse:search id="cse"></gcse:search>
-                        <!--
-                        <script type='text/javascript'>
-                            loadGoogleCustomSearch();
-                        </script>-->
+                        <gcse:search id="cse">loading...</gcse:search>
                         <link href="/static/css/minimalist.css" media="all" rel="stylesheet" type="text/css"/>
                     </li>
                 </ul>
