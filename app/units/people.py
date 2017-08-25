@@ -71,7 +71,7 @@ class People(Unit):
         faculty = []
         emeriti = []
         staff = []
-        exfaculty = ['smn4', 'jnyhoff'] # CIT keeps these people on the system for some reason.
+        exfaculty = ['smn4', 'jnyhoff'] # CIT keeps these ex-faculty members on their system for some reason.
         for person in cs_people:
             if 'Academic' in person.get('jobFunction', ''):
                 if not (person.get('id') in exfaculty):
