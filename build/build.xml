@@ -52,6 +52,8 @@
             <arg value="--exclude=html/" />
             <arg value="--exclude=app/static/" />
             <arg value="--exclude=lost+found/" />
+            <arg value="--exclude=.ssh/" />
+            <arg value="--exclude=.ldaprc" />
 			<arg value="--delete-during" />
 			<arg value="-e ssh -i ${upload.credentials}" />
 			<arg value="." />
